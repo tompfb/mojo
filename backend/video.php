@@ -3,120 +3,67 @@ session_start();
 $userRole = $_SESSION['role'];
 if (!isset($_SESSION['userid'])) {
     header('Location: login.php');
+    session_destroy();
 }
 include("connect/connect.php");
 
+
+$fields = array(
+    "file1" => "File 1:"
+);
+
 // ! new version
-// if (isset($_POST['but_upload'])) {
-//     $maxsize = 20971520; // 20MB
-
-//     $title = $_POST['title'];
-//     $videoUrl = $_POST['videoUrl'];
-
-//     if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != '') {
-//         $name = $_FILES['file']['name'];
-//         $file = $_FILES['file']['tmp_name'];
-//         $file_name = $_FILES['file']['name'];
-//         $file_name_array = explode(".", $file_name);
-//         $extension = end($file_name_array);
-//         $new_video_name = rand() . '.' . $extension;
-//         $target_dir = "uploads/videos/";
-//         $target_file = $target_dir . $new_video_name;
-//         $actual_link = "http://$_SERVER[HTTP_HOST]";
-
-//         // Valid file extensions
-//         $extensions_arr = array("mp4", "avi", "3gp", "mov", "mpeg");
-
-//         // Check extension
-//         if (in_array(strtolower($extension), $extensions_arr)) {
-
-//             // Check file size
-//             if ($_FILES['file']['size'] >= $maxsize || $_FILES["file"]["size"] == 0) {
-//                 $_SESSION['message'] = "File too large. File must be less than 20MB.";
-//             } else {
-//                 // Upload
-//                 if (move_uploaded_file($file, $target_file)) {
-//                     // Insert record                    
-
-//                     $query = "INSERT INTO videos (name, v_title, videoUrl, location ) VALUES ('" . $name . "','" . $title . "', '" . $videoUrl . "', '" . $new_video_name . "')";
-//                     mysqli_query($conn, $query);
-//                     $_SESSION['message'] = "Upload successfully.";
-
-//                     $Podcast_id = mysqli_insert_id($conn);
-//                 } else {
-//                     $_SESSION['message'] = "Error uploading file.";
-//                 }
-//             }
-//         } else {
-//             $_SESSION['message'] = "Invalid file extension.";
-//         }
-//     } else {
-//         $_SESSION['message'] = "Please select a file.";
-//     }
-
-//     header('location: video.php');
-//     exit;
-// }
-// todo new chatgpt
-// if (isset($_POST['btn_upload'])) {
-//     $maxsize = 20971520; // 20MB
-
-//     $title = $_POST['title'];
-//     $videoUrl = $_POST['videoUrl'];
-
-//     if (isset($_FILES['file']['name']) && $_FILES['file']['name'] != '') {
-//         $name = $_FILES['file']['name'];
-//         $file = $_FILES['file']['tmp_name'];
-//         $file_name = $_FILES['file']['name'];
-//         $file_name_array = explode(".", $file_name);
-//         $extension = end($file_name_array);
-//         $new_video_name = rand() . '.' . $extension;
-//         $target_dir = "uploads/videos/";
-//         $target_file = $target_dir . $new_video_name;
-//         $actual_link = "http://$_SERVER[HTTP_HOST]";
-
-//         // Valid file extensions
-//         $extensions_arr = array("mp4", "avi", "3gp", "mov", "mpeg");
-
-//         // Check extension
-//         if (in_array(strtolower($extension), $extensions_arr)) {
-
-//             // Check file size
-//             if ($_FILES['file']['size'] >= $maxsize || $_FILES["file"]["size"] == 0) {
-//                 $_SESSION['message'] = "File too large. File must be less than 20MB.";
-//             } else {
-//                 // Upload
-//                 if (move_uploaded_file($file, $target_file)) {
-//                     // Insert record                    
-//                     $query = "INSERT INTO videos (name, v_title, videoUrl, location) VALUES ('" . $name . "','" . $title . "', '" . $videoUrl . "', '" . $new_video_name . "')";
-//                     mysqli_query($conn, $query);
-//                     $_SESSION['message'] = "Upload successfully.";
-//                 } else {
-//                     $_SESSION['message'] = "Error uploading file.";
-//                 }
-//             }
-//         } else {
-//             $_SESSION['message'] = "Invalid file extension.";
-//         }
-//     } else {
-//         $_SESSION['message'] = "Please select a file.";
-//     }
-
-//     header('location: video.php');
-//     exit;
-// } 
-// ! new vers
 if (isset($_POST['btn_upload'])) {
-    // Check if it's a message submission
     if (!isset($_FILES['file']['name']) || $_FILES['file']['name'] == '') {
         $title = $_POST['title'];
         $videoUrl = $_POST['videoUrl'];
         $id_us = $_SESSION['userid'];
 
-        // Process the message (e.g., store it in the database)
         // Insert record
         $query = "INSERT INTO videos (name, v_title, videoUrl, location,user_id) VALUES (NULL, '" . $title . "', '" . $videoUrl . "', NULL,'" . $id_us . "' )";
         mysqli_query($conn, $query);
+
+        $Vid_id = mysqli_insert_id($conn);
+
+        foreach ($fields as $img => $value) {
+            if (isset($_FILES[$img]['name']) && $_FILES[$img]['name'] != '') {
+                $fileImg = $_FILES[$img]['tmp_name'];
+                $file_nameImg = $_FILES[$img]['name'];
+                $file_name_arrayImg = explode(".", $file_nameImg);
+                $extensionImg = end($file_name_arrayImg);
+                $new_image_nameImg = rand() . '.' . $extensionImg;
+                $target_dirImg = "uploads/videos-img/";
+                $target_fileImg = $target_dirImg . $new_image_nameImg;
+
+                // Valid image extensions
+                $allowed_extensions = array("jpg", "gif", "png");
+
+                if (in_array(strtolower($extensionImg), $allowed_extensions)) {
+                    if (move_uploaded_file($fileImg, $target_fileImg)) {
+                        $imgSql = "UPDATE videos SET image_video = '$new_image_nameImg' WHERE id = '$Vid_id'";
+                        $imgResult = mysqli_query($conn, $imgSql);
+
+                        if ($imgResult) {
+                            echo '<script language="javascript">';
+                            echo 'alert("Create image video success")';
+                            echo '</script>';
+                        } else {
+                            echo '<script language="javascript">';
+                            echo 'alert("Failed to update image video")';
+                            echo '</script>';
+                        }
+                    } else {
+                        echo '<script language="javascript">';
+                        echo 'alert("Error uploading image video")';
+                        echo '</script>';
+                    }
+                } else {
+                    echo '<script language="javascript">';
+                    echo 'alert("Invalid image file extension")';
+                    echo '</script>';
+                }
+            }
+        }
 
         $_SESSION['message'] = "Message submitted successfully.";
     } else { // It's a file upload
@@ -150,6 +97,48 @@ if (isset($_POST['btn_upload'])) {
                     $query = "INSERT INTO videos (name, v_title, videoUrl, location) VALUES ('" . $name . "','" . $title . "', NULL, '" . $new_video_name . "')";
                     mysqli_query($conn, $query);
                     $_SESSION['message'] = "Upload successful.";
+
+                    $Vid_id = mysqli_insert_id($conn);
+
+                    foreach ($fields as $img => $value) {
+                        if (isset($_FILES[$img]['name']) && $_FILES[$img]['name'] != '') {
+                            $fileImg = $_FILES[$img]['tmp_name'];
+                            $file_nameImg = $_FILES[$img]['name'];
+                            $file_name_arrayImg = explode(".", $file_nameImg);
+                            $extensionImg = end($file_name_arrayImg);
+                            $new_image_nameImg = rand() . '.' . $extensionImg;
+                            $target_dirImg = "uploads/videos-img/";
+                            $target_fileImg = $target_dirImg . $new_image_nameImg;
+
+                            // Valid image extensions
+                            $allowed_extensions = array("jpg", "gif", "png");
+
+                            if (in_array(strtolower($extensionImg), $allowed_extensions)) {
+                                if (move_uploaded_file($fileImg, $target_fileImg)) {
+                                    $imgSql = "UPDATE videos SET image_video = '$new_image_nameImg' WHERE id = '$Vid_id'";
+                                    $imgResult = mysqli_query($conn, $imgSql);
+
+                                    if ($imgResult) {
+                                        echo '<script language="javascript">';
+                                        echo 'alert("Create image video success")';
+                                        echo '</script>';
+                                    } else {
+                                        echo '<script language="javascript">';
+                                        echo 'alert("Failed to update image video")';
+                                        echo '</script>';
+                                    }
+                                } else {
+                                    echo '<script language="javascript">';
+                                    echo 'alert("Error uploading image video")';
+                                    echo '</script>';
+                                }
+                            } else {
+                                echo '<script language="javascript">';
+                                echo 'alert("Invalid image file extension")';
+                                echo '</script>';
+                            }
+                        }
+                    }
                 } else {
                     $_SESSION['message'] = "Error uploading file.";
                 }
@@ -201,7 +190,8 @@ if (isset($_POST['btn_upload'])) {
             background-color: #dde0e3;
             cursor: pointer;
         }
-        .card-youtube{
+
+        .card-youtube {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -210,12 +200,14 @@ if (isset($_POST['btn_upload'])) {
             background-color: #000;
             padding: 10px 0;
         }
-        .card-youtube i{
+
+        .card-youtube i {
             display: block;
             font-size: 3.3rem;
             color: #f00;
         }
-        .card-youtube small{
+
+        .card-youtube small {
             color: #dde0e3;
         }
     </style>
@@ -278,13 +270,15 @@ if (isset($_POST['btn_upload'])) {
                                     while ($row = mysqli_fetch_assoc($fetchVideos)) {
                                         $location = $row['location'];
                                         $Vidname = $row['v_title'];
-                                        $VName = $row['name'];
                                         $Vid = $row['id'];
+
+                                        $VName = $row['name'];
+                                        $Vurl = $row['videoUrl'];
                                 ?>
                                         <div class="col-lg-2 col-md-4 col-sm-12 my-2">
                                             <div class="card text-center d-flex justify-content-center">
 
-                                                <h5 class="mt-3">วิดิโอ <?php echo trim(strip_tags(mb_substr($Vidname, 0, 30, 'utf-8'))); ?></h5>
+                                                <h5 class="mt-3">วิดิโอ <?php echo trim(strip_tags(mb_substr($Vidname, 0, 30, 'utf-8'))); ?>...</h5>
 
                                                 <div class="card-body ">
                                                     <?php
@@ -296,13 +290,20 @@ if (isset($_POST['btn_upload'])) {
                                                         </div>";
                                                     } else { ?>
                                                         <video src='uploads/videos/<?php echo $location; ?>' class="img-fluid" controls height='320px'></video>
-                                                    <?php       }
+                                                    <?php } ?>
 
-                                                    ?>
-                                                    <!-- <small><?php echo $VName ?></small> -->
+                                                    <?php
+                                                    if ($VName == null) {
+                                                        echo "<small> $Vurl</small>";
+                                                    } else { ?>
+                                                        <small><?php echo $VName ?></small>
+                                                    <?php } ?>
                                                 </div>
 
                                                 <div class="card-footer">
+                                                    <a href="video-edit.php?id=<?php echo $Vid; ?>" class="btn btn-warning btn-circle">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
                                                     <?php if ($userRole == '1') { ?>
                                                         <a href="#delModal" class="btn btn-danger btn-circle trash" data-id="<?php echo $row['id'] ?>" role="button" data-toggle="modal" data-name="<?php echo $row['name'] ?>">
                                                             <i class="fas fa-trash"></i>
@@ -344,6 +345,9 @@ if (isset($_POST['btn_upload'])) {
                                             </div>
 
                                             <div class="card-footer">
+                                                <a href="video-edit.php?id=<?php echo $Vid; ?>" class="btn btn-warning btn-circle">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
                                                 <?php if ($userRole == '1') { ?>
                                                     <a href="#delModal" class="btn btn-danger btn-circle trash" data-id="<?php echo $row['id'] ?>" role="button" data-toggle="modal" data-name="<?php echo $row['name'] ?>">
                                                         <i class="fas fa-trash"></i>
@@ -433,6 +437,24 @@ if (isset($_POST['btn_upload'])) {
                                 <textarea class="form-control" id="videoUrl" name="videoUrl"></textarea>
                             </div>
                         </div>
+
+                        <?php
+                        foreach ($fields as $field => $value) {
+                        ?>
+                            <div class="show-file mb-3" <?php echo "id='show-$field'"; ?>>
+                                <img class="show-image" src="img/no-image.jpg" alt="">
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" required accept=".jpg, .png .webp" onchange="readURL(this)">
+                                <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>Choose
+                                    file...</label>
+                                <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">Delete
+                                    image</button>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                        <div id="image-error"> </div>
                     </div>
                     <div class="modal-footer">
                         <!-- <input type='submit' value='upload' name='btn_upload' class="btn btn-outline-primary"> -->
@@ -498,6 +520,63 @@ if (isset($_POST['btn_upload'])) {
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+
+
+<script>
+    function readURL(input) {
+        const allowType = ['jpg', 'jpeg', 'png'];
+
+        const imgErrEl = document.getElementById('image-error');
+        imgErrEl.innerHTML = '';
+
+        const Element = document.getElementById('show-' + input.id);
+        const lebelEl = document.getElementById('label-' + input.id);
+        Element.innerHTML = '';
+        lebelEl.innerHTML = 'Choose file';
+
+        if (input.files && input.files[0]) {
+
+            const file = input.files[0];
+            const fileType = file.type;
+            if (allowType.find(type => fileType.includes(type))) {
+                lebelEl.innerHTML = file.name;
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgEl = document.createElement('img');
+
+                    imgEl.src = e.target.result;
+                    imgEl.className = 'show-image';
+                    Element.appendChild(imgEl);
+                }
+                reader.readAsDataURL(file);
+
+            } else {
+                const errorEl = document.createElement('div');
+                errorEl.className = 'alert-danger p-2 mb-3';
+                errorEl.innerHTML = 'File type is not correct.';
+                imgErrEl.appendChild(errorEl);
+            }
+        }
+    }
+
+    function deleteImage(btn) {
+        const id = btn.id.split('-')[1];
+
+        const inputFile = document.getElementById(id);
+        const labelEl = document.getElementById('label-' + id);
+        const showImgEl = document.getElementById('show-' + id);
+        const imgEl = document.createElement('img');
+
+        inputFile.value = '';
+        labelEl.innerHTML = 'Choose file';
+        showImgEl.innerHTML = '';
+        imgEl.src = "img/no-image.jpg";
+        imgEl.className = 'show-image';
+        showImgEl.appendChild(imgEl);
+    }
+</script>
+
 
 <script>
     $('#delModal').on('show.bs.modal', function(event) {

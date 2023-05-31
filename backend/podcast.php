@@ -228,6 +228,9 @@ if (isset($_POST['but_upload'])) {
                                                     <small><?php echo $PName ?></small>
                                                 </div>
                                                 <div class="card-footer text-muted">
+                                                    <a href="podcast-edit.php?id=<?php echo $Podid; ?>" class="btn btn-warning btn-circle">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
                                                     <?php if ($userRole == '1') { ?>
                                                         <a href="#delModal" class="btn btn-danger btn-circle trash" data-id="<?php echo $row['id'] ?>" role="button" data-toggle="modal" data-name="<?php echo $row['name'] ?>">
                                                             <i class="fas fa-trash"></i>
