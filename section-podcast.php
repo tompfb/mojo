@@ -1,30 +1,46 @@
 <section class="section-podcast py-5">
     <div class="container reveal fade-bottom">
-        <h2 class="txt-heading">Esan podcast</h2>
+        <!-- <h2 class="txt-heading">Esan podcast</h2> -->
+        <div class="card-tab">
+            <h2 class="txt-heading ">Esan clip</h2>
+            <a href="./esan-clip/" class="next-tab text-dark">ดูทั้งหมด<span><i class="fas fa-long-arrow-right"></i></span></a>
+        </div>
         <div class="row">
             <?php
-            $fetchpodcasts = mysqli_query($conn, "SELECT * FROM podcasts ORDER BY id DESC");
+            $fetchpodcasts = mysqli_query($conn, "SELECT * FROM podcasts ORDER BY id DESC limit 4");
             while ($row = mysqli_fetch_assoc($fetchpodcasts)) {
-                $location = $row['location'];
                 $Podidname = $row['title'];
                 $Pimg = $row['image_podcast'];
-                $PName = $row['name'];
-                $Podid = $row['id'];
+                $Podid = $row['id'];//create_at 
+                $id_poda = $row['user_id'];
+
+                $Poauthor = "SELECT * FROM  user  WHERE id = $id_poda";
+                $Po_a = mysqli_query($conn, $Poauthor) or die("Error in query: $Poauthor " . mysqli_error($conn));
+                $Poa_n = mysqli_fetch_array($Po_a);
             ?>
                 <div class="col-lg-3 col-md-6 my-2">
-                    <div class="card text-center d-flex justify-content-center" style="background-color: #111828;">
-                        <a href="" class=" text-decoration-none">
-                            <h4 class="white"><?php echo $Podidname; ?></h4>
-                        </a>
-                        <div class="card-body overflow-hidden">
-                            <img src="./backend/uploads/podcast-img/<?php echo $Pimg; ?>" alt="<?php echo $Podidname; ?>" class="img-fluid card__image" width="250">
-                            <audio controls height='320px' style="width: 100%;">
-                                <source src="./backend/uploads/podcasts/<?php echo $location; ?>" type="audio/ogg">
-                                <source src="./backend/uploads/podcasts/<?php echo $location; ?>" type="audio/mpeg">
-                            </audio>
-                            <!-- <small><?php echo $PName ?></small> -->
+                    <a href="" class=" text-decoration-none">
+                        <div class="card_podcast">
+                            <figure>
+                                <img src="./backend/uploads/podcast-img/<?php echo $Pimg; ?>" alt="<?php echo $Podidname; ?>" class="img-fluid card__image" width="100%" height="100%">
+                                <img data-src="./img/icon-music.png" class="lazy img-fluid img_icon" width="60" height="60" alt="icon music">
+                            </figure>
+                            <h4 class="name-podcast"><?php echo trim(strip_tags(mb_substr($Podidname, 0, 40, 'utf-8'))); ?></h4>
+                            <div class="card-flex-new">
+                                    <span>
+                                        <img data-src="./backend/uploads/user-img/<?php echo $Poa_n['image_path']; ?>" class="lazy img-fluid" width="35" height="35" alt="img user">
+                                        <?php echo $Poa_n["firstname"] . "  " . $Poa_n['lastname']; ?>
+                                    </span>
+                                    <span class="date">
+                                        <i class="fas fa-clock"></i>
+                                        <?php
+                                        $str_po = $row['create_at'];;
+                                        echo ": " . DateThai($str_po);
+                                        ?>
+                                    </span>
+                                </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             <?php    } ?>
         </div>

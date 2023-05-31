@@ -16,7 +16,7 @@ $tagList = $tagFn->getAllTag();
 $userRole = $_SESSION['role'];
 $vid_id = $_GET['id'];
 
-$sql = "SELECT * FROM videos WHERE id='$vid_id'";
+$sql = "SELECT * FROM videos WHERE id='$vid_id'"; 
 
 $VideoQuery = mysqli_query($conn, $sql);
 $videos = mysqli_fetch_array($VideoQuery);
@@ -125,15 +125,15 @@ if (isset($_POST['submit'])) {
 
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between">
-                        <h1 class="h3 mb-4 text-gray-800">Article</h1>
-                        <div>
+                        <h1 class="h3 mb-4 text-gray-800">Video Edit</h1>
+                        <!-- <div>
                             <a class="btn btn-danger btn-icon-split trash" href="#delModal" data-id="<?php echo $videos['id'] ?>" data-img="<?php echo $videos['image_video'] ?>" role="button" data-toggle="modal">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-minus"></i>
                                 </span>
                                 <span class="text">Delete article</span>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                     <form class="user" method="POST" enctype="multipart/form-data">
                         <div class="row">
@@ -143,7 +143,7 @@ if (isset($_POST['submit'])) {
                                         <label>Title</label>
                                         <input type="text" class="form-control form-control-user" name="title" value="<?php echo $videos['v_title']; ?>">
                                     </div>
-                                    <div class="card-body">
+                                    <!-- <div class="card-body">
                                         <div class="form-group">
                                             <label>Image banner
                                                 <span class="text-danger">*</span>
@@ -173,7 +173,7 @@ if (isset($_POST['submit'])) {
                                             </div>
                                         </div>
                                         <hr class="mt-5">
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="card shadow mb-4">
                                     <div class="card-body">

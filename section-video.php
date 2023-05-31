@@ -6,7 +6,7 @@
         </div>
         <div class="row py-3">
             <?php
-            $sqlVideo = "SELECT * from videos where videoUrl IS NOT NULL ORDER BY id DESC LIMIT 6";
+            $sqlVideo = "SELECT * from videos where videoUrl IS NOT NULL ORDER BY id asc LIMIT 6";
             $q_video = mysqli_query($conn, $sqlVideo) or die("Error in query: $sqlVideo " . mysqli_error($conn));
             while ($video = mysqli_fetch_array($q_video)) {
                 $link_youtube = substr($video['videoUrl'], 17);

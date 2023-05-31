@@ -217,6 +217,16 @@ if ($key_search) {
         <section class="py-5">
             <div class="container">
                 <h2 class="txt-heading">กิจกรรมภาคี <small>(สสส.)(เพจภาคี 6 จังหวัด)</small></h2>
+                <div class="d-block my-3 text-center">
+                    <a href="https://www.thaihealth.or.th" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="สสส."><img data-src="./img/Logo-sss.png" class="lazy img-fluid" width="180" height="165" alt=""></a>
+                    <a href="https://thecitizen.plus" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="thecitizen"><img data-src="./img/Logo-thecitizen.png" class="lazy img-fluid" width="400" height="165" alt=""></a>
+                    <!-- <br> -->
+                    <a href="https://www.facebook.com/UbonConnect" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="ubon connect"><img data-src="./img/Logo-Ubon-Connect.png" class="lazy img-fluid" width="110" height="200" alt=""></a>
+                    <a href="https://www.facebook.com/UbonConnect" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="สื่อสร้างสุขอุบลราชธานี"><img data-src="./img/Logo-medie.png" class="lazy img-fluid" width="110" height="200" alt=""></a>
+                    <a href="https://www.facebook.com/juiorn" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="ห้องสมุดแมวหางกิ้นส์"><img data-src="./img/Logo-eat.png" class="lazy img-fluid" width="110" height="200" alt=""></a>
+                    <a href="https://www.facebook.com/Ginsabaijai" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="กินสบายใจ"><img data-src="./img/Logo-cat.png" class="lazy img-fluid" width="110" height="200" alt=""></a>
+                </div>
+
             </div>
         </section>
     </article>
@@ -225,7 +235,7 @@ if ($key_search) {
             <h4 class="text-center h1 white pt-3">ติดต่อเรา</h4>
             <div class="row">
                 <div class="col-lg-8 col-md-12 my-1 d-flex align-items-center">
-                    <img data-src="./img/Logo-mojoesan.png" class="lazy img-fluid me-1" width="150" height="500" alt="logo mojoesan">
+                    <img data-src="./img/Logo-mojoesan-white.png" class="lazy img-fluid me-1" width="200" height="500" alt="logo mojoesan">
                     <p class="white h5">โครงการศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสานสำนักงานมูลนิธิสือสร้างสุข <br>
                         330/5 หมู่ 17 ตำบลไร่น้อย อำเภอเมือง จังหวัดอุบลราธานี
                     </p>

@@ -15,11 +15,11 @@
                     $query_cate = mysqli_query($conn, $sql_category) or die("Error in query: $sql_category " . mysqli_error($conn));
                     $result_cate = mysqli_fetch_array($query_cate);
 
-                     $sql_author = "SELECT * FROM  user  WHERE id = $use_id";
+                    $sql_author = "SELECT * FROM  user  WHERE id = $use_id";
                     $query_article = mysqli_query($conn, $sql_author) or die("Error in query: $sql_author " . mysqli_error($conn));
                     $author = mysqli_fetch_array($query_article);
                 ?>
-                    <div class="dp_item" data-class="<?php echo $num_id; ?>" data-position="<?php echo $num_id; ?>">
+                    <div class="dp_item" data-class="<?php echo $num_id; ?>" data-position="<?php echo $num_id; ?>"> 
                         <div class="dp-content">
                             <h3><?php echo trim(strip_tags(mb_substr($first['topic_name'], 0, 40, 'utf-8'))); ?>...</h3>
                             <a href="" class="a_cate"><?php echo $result_cate['name']; ?></a>
@@ -44,6 +44,9 @@
                             <img class="img-fluid lazy" data-src="./backend/uploads/article-img/<?php echo $first['image_banner']; ?>" alt="<?php echo $first['topic_name']; ?>" width="100%" height="100%">
                         </div>
                     </div>
+    
+            
+
                 <?php } ?>
             </div>
             <span id="dp-next">

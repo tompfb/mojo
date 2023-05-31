@@ -266,7 +266,7 @@ if (isset($_POST['btn_upload'])) {
 
                                 <?php
                                 if ($userRole == 1) {
-                                    $fetchVideos = mysqli_query($conn, "SELECT * FROM videos  ORDER BY id DESC");
+                                    $fetchVideos = mysqli_query($conn, "SELECT * FROM videos  ORDER BY id ASC");
                                     while ($row = mysqli_fetch_assoc($fetchVideos)) {
                                         $location = $row['location'];
                                         $Vidname = $row['v_title'];
@@ -315,49 +315,48 @@ if (isset($_POST['btn_upload'])) {
                                     <?php   }
                                 } else {
                                     $f = $_SESSION['userid'];
-                                    $fetchVideos = mysqli_query($conn, "SELECT * FROM videos  where user_id = $f  ORDER BY id DESC");
+                                    $fetchVideos = mysqli_query($conn, "SELECT * FROM videos  where user_id = $f  ORDER BY id ASC");
                                     while ($row = mysqli_fetch_assoc($fetchVideos)) {
                                         $location = $row['location'];
                                         $Vidname = $row['v_title'];
                                         $VName = $row['name'];
                                         $Vid = $row['id'];
-                                    } ?>
-                                    <div class="col-lg-2 col-md-4 col-sm-12 my-2">
-                                        <div class="card text-center d-flex justify-content-center">
+                                    ?>
+                                        <div class="col-lg-2 col-md-4 col-sm-12 my-2">
+                                            <div class="card text-center d-flex justify-content-center">
 
-                                            <h5 class="mt-3">วิดิโอ <?php echo trim(strip_tags(mb_substr($Vidname, 0, 30, 'utf-8'))); ?></h5>
+                                                <h5 class="mt-3">วิดิโอ <?php echo trim(strip_tags(mb_substr($Vidname, 0, 30, 'utf-8'))); ?></h5>
 
 
-                                            <div class="card-body ">
-                                                <?php
-                                                if ($location == null) {
-                                                    echo "
+                                                <div class="card-body ">
+                                                    <?php
+                                                    if ($location == null) {
+                                                        echo "
                                                         <div class='card-youtube'>
                                                         <i class='fab fa-youtube'></i>
                                                         <small>YOUTUBE</small>
                                                         </div>";
-                                                } else { ?>
-                                                    <video src='uploads/videos/<?php echo $location; ?>' class="img-fluid" controls height='320px'></video>
-                                                <?php       }
+                                                    } else { ?>
+                                                        <video src='uploads/videos/<?php echo $location; ?>' class="img-fluid" controls height='320px'></video>
+                                                    <?php       }
 
-                                                ?>
-                                                <!-- <small><?php echo $VName ?></small> -->
-                                            </div>
+                                                    ?>
+                                                    <!-- <small><?php echo $VName ?></small> -->
+                                                </div>
 
-                                            <div class="card-footer">
-                                                <a href="video-edit.php?id=<?php echo $Vid; ?>" class="btn btn-warning btn-circle">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                                <?php if ($userRole == '1') { ?>
+                                                <div class="card-footer">
+                                                    <a href="video-edit.php?id=<?php echo $Vid; ?>" class="btn btn-warning btn-circle">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
                                                     <a href="#delModal" class="btn btn-danger btn-circle trash" data-id="<?php echo $row['id'] ?>" role="button" data-toggle="modal" data-name="<?php echo $row['name'] ?>">
                                                         <i class="fas fa-trash"></i>
                                                     </a>
-                                                <?php } ?>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                <?php          }
+                                <?php           }
+                                }
                                 ?>
                             </div>
                         </div>
@@ -438,9 +437,9 @@ if (isset($_POST['btn_upload'])) {
                             </div>
                         </div>
 
-                        <?php
-                        foreach ($fields as $field => $value) {
-                        ?>
+                        <!-- <?php
+                                foreach ($fields as $field => $value) {
+                                ?>
                             <div class="show-file mb-3" <?php echo "id='show-$field'"; ?>>
                                 <img class="show-image" src="img/no-image.jpg" alt="">
                             </div>
@@ -452,8 +451,8 @@ if (isset($_POST['btn_upload'])) {
                                     image</button>
                             </div>
                         <?php
-                        }
-                        ?>
+                                }
+                        ?> -->
                         <div id="image-error"> </div>
                     </div>
                     <div class="modal-footer">

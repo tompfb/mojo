@@ -125,14 +125,14 @@ if (isset($_POST['submit'])) {
 
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between">
-                        <h1 class="h3 mb-4 text-gray-800">Article</h1>
+                        <h1 class="h3 mb-4 text-gray-800">Podcast Edit</h1>
                         <div>
-                            <a class="btn btn-danger btn-icon-split trash" href="#delModal" data-id="<?php echo $podcasts['id'] ?>" data-img="<?php echo $podcasts['image_podcast'] ?>" role="button" data-toggle="modal">
+                            <!-- <a class="btn btn-danger btn-icon-split trash" href="#delModal" data-id="<?php echo $podcasts['id'] ?>" data-img="<?php echo $podcasts['image_podcast'] ?>" role="button" data-toggle="modal">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-minus"></i>
                                 </span>
                                 <span class="text">Delete article</span>
-                            </a>
+                            </a> -->
                         </div>
                     </div>
                     <form class="user" method="POST" enctype="multipart/form-data">

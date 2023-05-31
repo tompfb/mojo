@@ -13,10 +13,28 @@ if ($userRole == 2) {
     $sqlArt = "SELECT * FROM articles where user_id = $id_users";
     $resultArt = mysqli_query($conn, $sqlArt);
     $rowcountArt = mysqli_num_rows($resultArt);
+
+    $sqlVide = "SELECT * FROM videos where user_id = $id_users";
+    $resultVide = mysqli_query($conn, $sqlVide);
+    $rowcountVide = mysqli_num_rows($resultVide);
+
+
+    $sqlPod = "SELECT * FROM podcasts where user_id = $id_users";
+    $resultPod = mysqli_query($conn, $sqlPod);
+    $rowcountPod = mysqli_num_rows($resultPod);
 } else {
     $sqlArt = "SELECT * FROM articles";
     $resultArt = mysqli_query($conn, $sqlArt);
     $rowcountArt = mysqli_num_rows($resultArt);
+
+    $sqlVide = "SELECT * FROM videos ";
+    $resultVide = mysqli_query($conn, $sqlVide);
+    $rowcountVide = mysqli_num_rows($resultVide);
+
+
+    $sqlPod = "SELECT * FROM podcasts ";
+    $resultPod = mysqli_query($conn, $sqlPod);
+    $rowcountPod = mysqli_num_rows($resultPod);
 }
 
 
@@ -95,6 +113,40 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="video.php">
+                            <div class="card border-left-secondary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                                Videos</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountVide ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-video fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="podcast.php">
+                            <div class="card border-left-danger shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                Podcasts</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountPod ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-podcast fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
