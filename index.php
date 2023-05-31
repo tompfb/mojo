@@ -159,7 +159,7 @@ if ($key_search) {
         include('css/style.css');
         ?>
     </style>
-
+    <link href="./css/carousel.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -194,7 +194,8 @@ if ($key_search) {
         </div>
     </header>
     <article class="article-content content">
-        <section class="site-main-content fadeInUp-animation">
+    <!-- fadeInUp-animation -->
+        <section class="site-main-content">
             <div class="container mb-5 ">
                 <h1 class="txt-heading">mojo esan</h1>
                 <p class="p_site mb-0">
@@ -203,17 +204,15 @@ if ($key_search) {
                     โครงการ EVENT พื่นที่ชุมชน รู้ทันทุกความเคลื่อนไหว
                 </p>
             </div>
-            <!-- ----------------- -->
-            <?php include('./aritcle-box.php'); ?>
-            <!-- ----------------- -->
+            <!-- < ?php include('./aritcle-box.php'); ?> -->
         </section>
+        <?php include('./blog-slide.php'); ?>
         <!-- ----------------- -->
         <?php include('./list-box.php'); ?>
         <!-- ----------------- -->
         <?php include('./section-video.php'); ?>
         <!-- ----------------- -->
         <?php include('./section-podcast.php'); ?>
-
         <section class="py-5">
             <div class="container">
                 <h2 class="txt-heading">กิจกรรมภาคี <small>(สสส.)(เพจภาคี 6 จังหวัด)</small></h2>
@@ -294,6 +293,15 @@ if ($key_search) {
         });
     </script>
     <?php include('./import-js.php'); ?>
+    <!-- <script src="./js/jquery-3.3.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+        window.jQuery ||
+            document.write('<script src="./js/jquery-slim.min.js"><\/script>');
+    </script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/holder.min.js"></script>
 </body>
 
 </html>

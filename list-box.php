@@ -18,7 +18,7 @@
         </div>
         <div class="row py-3">
             <?php
-            $sql_next = "SELECT * FROM `articles` WHERE status = 0 ORDER BY create_at DESC LIMIT 4,8";
+            $sql_next = "SELECT * FROM `articles` WHERE status = 0 ORDER BY create_at DESC LIMIT 3,8";
             $query_next = mysqli_query($conn, $sql_next) or die("Error in query: $sql_next " . mysqli_error($conn));
             while ($re_next = mysqli_fetch_assoc($query_next)) {
                 $n_id =  $re_next['user_id'];
