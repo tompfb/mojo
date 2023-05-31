@@ -152,6 +152,8 @@ if (isset($_POST['btn_upload'])) {
     exit;
 }
 
+include("fetch-data-video.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -172,6 +174,7 @@ if (isset($_POST['btn_upload'])) {
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
+    <link href="css/article.css" rel="stylesheet">
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <style>
         .custom-file-button input[type=file] {
@@ -209,6 +212,12 @@ if (isset($_POST['btn_upload'])) {
 
         .card-youtube small {
             color: #dde0e3;
+        }
+
+        .status-btn {
+            position: relative;
+            border-radius: 1.5em;
+            padding: .5em .75em .5em .75em;
         }
     </style>
 </head>
@@ -275,11 +284,9 @@ if (isset($_POST['btn_upload'])) {
                                         $VName = $row['name'];
                                         $Vurl = $row['videoUrl'];
                                 ?>
-                                        <div class="col-lg-2 col-md-4 col-sm-12 my-2">
+                                        <div class="col-lg-3 col-md-4 col-sm-12 my-2">
                                             <div class="card text-center d-flex justify-content-center">
-
                                                 <h5 class="mt-3">วิดิโอ <?php echo trim(strip_tags(mb_substr($Vidname, 0, 30, 'utf-8'))); ?>...</h5>
-
                                                 <div class="card-body ">
                                                     <?php
                                                     if ($location == null) {
@@ -301,6 +308,12 @@ if (isset($_POST['btn_upload'])) {
                                                 </div>
 
                                                 <div class="card-footer">
+                                                    <?php
+                                                    if ($userRole == '1') { ?>
+                                                        <button onclick="updateStatus(<?php echo $row['id']; ?>)" id="statusBtn<?php echo $row['id']; ?>" class="status-btn <?php echo $row['status'] == 0 ? 'approve' : 'disapprove'; ?>"><?php echo $row['status'] == 0 ? 'Approve' : 'Disapprove'; ?></button>
+                                                    <?php } else { ?>
+                                                        <div class="status-btn <?php echo $row['status'] == 0 ? 'approve' : 'disapprove'; ?>"><?php echo $row['status'] == 0 ? 'Approve' : 'Disapprove'; ?></div>
+                                                    <?php } ?>
                                                     <a href="video-edit.php?id=<?php echo $Vid; ?>" class="btn btn-warning btn-circle">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
@@ -520,6 +533,9 @@ if (isset($_POST['btn_upload'])) {
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="js/custom-ajax-video.js"></script>
 
 <script>
     function readURL(input) {
@@ -576,7 +592,6 @@ if (isset($_POST['btn_upload'])) {
     }
 </script>
 
-
 <script>
     $('#delModal').on('show.bs.modal', function(event) {
         let name = $(event.relatedTarget).data('name')
@@ -588,6 +603,5 @@ if (isset($_POST['btn_upload'])) {
         $('#modalDelete').attr('href', 'functions/vid-delete.php?id=' + id + '&name=' + name);
     })
 </script>
-
 
 </html>

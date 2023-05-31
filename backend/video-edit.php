@@ -143,7 +143,7 @@ if (isset($_POST['submit'])) {
                                         <label>Title</label>
                                         <input type="text" class="form-control form-control-user" name="title" value="<?php echo $videos['v_title']; ?>">
                                     </div>
-                                    <!-- <div class="card-body">
+                                    <div class="card-body">
                                         <div class="form-group">
                                             <label>Image banner
                                                 <span class="text-danger">*</span>
@@ -173,7 +173,7 @@ if (isset($_POST['submit'])) {
                                             </div>
                                         </div>
                                         <hr class="mt-5">
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <div class="card shadow mb-4">
                                     <div class="card-body">

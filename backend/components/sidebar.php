@@ -51,14 +51,21 @@
                     <i class="fas fa-hashtag"></i>
                     <span>Tag</span></a>
             </li>
+
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                File
+            </div>
+
             <li class="nav-item">
                 <a class="nav-link" href="video.php">
-                    <i class="fas fa-hashtag"></i>
+                    <i class="fas fa-video"></i>
                     <span>Video</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="podcast.php">
-                    <i class="fas fa-hashtag"></i>
+                    <i class="fas fa-headphones"></i>
                     <span>Podcast</span></a>
             </li>
             <hr class="sidebar-divider">

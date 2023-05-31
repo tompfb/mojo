@@ -14,13 +14,13 @@ if ($userRole == 1) {
     $countArts = $articleFn->countArticle();
     $row = $countArts->fetch_assoc();
     $rows = $row['COUNT(id)'];
-} else { 
+} else {
     class articleFunction extends connectDB
     {
-       
+
         public function countArticle()
         {
-          $id_user = $_SESSION['userid'];
+            $id_user = $_SESSION['userid'];
             $sql = "SELECT COUNT(id) FROM articles where user_id = $id_user ";
             return $this->conn->query($sql);
         }
@@ -181,7 +181,7 @@ include("fetch-data.php");
                                 <div class="card__body">
                                     <!-- <span class="tag tag-blue">Technology</span> -->
                                     <h4><?php echo trim(strip_tags(mb_substr($article['topic_name'], 0, 45, 'utf-8'))); ?></h4>
-                                    
+
                                 </div>
                                 <div class="card__footer">
                                     <div class="user">

@@ -108,6 +108,10 @@ if (isset($_POST['but_upload'])) {
     header('location: podcast.php');
     exit;
 }
+
+
+include("fetch-data-podcast.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -128,6 +132,7 @@ if (isset($_POST['but_upload'])) {
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
+    <link href="css/article.css" rel="stylesheet">
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <style>
         .custom-file-button input[type=file] {
@@ -217,6 +222,13 @@ if (isset($_POST['but_upload'])) {
                                         $PName = $row['name'];
                                         $Podid = $row['id']; ?>
                                         <div class="col-lg-3 col-md-6 col-sm-12 my-2">
+                                            <?php
+                                            if ($userRole == '1') { ?>
+                                                <button onclick="updateStatus(<?php echo $row['id']; ?>)" id="statusBtn<?php echo $row['id']; ?>" class="status-btn <?php echo $row['status'] == 0 ? 'approve' : 'disapprove'; ?>"><?php echo $row['status'] == 0 ? 'Approve' : 'Disapprove'; ?></button>
+                                            <?php } else { ?>
+                                                <div class="status-btn <?php echo $row['status'] == 0 ? 'approve' : 'disapprove'; ?>"><?php echo $row['status'] == 0 ? 'Approve' : 'Disapprove'; ?></div>
+                                            <?php } ?>
+
                                             <div class="card text-center d-flex justify-content-center">
                                                 <h4 class="mt-3"><?php echo $Podidname; ?></h4>
                                                 <div class="card-body">
@@ -410,6 +422,10 @@ if (isset($_POST['but_upload'])) {
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin-2.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="js/custom-ajax-podcast.js"></script>
 
 <script>
     function readURL(input) {
