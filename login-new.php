@@ -17,7 +17,7 @@ function encryptCookie($value)
 }
 
 function decryptCookie($ciphertext)
-{
+{ 
     $cipher = "aes-256-cbc";
 
     list($encrypted_data, $iv, $key) = explode('::', base64_decode($ciphertext));

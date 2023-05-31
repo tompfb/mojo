@@ -146,7 +146,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountPod ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-podcast fa-2x text-gray-300"></i>
+                                            <i class="fas fa-headphones fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

@@ -126,7 +126,7 @@ CREATE TABLE `image_articles` (
 
 -- --------------------------------------------------------
 
---
+-- 
 -- Table structure for table `podcasts`
 --
 

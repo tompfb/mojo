@@ -202,6 +202,7 @@ include("fetch-data-video.php");
             width: 100%;
             background-color: #000;
             padding: 10px 0;
+            min-height: 190px;
         }
 
         .card-youtube i {
