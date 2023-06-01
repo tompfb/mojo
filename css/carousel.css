@@ -25,25 +25,6 @@
   -webkit-filter: grayscale(10%);
   filter: grayscale(10%);
 }
-.text-show {
-  color: #f5791f !important;
-  text-shadow: 1px 1px 3px #2b2b2b;
-  text-transform: uppercase;
-  font-family: "Prompt", sans-serif !important;
-  width: 100%;
-  font-weight: 600 !important;
-  -ms-word-break: break-all;
-  word-break: break-all;
-  word-break: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  hyphens: auto;
-}
-.carousel-caption {
-  padding: 10px 0;
-  border-radius: 20px;
-  background-image: linear-gradient(rgb(0, 0, 0, 0.9), rgb(0, 0, 0, 0.9));
-}
 .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {
@@ -111,24 +92,26 @@
   -ms-flex-pack: center;
   justify-content: center;
   width: 15%;
-  color: #fff;
+  color: #575757;
   text-align: center;
   opacity: 0.5;
+  font-size: 35px !important;
+  width: fit-content;
 }
 .carousel-control-next:focus,
 .carousel-control-next:hover,
 .carousel-control-prev:focus,
 .carousel-control-prev:hover {
-  color: #fff;
+  color: #97701d;
   text-decoration: none;
   outline: 0;
   opacity: 0.9;
 }
 .carousel-control-prev {
-  left: 0;
+  left: 100px;
 }
 .carousel-control-next {
-  right: 0;
+  right: 100px;
 }
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
@@ -167,11 +150,13 @@
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
   width: 30px;
-  height: 3px;
+  height: 5px;
   margin-right: 3px;
   margin-left: 3px;
   text-indent: -999px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #6b6b6b;
+  background-image: linear-gradient(rgb(255,255,255,0.8),rgb(255,255,255,0.8));
+  
 }
 .carousel-indicators li::before {
   position: absolute;
@@ -192,26 +177,82 @@
   content: "";
 }
 .carousel-indicators .active {
-  background-color: #fff;
+  background-color: #ff8800;
 }
-.carousel-caption {
+.carousel-img {
+  width: 100%;
+  height: 420px !important;
+  border-radius: 30px !important;
+  overflow: hidden;
+}
+.carousel-img img{
+  width: 100%;
+  height: 100% !important;
+}
+.carousel-cardtext {
+  width: 100%;
+  padding:40px;
+  border-radius: 30px;
+  background-image: linear-gradient(rgb(255,255,255,0.8),rgb(255,255,255,0.8));
   position: absolute;
-  right: 15%;
-  bottom: 20px;
-  left: 15%;
-  z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: center;
+  z-index: 100;
+  top: 50%;
+  right: -60px;
+  transform: translateY(-50%);
+  box-shadow: 1px 0px 10px #c2c2c2;
 }
-.carousel-caption {
-  bottom: 3rem;
-  z-index: 10;
+.carousel-cardtext p{
+  font-size: 16px !important;
+}
+.carousel-cardtext .read_more{
+  text-decoration: none;
+  width: fit-content;
+  padding: 8px 20px;
+  border-radius: 50px;
+  color: #fff;
+  background-color: #ff8800;
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+ margin-top: 15px;
+}
+.fix-l-r{
+  position: absolute;
+  left: 30%;
+  bottom: 50px;
+  width: fit-content;
+  display: flex;
+
+}
+.fix-l-r a{
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-image: linear-gradient(rgb(255,255,255,0.8),rgb(255,255,255,0.8));
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #5a5a5a !important;
+  font-size: 20px !important;
+}
+.text-show {
+  color: #161616 !important;
+  text-transform: uppercase;
+  font-family: "Prompt", sans-serif !important;
+  width: 100%;
+  font-weight: 500 !important;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 .carousel-item {
   height: 32rem;
-  background-color: #777;
 }
 .carousel-item > img {
   position: absolute;
@@ -221,19 +262,3 @@
   height: 32rem;
 }
 
-@media (min-width: 40em) {
-  .carousel-caption p {
-    font-size: 18px !important;
-    color: #fff !important;
-  }
-}
-.carousel-caption a {
-  color: #fff;
-  font-size: 16px;
-  background: #f57921;
-  padding: 8px 35px !important;
-  display: inline-block;
-  border-radius: 8px;
-  text-decoration: none;
-  font-family: "Prompt", sans-serif !important;
-}

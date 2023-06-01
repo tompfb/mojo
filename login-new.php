@@ -175,11 +175,11 @@ if (isset($_POST['reg_btn'])) {
 <body>
     <div class="parent clearfix">
         <div class="bg-illustration">
-            <img src="./img/Logo-sss.png" alt="logo">
+            <!-- <img src="./img/Logo-sss.png" alt="logo"> -->
         </div>
 
         <div class="login">
-            <div class="container">
+            <div class="container"> 
                 <h1>Login to access to<br />your account</h1>
 
                 <div class="login-form">

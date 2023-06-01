@@ -16,7 +16,7 @@ $tagList = $tagFn->getAllTag();
 $userRole = $_SESSION['role'];
 $vid_id = $_GET['id'];
 
-$sql = "SELECT * FROM videos WHERE id='$vid_id'"; 
+$sql = "SELECT * FROM videos WHERE id='$vid_id'";
 
 $VideoQuery = mysqli_query($conn, $sql);
 $videos = mysqli_fetch_array($VideoQuery);
@@ -201,10 +201,8 @@ if (isset($_POST['submit'])) {
                 </div>
             </footer>
             <!-- End of Footer -->
-
         </div>
         <!-- End of Content Wrapper -->
-
     </div>
     <!-- End of Page Wrapper -->
 

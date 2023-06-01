@@ -59,7 +59,8 @@ img {
   position: relative;
   height: 100vh;
   width: 1194px;
-  background: url("../img/Logo-mojoesan.png") no-repeat center center scroll;
+  /* background: url("../img/Logo-mojoesan.png") no-repeat center center scroll; */
+  background: url("../img/login.jpg") no-repeat center center scroll;
 
   background-size: contain;
   float: left;
@@ -267,7 +268,8 @@ img {
   }
   .bg-illustration {
     float: none;
-    background: url("../img/Logo-mojoesan.png") center center;
+    /* background: url("../img/Logo-mojoesan.png") center center; */
+    background: url("../img/login.jpg") center center;
     background-size: cover;
     -webkit-animation: slideIn 0.8s ease-in-out forwards;
     animation: slideIn 0.8s ease-in-out forwards;

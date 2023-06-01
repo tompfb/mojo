@@ -14,7 +14,7 @@ include 'script-login.php';
     <meta name="Author" content="หวยหุ้นจีน">
 
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
-    <link rel="icon" href="../favicon.webp" type="image/x-icon" />
+    <link rel="icon" href="../favicon.webp" type="image/x-icon" /> 
     <link rel="apple-touch-icon" href="../favicon.webp" />
 
     <?php include('./link.php'); ?>

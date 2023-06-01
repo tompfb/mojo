@@ -1,3 +1,33 @@
+<a href="" class="scrollup">
+    <span><i class="fas fa-arrow-up"></i></span>
+</a>
+<script src="../js/jquery-latest.min.js"></script>
+<script>
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 600) {
+            $(".scrollup").fadeIn();
+        } else {
+            $(".scrollup").fadeOut();
+        }
+    })
+
+    $(".scrollup").click(function() {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    })
+</script>
+<script>
+    $(document).ready(function() {
+
+        $(".fa-search").click(function() {
+            $(".togglesearch").toggle();
+            $("input[type='text']").focus();
+        });
+
+    });
+</script>
 <script>
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");

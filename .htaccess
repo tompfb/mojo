@@ -5,26 +5,25 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 </IfModule>
 
 RewriteEngine On
-RewriteRule ^category/([a-zA-Z0-9-ก-เ/]+)/([0-9]+)$ category.php?name=$1&pn=$2
-RewriteRule ^category/([a-zA-Z-0-9-ก-เ-]+)/([0-9]+)/ category.php?name=$1&pn=$2
 
 RewriteRule ^category/([a-zA-Z0-9-ก-เ/]+)$ category.php?name=$1
 RewriteRule ^category/([a-zA-Z-0-9-ก-เ-]+)/ category.php?name=$1
 
+RewriteRule ^view-podcast/([a-zA-Z0-9-ก-เ/]+)$ view-podcast.php?name=$1
+RewriteRule ^view-podcast/([a-zA-Z-0-9-ก-เ-]+)/ view-podcast.php?name=$1
+
+RewriteRule ^view-video/([a-zA-Z0-9-ก-เ/]+)$ view-video.php?name=$1
+RewriteRule ^view-video/([a-zA-Z-0-9-ก-เ-]+)/ view-video.php?name=$1
+
 RewriteRule ^view/([a-zA-Z0-9-ก-เ/]+)$ view.php?url_articles_seo=$1
 RewriteRule ^view/([a-zA-Z-0-9-ก-เ-]+)/ view.php?url_articles_seo=$1
-
-RewriteRule ^tag/([a-zA-Z0-9-ก-เ/]+)/([0-9]+)$ tag.php?tag_url=$1&pn=$2
-RewriteRule ^tag/([a-zA-Z-0-9-ก-เ-]+)/([0-9]+)/ tag.php?tag_url=$1&pn=$2
 
 RewriteRule ^tag/([a-zA-Z0-9-ก-เ/]+)$ tag.php?tag_url=$1
 RewriteRule ^tag/([a-zA-Z-0-9-ก-เ-]+)/ tag.php?tag_url=$1
 
-RewriteRule ^all-articles/([a-zA-Z0-9-ก-เ/]+)$ all-articles.php?pn=$1
-RewriteRule ^all-articles/([a-zA-Z-0-9-ก-เ-]+)/ all-articles.php?pn=$1
+RewriteRule ^blogs/([a-zA-Z0-9-ก-เ/]+)$ blogs.php?pn=$1
+RewriteRule ^blogs/([a-zA-Z-0-9-ก-เ-]+)/ blogs.php?pn=$1
 
-RewriteRule ^author/([a-zA-Z0-9-ก-เ/]+)/([0-9]+)$ author.php?firstname=$1&pn=$2
-RewriteRule ^author/([a-zA-Z-0-9-ก-เ-]+)/([0-9]+)/ author.php/firstname=$1&pn=$2
 
 RewriteRule ^author/([a-zA-Z0-9-ก-เ/]+)$ author.php?firstname=$1
 RewriteRule ^author/([a-zA-Z-0-9-ก-เ-]+)/ author.php/firstname=$1

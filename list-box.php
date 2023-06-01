@@ -1,5 +1,5 @@
 <section class="list-title-news py-5">
-    <div class="container reveal fade-bottom">
+    <div class="container">
         <div class="tab">
             <?php
             $cate_  = "SELECT * FROM category ORDER BY id DESC ";
@@ -16,7 +16,7 @@
             <?php      }
             ?>
         </div>
-        <div class="row py-3">
+        <div class="row py-3 reveal fade-bottom">
             <?php
             $sql_next = "SELECT * FROM `articles` WHERE status = 0 ORDER BY create_at DESC LIMIT 3,8";
             $query_next = mysqli_query($conn, $sql_next) or die("Error in query: $sql_next " . mysqli_error($conn));
@@ -33,7 +33,7 @@
             ?>
                 <div class="col-lg-3 col-md-6 col-sm-12 my-2">
                     <div class="box-post">
-                        <a href="./view/<?php echo $re_next['url_articles_seo']; ?>" class="post_link" rel="ugc">
+                        <a href="./view/<?php echo $re_next['url_articles_seo']; ?>/" class="post_link" rel="ugc">
                             <figure class="news-articles-img">
                                 <img class="lazy img-fluid " data-src="./backend/uploads/article-img/<?php echo $re_next['image_banner']; ?>" alt="<?php echo $re_next['topic_name']; ?>" width="100%" height="100%">
                             </figure>

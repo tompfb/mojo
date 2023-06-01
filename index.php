@@ -3,10 +3,10 @@ include "./connection.php";
 include './functions/date-thai.php';
 @$key_search = $_GET["s"];
 if ($key_search) {
-    $sql = "SELECT * FROM articles WHERE topic_name LIKE '%" . $key_search . "%' ";
+    $sql = "SELECT * FROM articles WHERE status = 0 and topic_name LIKE '%" . $key_search . "%' ";
     $q = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error($conn));
 } else {
-    $sql = "SELECT * FROM articles ORDER BY id DESC LIMIT 0,6 ";
+    $sql = "SELECT * FROM articles WHERE status = 0 ORDER BY id DESC LIMIT 0,6 ";
     $q = mysqli_query($conn, $sql) or die("Error in query: $sql " . mysqli_error($conn));
 }
 ?>
@@ -60,8 +60,7 @@ if ($key_search) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700&family=Sarabun:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-    <script src="./js/jquery-3.3.1.min.js"></script>
+
     <!-- Google tag (gtag.js) -->
     <script type="application/ld+json">
         {
@@ -157,6 +156,7 @@ if ($key_search) {
         <?php
         include('bootstrap/bootstrap.css');
         include('css/style.css');
+
         ?>
     </style>
     <link href="./css/carousel.css" rel="stylesheet" />
@@ -174,62 +174,137 @@ if ($key_search) {
                 <div class="col-lg-8">
                     <nav class="nav-bar">
                         <ul>
-                            <!-- <li><a href="./esan-news/">esan news</a></li> -->
-                            <li><a href="./">home</a></li>
-                            <li><a href="./interview/">interview</a></li>
-                            <li><a href="./research/">research</a></li>
-                            <li><a href="./podcast/">podcast</a></li>
-                            <li><a href="./esan-clip/">clip</a></li>
-                            <li><a href="./about/">About</a></li>
+                            <li><a class="active" href="./">หน้าแรก</a></li>
+                            <li><a href="./interview/">สัมภาษณ์</a></li>
+                            <li><a href="./research/">งานวิจัย</a></li>
+                            <li><a href="./podcast/">พอดคาสต์</a></li>
+                            <li><a href="./esan-clip/">คลิป</a></li>
+                            <li><a href="./about/">เกี่ยวกับเรา</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-2 list-icon">
-                    <a href="" title="search">
+                    <div class="navbarss">
+                        <ul>
+                            <li class="searchbar">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <div class="togglesearch">
+                                    <form action="./?s=s" method="GET">
+                                        <input type="text" name="s" class="search-input-toggles" placeholder="กรอกคำค้นหา..." required />
+                                        <button type="submit">ค้นหา</button>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <a href="" title="search">
                         <i class="far fa-search"></i>
-                    </a>
+                    </a> -->
                     <a href="./login.php" title="เข้าสู่ระบบ"><i class="fal fa-user-circle"></i></a>
                 </div>
             </div>
         </div>
     </header>
-    <article class="article-content content">
-    <!-- fadeInUp-animation -->
-        <section class="site-main-content">
-            <div class="container mb-5 ">
-                <h1 class="txt-heading">mojo esan</h1>
-                <p class="p_site mb-0">
-                    <strong>ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน (MOJO อีสาน)</strong> <br>
-                    ติดตามข่าวสารเศรษฐกิจชุมชน สถานการณ์พื่นที่ งานบุญศีลกินทาน <br>
-                    โครงการ EVENT พื่นที่ชุมชน รู้ทันทุกความเคลื่อนไหว
-                </p>
-            </div>
-            <!-- < ?php include('./aritcle-box.php'); ?> -->
-        </section>
-        <?php include('./blog-slide.php'); ?>
-        <!-- ----------------- -->
-        <?php include('./list-box.php'); ?>
-        <!-- ----------------- -->
-        <?php include('./section-video.php'); ?>
-        <!-- ----------------- -->
-        <?php include('./section-podcast.php'); ?>
-        <section class="py-5">
-            <div class="container">
-                <h2 class="txt-heading">กิจกรรมภาคี <small>(สสส.)(เพจภาคี 6 จังหวัด)</small></h2>
-                <div class="d-block my-3 text-center">
-                    <a href="https://www.thaihealth.or.th" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="สสส."><img data-src="./img/Logo-sss.png" class="lazy img-fluid" width="180" height="165" alt=""></a>
-                    <a href="https://thecitizen.plus" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="thecitizen"><img data-src="./img/Logo-thecitizen.png" class="lazy img-fluid" width="400" height="165" alt=""></a>
-                    <!-- <br> -->
-                    <a href="https://www.facebook.com/UbonConnect" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="ubon connect"><img data-src="./img/Logo-Ubon-Connect.png" class="lazy img-fluid" width="110" height="200" alt=""></a>
-                    <a href="https://www.facebook.com/UbonConnect" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="สื่อสร้างสุขอุบลราชธานี"><img data-src="./img/Logo-medie.png" class="lazy img-fluid" width="110" height="200" alt=""></a>
-                    <a href="https://www.facebook.com/juiorn" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="ห้องสมุดแมวหางกิ้นส์"><img data-src="./img/Logo-eat.png" class="lazy img-fluid" width="110" height="200" alt=""></a>
-                    <a href="https://www.facebook.com/Ginsabaijai" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="กินสบายใจ"><img data-src="./img/Logo-cat.png" class="lazy img-fluid" width="110" height="200" alt=""></a>
+    <?php
+    if (!$key_search) {
+    ?>
+        <article class="article-content content">
+            <section class="site-main-content">
+                <div class="container">
+                    <h1 class="txt-heading">mojo esan</h1>
+                    <p class="p_site mb-0">
+                        <strong>ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน (MOJO อีสาน)</strong> <br>
+                        ติดตามข่าวสารเศรษฐกิจชุมชน สถานการณ์พื่นที่ งานบุญศีลกินทาน <br>
+                        โครงการ EVENT พื่นที่ชุมชน รู้ทันทุกความเคลื่อนไหว
+                    </p>
                 </div>
+            </section>
+            <?php include('./blog-slide.php'); ?>
+            <!-- ----------------- -->
+            <?php include('./list-box.php'); ?>
+            <!-- ----------------- -->
+            <?php include('./section-video.php'); ?>
+            <!-- ----------------- -->
+            <?php include('./section-podcast.php'); ?>
+            <section class="py-5">
+                <div class="container">
+                    <h2 class="txt-heading">กิจกรรมภาคี <small>(สสส.)(เพจภาคี 6 จังหวัด)</small></h2>
+                    <div class="d-block my-3 text-center">
+                        <a href="https://www.thaihealth.or.th" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="สสส."><img data-src="./img/Logo-sss.png" class="lazy img-fluid zoom-hover" width="180" height="165" alt=""></a>
+                        <a href="https://thecitizen.plus" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="thecitizen"><img data-src="./img/Logo-thecitizen.png" class="lazy img-fluid zoom-hover" width="380" height="165" alt=""></a>
+                        <!-- <br> -->
+                        <a href="https://www.facebook.com/UbonConnect" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="ubon connect"><img data-src="./img/Logo-Ubon-Connect.png" class="lazy img-fluid zoom-hover" width="110" height="200" alt=""></a>
+                        <a href="https://www.facebook.com/UbonConnect" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="สื่อสร้างสุขอุบลราชธานี"><img data-src="./img/Logo-medie.png" class="lazy img-fluid zoom-hover" width="110" height="200" alt=""></a>
+                        <a href="https://www.facebook.com/juiorn" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="ห้องสมุดแมวหางกิ้นส์"><img data-src="./img/Logo-eat.png" class="lazy img-fluid zoom-hover" width="110" height="200" alt=""></a>
+                        <a href="https://www.facebook.com/Ginsabaijai" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="กินสบายใจ"><img data-src="./img/Logo-cat.png" class="lazy img-fluid zoom-hover" width="110" height="200" alt=""></a>
+                    </div>
 
+                </div>
+            </section>
+        </article>
+    <?php
+    } else {
+    ?>
+        <article class="article-container-card content pt-4">
+            <div class="container">
+                <div class="text-center ">
+                    <p class="text-bold-search mb-0 ">
+                        Search By : <?php echo $key_search; ?>
+                    </p>
+                </div>
+                <div class="row justify-content-center align-items-end mt-4">
+                    <?php
+                    $num = mysqli_num_rows($q);
+                    if ($num == 0) {
+                        echo " <p class='p-sea'>ไม่มีเนื้อหาที่ท่านค้นหา..</p>";
+                    } else {
+                        while ($resuret = mysqli_fetch_array($q)) {
+                            $n_id =  $resuret['user_id'];
+                            $n_cate =   $resuret['category_id'];
+                            $n_author = "SELECT * FROM  user  WHERE id = $n_id";
+                            $query_n = mysqli_query($conn, $n_author) or die("Error in query: $n_author " . mysqli_error($conn));
+                            $author_n = mysqli_fetch_array($query_n);
+
+                            $sql_c = "SELECT * FROM category WHERE id =  $n_cate";
+                            $query_c = mysqli_query($conn, $sql_c) or die("Error in query: $sql_c " . mysqli_error($conn));
+                            $result_c = mysqli_fetch_array($query_c);
+                    ?>
+                            <div class="col-lg-3 col-md-6 col-sm-12 my-2">
+                                <div class="box-post">
+                                    <a href="./view/<?php echo $resuret['url_articles_seo']; ?>/" class="post_link" rel="ugc">
+                                        <figure class="news-articles-img">
+                                            <img class="lazy img-fluid " data-src="./backend/uploads/article-img/<?php echo $resuret['image_banner']; ?>" alt="<?php echo $resuret['topic_name']; ?>" width="100%" height="100%">
+                                        </figure>
+                                        <div class="px-2">
+                                            <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($resuret['topic_name'], 0, 40, 'utf-8'))); ?></h4>
+                                            <div class="card-flex-new">
+                                                <span>
+                                                    <img data-src="./backend/uploads/user-img/<?php echo $author_n['image_path']; ?>" class="lazy img-fluid" width="30" height="30" alt="img user">
+                                                    <?php echo $author_n["firstname"] . "  " . $author_n['lastname']; ?>
+                                                </span>
+                                                <span class="date">
+                                                    <i class="fas fa-clock"></i>
+                                                    <?php
+                                                    $str_Date = $resuret['create_at'];;
+                                                    echo ": " . DateThai($str_Date);
+                                                    ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="./category/<?php echo $result_c['cate_url']; ?>/" class="cate_absolute"><?php echo $result_c['name']; ?></a>
+                                </div>
+                            </div>
+                    <?php }
+                    }
+                    ?>
+                </div>
             </div>
-        </section>
-    </article>
-    <footer class="site-footer">
+        </article>
+    <?php
+    }
+    ?>
+    <footer class="site-footer" style="background-image: url(./img/bg-footer.jpg);">
         <div class="container">
             <h4 class="text-center h1 white pt-3">ติดต่อเรา</h4>
             <div class="row">
@@ -257,47 +332,126 @@ if ($key_search) {
             </div>
         </div>
     </footer>
+
+    <a href="" class="scrollup">
+        <span><i class="fas fa-arrow-up"></i></span>
+    </a>
+    <script src="./js/jquery-latest.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $("#dp-next").click(function() {
-                var total = $(".dp_item").length;
-                $("#dp-slider .dp_item:first-child").hide().appendTo("#dp-slider").fadeIn();
-                $.each($(".dp_item"), function(index, dp_item) {
-                    $(dp_item).attr("data-position", index + 1);
-                });
-                detect_active();
-            });
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 600) {
+                $(".scrollup").fadeIn();
+            } else {
+                $(".scrollup").fadeOut();
+            }
+        })
 
-            $("#dp-prev").click(function() {
-                var total = $(".dp_item").length;
-                $("#dp-slider .dp_item:last-child").hide().prependTo("#dp-slider").fadeIn();
-                $.each($(".dp_item"), function(index, dp_item) {
-                    $(dp_item).attr("data-position", index + 1);
-                });
-
-                detect_active();
-            });
-            $("body").on("click", "#dp-slider .dp_item:not(:first-child)", function() {
-                var get_slide = $(this).attr("data-class");
-                console.log(get_slide);
-                $("#dp-slider .dp_item[data-class=" + get_slide + "]")
-                    .hide()
-                    .prependTo("#dp-slider")
-                    .fadeIn();
-                $.each($(".dp_item"), function(index, dp_item) {
-                    $(dp_item).attr("data-position", index + 1);
-                });
-
-                detect_active();
-            });
-        });
+        $(".scrollup").click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 600);
+            return false;
+        })
     </script>
-    <?php include('./import-js.php'); ?>
-    <!-- <script src="./js/jquery-3.3.1.min.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var lazyloadImages;
+
+            if ("IntersectionObserver" in window) {
+                lazyloadImages = document.querySelectorAll(".lazy");
+                var imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            var image = entry.target;
+                            image.src = image.dataset.src;
+                            image.classList.remove("lazy");
+                            imageObserver.unobserve(image);
+                        }
+                    });
+                });
+
+                lazyloadImages.forEach(function(image) {
+                    imageObserver.observe(image);
+                });
+            } else {
+                var lazyloadThrottleTimeout;
+                lazyloadImages = document.querySelectorAll(".lazy");
+
+                function lazyload() {
+                    if (lazyloadThrottleTimeout) {
+                        clearTimeout(lazyloadThrottleTimeout);
+                    }
+
+                    lazyloadThrottleTimeout = setTimeout(function() {
+                        var scrollTop = window.pageYOffset;
+                        lazyloadImages.forEach(function(img) {
+                            if (img.offsetTop < (window.innerHeight + scrollTop)) {
+                                img.src = img.dataset.src;
+                                img.classList.remove('lazy');
+                            }
+                        });
+                        if (lazyloadImages.length == 0) {
+                            document.removeEventListener("scroll", lazyload);
+                            window.removeEventListener("resize", lazyload);
+                            window.removeEventListener("orientationChange", lazyload);
+                        }
+                    }, 20);
+                }
+
+                document.addEventListener("scroll", lazyload);
+                window.addEventListener("resize", lazyload);
+                window.addEventListener("orientationChange", lazyload);
+            }
+        })
+    </script>
+    <script>
+        window.onscroll = function() {
+            myFunction()
+        };
+
+        var navbar = document.getElementById("navbar-sticky");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+    </script>
     <script>
         window.jQuery ||
             document.write('<script src="./js/jquery-slim.min.js"><\/script>');
+    </script>
+    <script>
+        $(document).ready(function() {
+
+            $(".fa-search").click(function() {
+                $(".togglesearch").toggle();
+                $("input[type='text']").focus();
+            });
+
+        });
     </script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
