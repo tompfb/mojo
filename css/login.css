@@ -60,7 +60,7 @@ img {
   height: 100vh;
   width: 1194px;
   /* background: url("../img/Logo-mojoesan.png") no-repeat center center scroll; */
-  background: url("../img/login.jpg") no-repeat center center scroll;
+  background: url("../img/login.webp") no-repeat center center scroll;
 
   background-size: contain;
   float: left;
@@ -260,7 +260,7 @@ img {
     from {
       left: -100%;
       opacity: 0;
-    }
+    } 
     to {
       left: 0;
       opacity: 1;
@@ -269,7 +269,7 @@ img {
   .bg-illustration {
     float: none;
     /* background: url("../img/Logo-mojoesan.png") center center; */
-    background: url("../img/login.jpg") center center;
+    background: url("../img/login.webp") center center;
     background-size: cover;
     -webkit-animation: slideIn 0.8s ease-in-out forwards;
     animation: slideIn 0.8s ease-in-out forwards;

@@ -199,7 +199,7 @@
   top: 50%;
   right: -60px;
   transform: translateY(-50%);
-  box-shadow: 1px 0px 10px #c2c2c2;
+  /* box-shadow: 1px 0px 10px #c2c2c2; */
 }
 .carousel-cardtext p{
   font-size: 16px !important;

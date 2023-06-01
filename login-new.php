@@ -167,7 +167,7 @@ if (isset($_POST['reg_btn'])) {
 
     <!-- Custom styles for this template-->
     <link href="backend/css/sb-admin-2.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet"> 
 
 </head>
 
