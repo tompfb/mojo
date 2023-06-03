@@ -14,7 +14,7 @@ if ($key_search) {
 <!DOCTYPE html>
 <html lang="th">
 
-<head>
+<head> 
     <title>mojo esan</title>
     <meta name="title" content="   mojo esan" />
     <meta name="description" content="หวยหุ้นจีน เปิดให้บริการบนหวยหุ้นจีนออนไลน์ จ่ายสูงสุดบาทละ 1,000 บาท บริการแทงหวยไม่มีขั้นต่ำ ฝาก-ถอนรวดเร็วโอนไว ถอนได้ไม่มีอั้นตลอด 24 ชั่วโมง" />
@@ -73,7 +73,7 @@ if ($key_search) {
     <script type="application/ld+json">
         {
             "@context": "https://schema.org/",
-            "@type": "WebPage",
+            "@type": "WebPage", 
             "name": "หวยหุ้นจีน ",
             "speakable": {
                 "@type": "SpeakableSpecification",
@@ -314,7 +314,7 @@ if ($key_search) {
                         330/5 หมู่ 17 ตำบลไร่น้อย อำเภอเมือง จังหวัดอุบลราธานี
                     </p>
                 </div>
-                <div class="col-lg-4 col-md-12 my-1 d-flex ">
+                <div class="col-lg-4 col-md-12 my-1 d-flex justify-content-center ">
                     <div class="span-box">
                         <span> <i class="fas fa-phone-volume"></i></span>
                     </div>

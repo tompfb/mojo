@@ -5,7 +5,7 @@ $page = 2; ?>
 <!DOCTYPE html>
 <html>
 
-<head>
+<head> 
     <title>สัมภาษณ์</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -55,13 +55,13 @@ $page = 2; ?>
                         $query = mysqli_query($conn, "SELECT * ,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE articles.status = 0 and articles.category_id =  $id ORDER BY articles.create_at DESC LIMIT 1");
                         $row = mysqli_fetch_array($query);
                         ?>
-                        <div class="post-cate">
+                        <div class="post-cate" style="overflow-x: hidden;">
                             <a href="../view/<?php echo $row['url_articles_seo']; ?>/" class="post_link" rel="ugc">
                                 <figure class="card_img_interview">
                                     <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo $row['topic_name']; ?>" width="100%" height="100%">
                                 </figure>
                                 <div class="px-2">
-                                    <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 90, 'utf-8'))); ?>...</h4>
+                                    <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 80, 'utf-8'))); ?>...</h4>
                                     <div class="card-flex-new">
                                         <span>
                                             <img data-src="../backend/uploads/user-img/<?php echo $row['image_path']; ?>" class="lazy img-fluid" width="30" height="30" alt="img user">

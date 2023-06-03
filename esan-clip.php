@@ -19,7 +19,7 @@
 
 <body>
     <?php include('./component/header.php'); ?>
-
+ 
 
     <?php include('./component/footer.php'); ?>
     <?php include('./import-js.php'); ?>

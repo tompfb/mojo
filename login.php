@@ -180,7 +180,8 @@ if (isset($_POST['reg_btn'])) {
 
         <div class="login">
             <div class="container">
-                <h1>Login to access to<br />your account</h1>
+                <!-- <h1>Login to access to<br />your account</h1> -->
+                <h1>เข้าสู่ระบบ</h1>
 
                 <div class="login-form">
                     <form method="POST">

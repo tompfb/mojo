@@ -233,7 +233,7 @@ include("fetch-data-podcast.php");
                                                 <h4 class="mt-3"><?php echo $Podidname; ?></h4>
                                                 <div class="card-body">
                                                     <img src="uploads/podcast-img/<?php echo $Pimg; ?>" alt="<?php echo $Podidname; ?>" class="img-fluid card__image" width="250">
-                                                    <audio controls height='320px'>
+                                                    <audio controls height='320px' style="width: 100%;">
                                                         <source src="uploads/podcasts/<?php echo $location; ?>" type="audio/ogg">
                                                         <source src="uploads/podcasts/<?php echo $location; ?>" type="audio/mpeg">
                                                     </audio>
@@ -266,7 +266,7 @@ include("fetch-data-podcast.php");
                                                 <h4 class="mt-3"><?php echo $Podidname; ?></h4>
                                                 <div class="card-body">
                                                     <img src="uploads/podcast-img/<?php echo $Pimg; ?>" alt="<?php echo $Podidname; ?>" class="img-fluid card__image" width="250">
-                                                    <audio controls height='320px'>
+                                                    <audio controls height='320px' style="width: 100%;">
                                                         <source src="uploads/podcasts/<?php echo $location; ?>" type="audio/ogg">
                                                         <source src="uploads/podcasts/<?php echo $location; ?>" type="audio/mpeg">
                                                     </audio>
