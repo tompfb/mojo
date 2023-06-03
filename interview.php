@@ -22,7 +22,7 @@ $page = 2; ?>
 
     <style>
         @media (max-width:675px) {
-            .test .col-sm-6 {
+            .row-fix .col-sm-6 {
                 width: 50% !important;
             }
         }
@@ -34,7 +34,7 @@ $page = 2; ?>
     <article class="content">
         <section class="main_text_heading">
             <div class="bg-text-heading" style="background-image: url(../img/bg-interview.webp);">
-                <h1>interview</h1>
+                <h1>สัมภาษณ์</h1>
             </div>
         </section>
         <section class="content-news">
@@ -44,10 +44,10 @@ $page = 2; ?>
             $Cate_fetch = mysqli_fetch_array($query_c);
             $id =  $Cate_fetch['id'];
             ?>
-            <div class="container py-3">
+            <div class="container pt-3 pb-4">
                 <div class="card-tab">
                     <h2 class="txt-heading "><?php echo  $Cate_fetch['name']; ?></h2>
-                    <a href="../category/<?php echo $Cate_fetch['cate_url']; ?>" class="next-tab text-dark">ดูทั้งหมด<span><i class="fas fa-long-arrow-right"></i></span></a>
+                    <a href="../category/news/<?php echo $Cate_fetch['cate_url']; ?>" class="next-tab text-dark">ดูทั้งหมด<span><i class="fas fa-long-arrow-right"></i></span></a>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 my-1">
@@ -126,9 +126,9 @@ $page = 2; ?>
 
                     <div class="card-tab">
                         <h2 class="txt-heading "><?php echo  $Cate_['name']; ?></h2>
-                        <a href="../category/<?php echo $Cate_['cate_url']; ?>" class="next-tab text-dark">ดูทั้งหมด<span><i class="fas fa-long-arrow-right"></i></span></a>
+                        <a href="../category/news/<?php echo $Cate_['cate_url']; ?>" class="next-tab text-dark">ดูทั้งหมด<span><i class="fas fa-long-arrow-right"></i></span></a>
                     </div>
-                    <div class="row test">
+                    <div class="row row-fix mb-5">
                         <?php
                         $query_three = mysqli_query($conn, "SELECT * ,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE articles.status = 0 and articles.category_id = $id_ ORDER BY articles.create_at DESC LIMIT 4");
                         while ($three_result = mysqli_fetch_array($query_three)) { ?>

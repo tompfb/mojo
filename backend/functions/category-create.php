@@ -6,7 +6,7 @@ if (!isset($_SESSION['userid'])) {
 include "../connect/connect.php";
 
 if (!empty($_POST["name"])) {
-    $name = $_POST['name'];
+    $name = $_POST['name']; 
     $url_name = $_POST['name'];
     $page = "1";
     function to_pretty_url($url)

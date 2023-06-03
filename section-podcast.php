@@ -7,11 +7,11 @@
         <div class="row reveal fade-bottom">
             <?php
             $fetchpodcasts = mysqli_query($conn, "SELECT * FROM podcasts where status = 0 ORDER BY create_at DESC limit 4");
-            while ($row = mysqli_fetch_assoc($fetchpodcasts)) {
+            while ($row = mysqli_fetch_array($fetchpodcasts)) {
                 $Podidname = $row['title'];
                 $Pimg = $row['image_podcast'];
                 $Podid = $row['id'];
-                $id_poda = $row['user_id'];
+                $id_poda = $row['user_id']; 
 
                 $Poauthor = "SELECT * FROM  user  WHERE id = $id_poda";
                 $Po_a = mysqli_query($conn, $Poauthor) or die("Error in query: $Poauthor " . mysqli_error($conn));

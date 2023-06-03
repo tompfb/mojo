@@ -315,7 +315,7 @@ include("fetch-data-podcast.php");
     <div class="modal small fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <!-- <form> -->
+                <!-- <form> --> 
                 <form method="post" action="" enctype='multipart/form-data'>
                     <div class="modal-header">
                         <h3>Create Podcasts</h3>
@@ -323,7 +323,7 @@ include("fetch-data-podcast.php");
                     </div>
                     <div class="modal-body">
                         <label for="formlabelTitle" class="form-label">Title</label>
-                        <input type='text' name='title' class="form-control" placeholder="กรอกไตเติล" />
+                        <input type='text' name='title' class="form-control" placeholder="กรอกไตเติล" /> 
                         <div class="form-group">
                             <label>Category</label>
                             <select type="text" class="form-control" name="category">

@@ -2,17 +2,11 @@
     <div class="container">
         <div class="tab">
             <?php
-            $cate_  = "SELECT * FROM category ORDER BY id DESC ";
+            $cate_  = "SELECT * FROM category WHERE page_id = 1 ORDER BY id DESC ";
             $query_cate_ = mysqli_query($conn, $cate_) or die("Error in query: $cate_ " . mysqli_error($conn));
             while ($result_cate_ = mysqli_fetch_assoc($query_cate_)) {
             ?>
-                <?php
-                if ($result_cate_['page_id'] == 3) {
-                    echo '<a href="./research/">' . $result_cate_['name'] . '</a>';
-                } else {
-                    echo '<a href="./category/' . $result_cate_['cate_url'] . ' "> ' . $result_cate_['name'] . '</a>';
-                }
-                ?>
+                <a href="./category/news/<?php echo  $result_cate_['cate_url']; ?>"><?php echo $result_cate_['name']; ?></a>
             <?php      }
             ?>
         </div>
@@ -54,11 +48,11 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="./category/<?php echo $result_c['cate_url']; ?>/" class="cate_absolute"><?php echo $result_c['name']; ?></a>
+                        <a href="./category/news/<?php echo $result_c['cate_url']; ?>/" class="cate_absolute"><?php echo $result_c['name']; ?></a>
                     </div>
                 </div>
             <?php    }    ?>
 
-        </div>
+        </div> 
     </div>
 </section>

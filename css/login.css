@@ -62,7 +62,7 @@ img {
   /* background: url("../img/Logo-mojoesan.png") no-repeat center center scroll; */
   background: url("../img/login.webp") no-repeat center center scroll;
 
-  background-size: contain;
+  background-size: cover;
   float: left;
   -webkit-animation: bgslide 2.3s forwards;
   animation: bgslide 2.3s forwards;

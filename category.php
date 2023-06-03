@@ -1,7 +1,21 @@
 <?php
 include './conn/connect.php';
-$category_name = $_GET["name"];
-
+if (isset($_GET["news"])) {
+    $category_name = $_GET["news"];
+    $url = "news/" . $category_name;
+} else if ($podcast_n = $_GET["podcast"]) {
+    $num = $_GET["podcast"];
+    $url = "podcast/" . $num;
+    if ($num == 1) {
+        $category_name = "นิทานก้อม";
+    } elseif ($num == 2) {
+        $category_name = "ไทบ้านโสเหล่";
+    } elseif ($num == 3) {
+        $category_name = "ออนซอนอีสาน";
+    } elseif ($num == 4) {
+        $category_name = "หมอลำพาม่วน";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,25 +27,13 @@ $category_name = $_GET["name"];
     <meta name="robots" content="index,follow" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/category/<?php echo $category_name; ?>" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/category/<?php echo $category_name; ?>" hreflang="th-TH" />
+    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/category/<?php echo $url; ?>" />
+    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/category/<?php echo $url; ?>" hreflang="th-TH" />
 
-    <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
-    <link rel="icon" href="../favicon.webp" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="../favicon.webp" />
+    <link rel="shortcut icon" href="../../favicon.webp" type="image/x-icon" />
+    <link rel="icon" href="../../favicon.webp" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../../favicon.webp" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJD33H7ZXZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-KJD33H7ZXZ');
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="application/ld+json">
         {
@@ -56,23 +58,12 @@ $category_name = $_GET["name"];
             ]
         }
     </script>
-
+    <?php include('./import-css.php'); ?>
 </head>
 
 <body>
-    <?php include('./component/header.php'); ?>
-    <section id="bread-crumbs">
-        <div class="container px-0">
-            <nav aria-label="breadcrumb " class="nav-breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../">หน้าแรก</a></li>
-                    <li class="breadcrumb-item"><a href="../all-articles/">บทความทั้งหมด</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" aria-disabled="page">หมวดหมู่ <?php echo $category_name;  ?></li>
-                </ol>
-            </nav>
-        </div>
-    </section>
-    <article class="viewcontainer">
+    <?php include('./component/header-page.php'); ?>
+    <article class="viewcontainer content">
         <div class="container boxcontainer" style="min-height: 60vh;">
             <div class="heading-bg-secon">
                 <h1 class="bg-heading">
@@ -149,8 +140,6 @@ $category_name = $_GET["name"];
             <br><br>
         </div>
     </article>
-
-    <?php include('./component/footer.php'); ?>
     <script>
         $(document).ready(function() {
             $(document).on("click", "#loadmore", function() {
@@ -177,6 +166,7 @@ $category_name = $_GET["name"];
             });
         });
     </script>
+    <?php include('./component/footer-page.php'); ?>
     <?php include('./import-js.php'); ?>
 </body>
 

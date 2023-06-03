@@ -151,68 +151,6 @@ p u {
   margin-bottom: 0 !important;
 }
 /* *************** */
-
-/* table */
-.toc-title {
-  text-align: center;
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-  visibility: hidden;
-  position: relative;
-  justify-content: center;
-}
-
-.toc-title:after {
-  visibility: visible;
-  display: flex;
-  justify-content: center;
-  content: "สารบัญ";
-  font-size: 2em;
-  background: linear-gradient(to bottom, #ff0000, #a8004f);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(1px 1px 1px #505050);
-  /* color: #d07800; */
-}
-
-.widget-toc {
-  display: table;
-  border-radius: 10px;
-  box-shadow: 1px 1px 10px #920013;
-  padding-right: 1rem;
-  margin: 2em 0 !important;
-  font-size: 95%;
-  width: 50%;
-}
-.widget-toc a {
-  color: #3d3d3d;
-  text-decoration: underline !important;
-  font-size: 16px;
-}
-.widget-toc a:hover {
-  text-decoration: none;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-.widget-toc ol {
-  padding-right: 0px;
-  counter-reset: item;
-}
-.widget-toc ol li {
-  display: block;
-  position: relative;
-}
-.widget-toc ol li:before {
-  content: counters(item, ".");
-  counter-increment: item;
-  position: absolute;
-  margin-right: 100%;
-  right: 0.5rem;
-  inline-size: max-content;
-}
-/* table */
 .main-header {
   padding: 15px 0;
   background-color: #ffffff;
@@ -912,6 +850,22 @@ span.date {
 .f-none{
   display: flex;
   align-items: center;
+}
+.btn-btn-success{
+  margin-top: 20px;
+  width: fit-content;
+  padding: 8px 35px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #e27935;
+  color: #ffffff;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.btn-btn-success:hover{
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 @media (max-width: 991px) {
 }

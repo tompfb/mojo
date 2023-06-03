@@ -8,13 +8,26 @@ include "../connect/connect.php";
 if (!empty($_POST["name"])) {
     $name = $_POST['name'];
     $id = $_POST['id'];
-    $strSQL = "UPDATE category SET name='$name' WHERE id='$id'";
+    function to_pretty_url($url)
+    {
+        if ($url !== mb_convert_encoding(mb_convert_encoding($url, 'UTF-32', 'UTF-8'), 'UTF-8', 'UTF-32'))
+            $url  = mb_convert_encoding($url, 'UTF-8', mb_detect_encoding($url));
+        $url  = htmlentities($url, ENT_NOQUOTES, 'UTF-8');
+        $url  = preg_replace('`&([ก-เ][a-z]{1,2})(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig);`i', '\1', $url);
+        $url  = html_entity_decode($url, ENT_NOQUOTES, 'UTF-8');
+        $url  = preg_replace(array('`[^a-z0-9ก-เ]`i', '`[-]+`'), '-', $url);
+        $url  = strtolower(trim($url, '-'));
+        return $url;
+    }
+
+    $url = to_pretty_url($name);
+    $strSQL = "UPDATE category SET name='$name',cate_url='$url' WHERE id='$id'";
     $categoryResult = mysqli_query($conn, $strSQL);
     if ($categoryResult) {
         echo '<script language="javascript">';
         echo 'alert("Edit category success")';
         echo '</script>';
-        echo "<script>window.location.href='../category.php';</script>";
+        echo "<script>window.location.href='../category.php';</script>"; 
     }
 } else {
     echo '<script language="javascript">';

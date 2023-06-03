@@ -16,8 +16,7 @@
                 $Afetch = mysqli_fetch_array($Aquery);
             ?>
                 <div class="col-lg-4 col-md-6 my-2 box-youtube">
-                    <iframe src="https://www.youtube.com/embed/<?php echo $link_youtube; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-                    </iframe>
+                    <iframe src="https://www.youtube.com/embed/<?php echo $link_youtube; ?>" frameborder="0" allowfullscreen></iframe>
                     <a href="./view-video/<?php echo $video['id']; ?>/" class="text-decoration-none">
                         <h4 class="title-video">
                             <?php echo trim(strip_tags(mb_substr($video['v_title'], 0, 35, 'utf-8'))); ?>...

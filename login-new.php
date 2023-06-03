@@ -8,7 +8,7 @@ function encryptCookie($value)
     $key = hex2bin(openssl_random_pseudo_bytes(4));
 
     $cipher = "aes-256-cbc";
-    $ivlen = openssl_cipher_iv_length($cipher);
+    $ivlen = openssl_cipher_iv_length($cipher); 
     $iv = openssl_random_pseudo_bytes($ivlen);
 
     $ciphertext = openssl_encrypt($value, $cipher, $key, 0, $iv);
@@ -17,7 +17,7 @@ function encryptCookie($value)
 }
 
 function decryptCookie($ciphertext)
-{ 
+{
     $cipher = "aes-256-cbc";
 
     list($encrypted_data, $iv, $key) = explode('::', base64_decode($ciphertext));
@@ -107,7 +107,7 @@ if (isset($_POST['reg_btn'])) {
 
         if ($user_id) {
             foreach ($fields as $img => $value) {
-                if ($_FILES[$img]['name']) {
+                if ($_FILES[$img]['name']) { 
                     $file = $_FILES[$img]['tmp_name'];
                     $file_name = $_FILES[$img]['name'];
                     $file_name_array = explode(".", $file_name);
@@ -160,60 +160,79 @@ if (isset($_POST['reg_btn'])) {
     <link rel="shortcut icon" href="./favicon.webp" type="image/x-icon" />
     <link rel="icon" href="./favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="./favicon.webp" />
-
     <!-- Custom fonts for this template-->
     <link href="backend/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="backend/css/sb-admin-2.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet"> 
 
 </head>
 
+<body class="bg-gradient-custom">
 
-<body>
-    <div class="parent clearfix">
-        <div class="bg-illustration">
-            <!-- <img src="./img/Logo-sss.png" alt="logo"> -->
-        </div>
+    <div class="container">
 
-        <div class="login">
-            <div class="container"> 
-                <h1>Login to access to<br />your account</h1>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
 
-                <div class="login-form">
-                    <form method="POST">
-                        <input type="text" name="username" class="form-control form-control-user" placeholder="Username" value="<?php if (isset($_COOKIE['user_login'])) {
-                                                                                                                                    echo decryptCookie($_COOKIE['user_login']);
-                                                                                                                                } ?>">
-                        <span class="text-danger"><?php echo $nameErr; ?></span>
-                        <input type="password" name="password" class="form-control form-control-user" placeholder="Password" value="<?php if (isset($_COOKIE['user_password'])) {
-                                                                                                                                        echo decryptCookie($_COOKIE['user_password']);
-                                                                                                                                    } ?>">
-                        <span class="text-danger"><?php echo $passErr; ?></span>
+            <div class="col-xl-10 col-lg-12 col-md-9">
 
-                        <div class="form-group">
-                            <div class="custom-control custom-checkbox small" style="width: fit-content;">
-                                <input type="checkbox" name="rememberme" class="custom-control-input" id="customCheck" <?php if (isset($_COOKIE['user_login'])) {
-                                                                                                                            echo 'checked';
-                                                                                                                        } ?>>
-                                <label class="custom-control-label" for="customCheck">Remember
-                                    Me</label>
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form class="user" method="POST">
+                                        <div class="form-group">
+                                            <input type="text" name="username" class="form-control form-control-user" placeholder="Username" value="">
+                                            <!-- <input type="text" name="username" class="form-control form-control-user" placeholder="Username" value="<?php if (isset($_COOKIE['user_login'])) {
+                                                                                                                                                                // echo decryptCookie($_COOKIE['user_login']);
+                                                                                                                                                            } ?>"> -->
+                                            <span class="text-danger"><?php echo $nameErr; ?></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" name="password" class="form-control form-control-user" placeholder="Password" value="">
+                                            <!-- <input type="password" name="password" class="form-control form-control-user" placeholder="Password" value="<?php if (isset($_COOKIE['user_password'])) {
+                                                                                                                                                                    // echo decryptCookie($_COOKIE['user_password']);
+                                                                                                                                                                } ?>"> -->
+                                            <span class="text-danger"><?php echo $passErr; ?></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" name="rememberme" class="custom-control-input" id="customCheck" <?php if (isset($_COOKIE['user_login'])) {
+                                                                                                                                            echo 'checked';
+                                                                                                                                        } ?>>
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                            <span class="text-danger"><?php echo $msgErr; ?></span>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-around">
+                                            <a href="../">Back to home</a>
+                                            <a href="#reg_modal" data-toggle="modal">สมัครสมาชิก</a>
+                                        </div>
+                                        <hr>
+                                        <button type="submit" name="submit" class="btn btn-primary btn-user btn-block">
+                                            Login
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                            <span class="text-danger"><?php echo $msgErr; ?></span>
                         </div>
-                        <div class="forget-pass">
-                        <a href="#reg_modal" data-toggle="modal">สมัครสมาชิก</a>
-                        </div>
-
-                        <button type="submit" name="submit">LOG-IN</button>
-
-                    </form>
+                    </div>
                 </div>
 
             </div>
+
         </div>
+
     </div>
 
     <!-- Register Modal-->
@@ -303,68 +322,71 @@ if (isset($_POST['reg_btn'])) {
                 </div>
             </div>
         </div>
-</body>
+    </div>
 
-<!-- Bootstrap core JavaScript-->
-<script src="backend/vendor/jquery/jquery.min.js"></script>
-<script src="backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="backend/vendor/jquery/jquery.min.js"></script>
+    <script src="backend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Core plugin JavaScript-->
-<script src="backend/vendor/jquery-easing/jquery.easing.min.js"></script>
-<!-- Custom scripts for all pages-->
-<script src="backend/js/sb-admin-2.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="backend/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<script>
-    function readURL(input) {
-        const allowType = ['jpg', 'jpeg', 'png'];
+    <!-- Custom scripts for all pages-->
+    <script src="backend/js/sb-admin-2.min.js"></script>
 
-        const imgErrEl = document.getElementById('image-error');
-        imgErrEl.innerHTML = '';
+    <script>
+        function readURL(input) {
+            const allowType = ['jpg', 'jpeg', 'png'];
 
-        const Element = document.getElementById('show-' + input.id);
-        const lebelEl = document.getElementById('label-' + input.id);
-        Element.innerHTML = '';
-        lebelEl.innerHTML = 'Choose file';
+            const imgErrEl = document.getElementById('image-error');
+            imgErrEl.innerHTML = '';
 
-        if (input.files && input.files[0]) {
+            const Element = document.getElementById('show-' + input.id);
+            const lebelEl = document.getElementById('label-' + input.id);
+            Element.innerHTML = '';
+            lebelEl.innerHTML = 'Choose file';
 
-            const file = input.files[0];
-            const fileType = file.type;
-            if (allowType.find(type => fileType.includes(type))) {
-                lebelEl.innerHTML = file.name;
+            if (input.files && input.files[0]) {
 
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const imgEl = document.createElement('img');
+                const file = input.files[0];
+                const fileType = file.type;
+                if (allowType.find(type => fileType.includes(type))) {
+                    lebelEl.innerHTML = file.name;
 
-                    imgEl.src = e.target.result;
-                    imgEl.className = 'show-image';
-                    Element.appendChild(imgEl);
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const imgEl = document.createElement('img');
+
+                        imgEl.src = e.target.result;
+                        imgEl.className = 'show-image';
+                        Element.appendChild(imgEl);
+                    }
+                    reader.readAsDataURL(file);
+
+                } else {
+                    const errorEl = document.createElement('div');
+                    errorEl.className = 'alert-danger p-2 mb-3';
+                    errorEl.innerHTML = 'File type is not correct.';
+                    imgErrEl.appendChild(errorEl);
                 }
-                reader.readAsDataURL(file);
-
-            } else {
-                const errorEl = document.createElement('div');
-                errorEl.className = 'alert-danger p-2 mb-3';
-                errorEl.innerHTML = 'File type is not correct.';
-                imgErrEl.appendChild(errorEl);
             }
         }
-    }
 
-    function deleteImage(btn) {
-        const id = btn.id.split('-')[1];
-        const inputFile = document.getElementById(id);
-        const labelEl = document.getElementById('label-' + id);
-        const showImgEl = document.getElementById('show-' + id);
-        const imgEl = document.createElement('img');
-        inputFile.value = '';
-        labelEl.innerHTML = 'Choose file';
-        showImgEl.innerHTML = '';
-        imgEl.src = "backend/img/no-image.jpg";
-        imgEl.className = 'show-image';
-        showImgEl.appendChild(imgEl);
-    }
-</script>
+        function deleteImage(btn) {
+            const id = btn.id.split('-')[1];
+            const inputFile = document.getElementById(id);
+            const labelEl = document.getElementById('label-' + id);
+            const showImgEl = document.getElementById('show-' + id);
+            const imgEl = document.createElement('img');
+            inputFile.value = '';
+            labelEl.innerHTML = 'Choose file';
+            showImgEl.innerHTML = '';
+            imgEl.src = "backend/img/no-image.jpg";
+            imgEl.className = 'show-image';
+            showImgEl.appendChild(imgEl);
+        }
+    </script>
+
+</body>
 
 </html>

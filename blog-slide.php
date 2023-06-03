@@ -28,7 +28,7 @@
 
                             ?>
                             <div class="carousel-cardtext">
-                                <a href="./category/<?php echo $result_cate['cate_url']; ?>" class="a_cate"><?php echo $result_cate['name']; ?></a>
+                                <a href="./category/news/<?php echo $result_cate['cate_url']; ?>" class="a_cate"><?php echo $result_cate['name']; ?></a>
                                 <h3><?php echo trim(strip_tags(mb_substr($first['topic_name'], 0, 42, 'utf-8'))) ?>..</h3>
                                 <p><?php echo trim(strip_tags(mb_substr($first['descripion_seo'], 0, 120, 'utf-8'))); ?></p>
                                 <div class="card-flex">
@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-lg-6 position-relative">
                                 <div class="carousel-cardtext">
-                                    <a href="./category/<?php echo $result_two['cate_url']; ?>"  class="a_cate"><?php echo $result_two['name']; ?></a>
+                                    <a href="./category/news/<?php echo $result_two['cate_url']; ?>"  class="a_cate"><?php echo $result_two['name']; ?></a>
                                     <h3><?php echo trim(strip_tags(mb_substr($two['topic_name'], 0, 42, 'utf-8'))) ?>..</h3>
                                     <p><?php echo trim(strip_tags(mb_substr($two['descripion_seo'], 0, 120, 'utf-8'))); ?></p>
                                     <div class="card-flex">
