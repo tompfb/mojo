@@ -18,7 +18,7 @@ include './functions/date-thai.php'; ?>
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../favicon.webp" />
     <?php include('./import-css.php'); ?>
-</head> 
+</head>
 
 <body>
     <?php include('./component/header.php'); ?>

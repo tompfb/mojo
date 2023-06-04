@@ -40,12 +40,12 @@
 <body>
     <?php include('./component/header.php'); ?>
 
-    <article>
-        <section class="site-main-content">
+    <article class="content ">
+        <section class="site-main-content py-3">
             <div class="container text-center">
 
                 <div class="read-more">
-                    <h1 class="txt-heading text-start">mojo esan</h1>
+                    <h1 class="txt-heading text-start">เกี่ยวกับเรา</h1>
                     <p class="text-start">
                         ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน (MOJO อีสาน) หรือ Esan Mobile Journalist เป็นโครงการที่ดำเนินงานโดยมูลนิธิสื่อสร้างสุข ได้รับการสนับสนุนงบประมาณจากสำนักงานกองทุนสนับสนุนสุขภาพ (สสส.) ภายใต้แผนงานสำนักสร้างเสริมระบบสื่อและสุขภาวะทางปัญญา (สำนัก 11) มีเป้าหมายดำเนินงานเพื่อให้เกิดการใช้สื่ออย่างรู้เท่าทันและปลอดภัย  เพราะในยุคที่ทุกคนเป็นได้ทั้งผู้ผลิตและผู้รับสาร (media user and creators) สื่อจึงเป็นเสมือนดาบสองคมที่จะสามารถทำให้เกิดคุณและโทษ  ดังนั้นการสร้างความตระหนักต่อความเข้าใจในบริบทสื่อใหม่  จึงเป็นการทำให้ทุกคนทั้งผู้ที่ส่งสารและรับสารสามารถเข้าถึง เข้าใจ ตีความ ประเมิน และสร้างข้อมูล และสื่อในรูปแบบที่หลากหลายด้วยความตระหนักถึงผลกระทบของข้อมูลและสื่อต่าง ๆโดยไม่ถูกครอบงำที่จะสามารถใช้สื่อให้เป็นประโยชน์ต่อการเรียนรู้และการดำรงชีวิตทั้งของตนเอง ครอบครัว ชุมชน  และสังคม 
                     </p>
@@ -63,7 +63,7 @@
                         330/5 หมู่ 17 ตำบลไร่น้อย อำเภอเมือง จังหวัดอุบลราชธานี <br>
                         โทร 087- 8766413 / 085 - 4157901 / 099 - 8980280 <br>
                     </p>
-                    <p class="text-start">
+                    <!-- <p class="text-start">
                         ภาคี <br>
 
                         <a href="https://www.thaihealth.or.th" target="_blank" rel="ugc">https://www.thaihealth.or.th </a><br>
@@ -73,7 +73,7 @@
                         <a href="https://www.facebook.com/UbonConnect" target="_blank" rel="ugc">https://www.facebook.com/UbonConnect </a><br>
                         <a href="https://www.facebook.com/search/top/?q=สื่อสร้างสุข" target="_blank" rel="ugc">https://www.facebook.com/search/top/?q=สื่อสร้างสุข</a> <br>
 
-                    </p>
+                    </p> -->
                     <p class="prompt">
                         <a class="button btn btn-primary" href="#">ดูเพิ่มเติม</a>
                     </p>
@@ -89,8 +89,7 @@
                     <a href="https://www.facebook.com/Ginsabaijai" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="กินสบายใจ"><img data-src="../img/Logo-cat.png" class="img-fluid lazy zoom-hover" width="110" height="200" alt=""></a>
                 </div>
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3787.650207196164!2d99.40087488255618!3d18.317597916183807!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sth!2sth!4v1685907379962!5m2!1sth!2sth" width="1290" height="550" class="iframe_loca" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1152.3590022637334!2d104.87825274933391!3d15.27449638736839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311687b6d839e643%3A0x634777d060cdd936!2z4Lih4Li54Lil4LiZ4Li04LiY4Li04Liq4Li34LmI4Lit4Liq4Lij4LmJ4Liy4LiH4Liq4Li44LiC!5e1!3m2!1sth!2sth!4v1685908814872!5m2!1sth!2sth" width="1290" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
     </article>

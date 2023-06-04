@@ -69,7 +69,7 @@ $page = 3; ?>
                                                         $str_Date = $row['create_at'];;
                                                         echo ": " . DateThai($str_Date);
                                                         ?>
-                                                    </span>
+                                                    </span> 
                                                 </div>
                                             </div>
                                         </a>

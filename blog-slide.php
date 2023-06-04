@@ -13,7 +13,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="container">
-                    <div class="row">
+                    <div class="row"> 
                         <div class="col-lg-6 position-relative">
                             <?php
                             $cate =  $first['category_id'];

@@ -285,7 +285,7 @@ include("fetch-data-video.php");
                                         $VName = $row['name'];
                                         $Vurl = $row['videoUrl'];
                                 ?>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 my-2">
+                                        <div class="col-lg-4 col-md-6 col-sm-12 my-2">
                                             <div class="card text-center d-flex justify-content-center">
                                                 <h5 class="mt-3">วิดิโอ <?php echo trim(strip_tags(mb_substr($Vidname, 0, 30, 'utf-8'))); ?>...</h5>
                                                 <div class="card-body ">
@@ -336,7 +336,7 @@ include("fetch-data-video.php");
                                         $VName = $row['name'];
                                         $Vid = $row['id'];
                                     ?>
-                                        <div class="col-lg-3 col-md-6 col-sm-12 my-2">
+                                        <div class="col-lg-4 col-md-6 col-sm-12 my-2">
                                             <div class="card text-center d-flex justify-content-center">
 
                                                 <h5 class="mt-3">วิดิโอ <?php echo trim(strip_tags(mb_substr($Vidname, 0, 30, 'utf-8'))); ?></h5>

@@ -328,6 +328,7 @@ h2.txt-heading small {
   background-color: #f37a21;
   border-radius: 50px;
   margin-left: 5px !important;
+  color: #ffffff !important;
 }
 .card-tab a.next-tab:hover {
   background-color: #f37a21;
@@ -871,6 +872,10 @@ span.date {
 .btn-btn-success:hover{
   -webkit-transform: translateY(-5px);
   transform: translateY(-5px);
+}
+.title-ve{
+  color: #111828 !important;
+  font-size: 18px !important;
 }
 @media (max-width: 991px) {
 }
