@@ -81,7 +81,7 @@ if (isset($_GET["news"])) {
                     include("./connection.php");
                     include './functions/date-thai.php';
 
-                    $query = mysqli_query($conn, "SELECT * ,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE articles.category_id = $category_id and articles.status = 0   order by articles.id DESC limit 9"); ?>
+                    $query = mysqli_query($conn, "SELECT * ,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE articles.category_id = $category_id and articles.status = 0   order by articles.id DESC limit 8"); ?>
                     <div class="row">
                         <?php
                         while ($row = mysqli_fetch_array($query)) {
@@ -106,7 +106,7 @@ if (isset($_GET["news"])) {
                                                     echo ": " . DateThai($str_Date);
                                                     ?>
                                                 </span>
-                                            </div>
+                                            </div> 
                                         </div>
                                     </a>
                                 </div>
@@ -131,7 +131,7 @@ if (isset($_GET["news"])) {
                     $lastid = '';
                     include("./connection.php");
                     include './functions/date-thai.php';
-                    $query  =  mysqli_query($conn, "SELECT *,podcasts.id as id FROM podcasts LEFT join user on podcasts.user_id = user.id WHERE podcasts.status = 0 and podcasts.category_id =   $num ORDER BY podcasts.id DESC LIMIT 9");
+                    $query  =  mysqli_query($conn, "SELECT *,podcasts.id as id FROM podcasts LEFT join user on podcasts.user_id = user.id WHERE podcasts.status = 0 and podcasts.category_id =   $num ORDER BY podcasts.id DESC LIMIT 8");
                     ?>
                     <div class="row">
                         <?php

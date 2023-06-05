@@ -89,7 +89,7 @@
                     <a href="https://www.facebook.com/Ginsabaijai" class="text-decoration-none d-inline-block my-2 mx-3" target="_blank" title="กินสบายใจ"><img data-src="../img/Logo-cat.png" class="img-fluid lazy zoom-hover" width="110" height="200" alt=""></a>
                 </div>
 
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1152.3590022637334!2d104.87825274933391!3d15.27449638736839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311687b6d839e643%3A0x634777d060cdd936!2z4Lih4Li54Lil4LiZ4Li04LiY4Li04Liq4Li34LmI4Lit4Liq4Lij4LmJ4Liy4LiH4Liq4Li44LiC!5e1!3m2!1sth!2sth!4v1685908814872!5m2!1sth!2sth" width="1290" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1152.3590022637334!2d104.87825274933391!3d15.27449638736839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311687b6d839e643%3A0x634777d060cdd936!2z4Lih4Li54Lil4LiZ4Li04LiY4Li04Liq4Li34LmI4Lit4Liq4Lij4LmJ4Liy4LiH4Liq4Li44LiC!5e1!3m2!1sth!2sth!4v1685908814872!5m2!1sth!2sth" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
     </article>

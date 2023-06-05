@@ -20,13 +20,7 @@ $page = 2; ?>
     <link rel="apple-touch-icon" href="../favicon.webp" />
     <?php include('./import-css.php'); ?>
 
-    <style>
-        @media (max-width:675px) {
-            .row-fix .col-sm-6 {
-                width: 50% !important;
-            }
-        }
-    </style>
+
 </head>
 
 <body>

@@ -1,19 +1,6 @@
-<!------- date --------------->
 <?php
-include 'script-login.php';
-function DateThai($strDate)
-{
-    $strYear = date("Y", strtotime($strDate));
-    $strMonth = date("n", strtotime($strDate));
-    $strDay = date("j", strtotime($strDate));
-    $strMonthCut = array("", "Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec.");
-    $strMonthThai = $strMonthCut[$strMonth];
-    return "$strDay $strMonthThai $strYear ";
-}
-?>
-<!------------------end date ------------------>
-<?php
-include './conn/connect.php';
+include "./connection.php";
+include './functions/date-thai.php';
 $name = $_GET["tag_url"];
 $tagUrl = $_GET["tag_url"];
 // รับข้อมูลจากตาราง 
@@ -50,20 +37,6 @@ $resultrow = mysqli_fetch_array($allArticle);
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../favicon.webp" />
-
-    <?php include('./link.php'); ?>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJD33H7ZXZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-KJD33H7ZXZ');
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="application/ld+json">
         {
@@ -88,12 +61,12 @@ $resultrow = mysqli_fetch_array($allArticle);
             ]
         }
     </script>
-
+    <?php include('./import-css.php'); ?>
 </head>
 
 <body>
     <?php include('./component/header.php'); ?>
-    <section id="bread-crumbs">
+    <!-- <section id="bread-crumbs">
         <div class="container px-0">
             <nav aria-label="breadcrumb " class="nav-breadcrumb">
                 <ol class="breadcrumb">
@@ -103,52 +76,46 @@ $resultrow = mysqli_fetch_array($allArticle);
                 </ol>
             </nav>
         </div>
-    </section>
-    <article class="article-container-card">
+    </section> -->
+    <article class="content">
         <section class="container">
-            <div class="heading-bg-secon">
-                <h1 class="bg-heading">
+            <div class="heading-bg-secon py-3">
+                <h1 class="txt-heading">
                     แท็ก : <?php echo $name; ?>
                 </h1>
             </div>
             <div id="loadtable">
                 <?php
                 $lastid = '';
-                include('./conn/connect.php');
-                $query = mysqli_query($conn, "SELECT *,articles.id as id FROM articles LEFT join tag_log on articles.id = tag_log.articles_id WHERE tag_log.tag_id ='$t_id' ORDER BY articles.id  asc limit 9"); ?>
+                $query = mysqli_query($conn, "SELECT *,articles.id as id FROM articles LEFT join tag_log on articles.id = tag_log.articles_id WHERE tag_log.tag_id ='$t_id' ORDER BY articles.id  DESC limit 9"); ?>
                 <div class="row">
                     <?php
                     while ($row = mysqli_fetch_array($query)) {
-                        // $article_id = $row['id'];
                     ?>
-
-                        <div class="col-lg-4 col-md-6  col-sm-12">
-                            <div class="bg_articles my-2">
-                                <a href="../view/<?php echo $row['url_articles_seo']; ?>">
+                        <div class="col-lg-3 col-md-6 col-sm-12 my-2">
+                            <div class="box-post">
+                                <a href="../view/<?php echo $row['url_articles_seo']; ?>" class="post_link" rel="ugc">
                                     <figure class="news-articles-img">
-                                        <div class="bg-img">
-                                            <img class="lazy img-fluid" data-src="../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 30, 'utf-8'))); ?>" width="100%" height="100%">
-                                        </div>
+                                        <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo $row['topic_name']; ?>" width="100%" height="100%">
                                     </figure>
                                     <div class="px-2">
-                                        <strong class="news-articles-h4"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 30, 'utf-8'))); ?></strong>
-                                        <div class="view_date">
+                                        <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 40, 'utf-8'))); ?></h4>
+                                        <div class="card-flex-new">
                                             <span>
-                                                โพสเมื่อ : <?php echo date("Y-m-d", strtotime($row['create_at'])); ?>
+                                                <i class="fa fa-eye"></i> : <?php echo $row['view'];   ?>
                                             </span>
-                                            <span>
-                                                ผู้เข้าชม : <?php echo $row['view']; ?>
+                                            <span class="date">
+                                                <i class="fas fa-clock"></i>
+                                                <?php
+                                                $str_Date = $row['create_at'];
+                                                echo ": " . DateThai($str_Date);
+                                                ?>
                                             </span>
                                         </div>
-
-                                        <p class="news-articles-p "><?php echo trim(strip_tags(mb_substr($row['descripion_seo'], 0, 120, 'utf-8'))); ?></p>
-
                                     </div>
                                 </a>
-
                             </div>
                         </div>
-
                     <?php
                         $lastid = $row['id'];
                         $tags =  $t_id;
@@ -165,6 +132,7 @@ $resultrow = mysqli_fetch_array($allArticle);
             </div>
         </section>
     </article>
+    <br><br>
     <?php include('./component/footer.php'); ?>
     <script>
         $(document).ready(function() {

@@ -1,6 +1,6 @@
 <?php
-include 'script-login.php';
-include './conn/connect.php';
+include "./connection.php";
+include './functions/date-thai.php';
 $name = $_GET["firstname"];
 $Fname = $_GET["firstname"];
 $showName = str_replace('-', ' ', $name);
@@ -20,7 +20,7 @@ if (isset($Fname)) {
 <html>
 
 <head>
-    <title><?php echo $a_name ?>, Author at หวยหุ้นจีน</title>
+    <title><?php echo $a_name ?>, Author at mojo esan</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -39,19 +39,6 @@ if (isset($Fname)) {
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../favicon.webp" />
-    <?php include('./link.php'); ?>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJD33H7ZXZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-KJD33H7ZXZ');
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="application/ld+json">
         {
@@ -76,12 +63,12 @@ if (isset($Fname)) {
             ]
         }
     </script>
-
+    <?php include('./import-css.php'); ?>
 </head>
 
 <body>
     <?php include('./component/header.php'); ?>
-    <section id="bread-crumbs">
+    <!-- <section id="bread-crumbs">
         <div class="container px-0">
             <nav aria-label="breadcrumb " class="nav-breadcrumb">
                 <ol class="breadcrumb">
@@ -91,65 +78,47 @@ if (isset($Fname)) {
                 </ol>
             </nav>
         </div>
-    </section>
+    </section> -->
 
-    <article class="viewcontainer">
+    <article class="content">
         <div class="container boxcontainer" style="min-height: 60vh;">
-            <div class="heading-bg-secon">
-                <h1 class="bg-heading">
+            <div class="heading-bg-secon py-3">
+                <h1 class="txt-heading">
                     AUTHOR ARCHIVES : <?php echo $a_name; ?>
                 </h1>
             </div>
             <div id="loadtable">
                 <?php
                 $lastid = '';
-                include('./conn/connect.php');
-                $query = mysqli_query($conn, "SELECT *,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE user.firstname ='$name' ORDER BY articles.id   asc limit 9"); ?>
+                $query = mysqli_query($conn, "SELECT *,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE user.firstname ='$name' ORDER BY articles.id  DESC limit 8"); ?>
                 <div class="row align-items-end">
                     <?php
                     while ($row = mysqli_fetch_array($query)) {
-                        $article_id = $row['id'];
+
                     ?>
 
-                        <div class="col-lg-4 col-md-6  col-sm-12">
-                            <div class="bg_articles my-2">
-                                <a href="../view/<?php echo $row['url_articles_seo']; ?>">
+                        <div class="col-lg-3 col-md-6 col-sm-12 my-2">
+                            <div class="box-post">
+                                <a href="../view/<?php echo $row['url_articles_seo']; ?>" class="post_link" rel="ugc">
                                     <figure class="news-articles-img">
-                                        <div class="bg-img">
-                                            <img class="lazy img-fluid" data-src="../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 30, 'utf-8'))); ?>" width="100%" height="100%">
-                                        </div>
+                                        <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo $row['topic_name']; ?>" width="100%" height="100%">
                                     </figure>
                                     <div class="px-2">
-                                        <strong class="news-articles-h4"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 30, 'utf-8'))); ?></strong>
-                                        <div class="view_date">
+                                        <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 40, 'utf-8'))); ?></h4>
+                                        <div class="card-flex-new">
                                             <span>
-                                                โพสเมื่อ : <?php echo date("Y-m-d", strtotime($row['create_at'])); ?>
+                                                <i class="fa fa-eye"></i> : <?php echo $row['view'];   ?>
                                             </span>
-                                            <span>
-                                                ผู้เข้าชม : <?php echo $row['view']; ?>
+                                            <span class="date">
+                                                <i class="fas fa-clock"></i>
+                                                <?php
+                                                $str_Date = $row['create_at'];
+                                                echo ": " . DateThai($str_Date);
+                                                ?>
                                             </span>
                                         </div>
-
-                                        <p class="news-articles-p "><?php echo trim(strip_tags(mb_substr($row['descripion_seo'], 0, 120, 'utf-8'))); ?></p>
-
                                     </div>
-
                                 </a>
-                                <div class="usertag">
-                                    <div class="tag__info">
-                                        <?php
-                                        $sql_tag = "SELECT tag.tag_url as tag_url,tag.name as name FROM (tag
-                                    left join tag_log on tag.id = tag_log.tag_id)
-                                    where articles_id = $article_id ";
-                                        $query_tag = mysqli_query($conn, $sql_tag) or die("Error in query: $sql " . mysqli_error($conn));
-                                        while ($result_tag = $query_tag->fetch_assoc()) {
-                                        ?>
-                                            <a href="../tag/<?php echo $result_tag['tag_url']; ?>" style="text-decoration: none;">
-                                                <span class="tag tag-red"><?php echo $result_tag['name'] ?></span>
-                                            </a>
-                                        <?php } ?>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 

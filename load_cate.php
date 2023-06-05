@@ -6,7 +6,7 @@ include './functions/date-thai.php';
 if (isset($_POST['lastid'])) {
     $lastid = $_POST['lastid'];
     $category_name = $_POST['Ncategory'];
-    $sqlAllArticle = "SELECT * ,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE articles.category_id = $category_name AND articles.status = 0 AND articles.id < '$lastid'  order by articles.id DESC limit 9";
+    $sqlAllArticle = "SELECT * ,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE articles.category_id = $category_name AND articles.status = 0 AND articles.id < '$lastid'  order by articles.id DESC limit 8";
     $allArticle = mysqli_query($conn, $sqlAllArticle) or die("Error in query: $sqlAllArticle " . mysqli_error($conn));
 
     if (mysqli_num_rows($allArticle) > 0) {

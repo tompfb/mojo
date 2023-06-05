@@ -153,6 +153,27 @@ if (isset($url_articles_seo)) {
             width: 35% !important;
             height: 120px !important;
         }
+
+        @media (max-width:991px) {
+            .card-width {
+                padding: 10px !important;
+                min-height: auto;
+            }
+            .card-width a{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+            .card-width a .c-txt {
+                width: 100% !important;
+                order: 2 !important;
+            }
+            .card-width figure {
+                width: 100% !important;
+                order: 1 !important;
+            }
+        }
     </style>
 
 </head>
@@ -233,7 +254,7 @@ if (isset($url_articles_seo)) {
                             $query_two = mysqli_query($conn, "SELECT * ,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE articles.status = 0  ORDER BY articles.view DESC LIMIT 4");
                             while ($row_result = mysqli_fetch_array($query_two)) {
                             ?>
-                                <div class="col-lg-12 col-md-6 my-1">
+                                <div class="col-lg-12 col-md-12 my-1">
                                     <div class="card-width">
                                         <a href="../view/<?php echo $row_result['url_articles_seo']; ?>" class="post_link" rel="ugc">
                                             <div class="c-txt">

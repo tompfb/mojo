@@ -1,6 +1,15 @@
 <a href="" class="scrollup">
     <span><i class="fas fa-arrow-up"></i></span>
 </a>
+<script>
+    function openNav() {
+        document.getElementById("myNav").style.width = "280px";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0";
+    }
+</script>
 <script src="../js/jquery-latest.min.js"></script>
 <script>
     $(window).scroll(function() {
@@ -12,7 +21,7 @@
     })
 
     $(".scrollup").click(function() {
-        $("html, body").animate({ 
+        $("html, body").animate({
             scrollTop: 0
         }, 600);
         return false;

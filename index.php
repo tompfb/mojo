@@ -14,7 +14,7 @@ if ($key_search) {
 <!DOCTYPE html>
 <html lang="th">
 
-<head> 
+<head>
     <title>mojo esan</title>
     <meta name="title" content="   mojo esan" />
     <meta name="description" content="หวยหุ้นจีน เปิดให้บริการบนหวยหุ้นจีนออนไลน์ จ่ายสูงสุดบาทละ 1,000 บาท บริการแทงหวยไม่มีขั้นต่ำ ฝาก-ถอนรวดเร็วโอนไว ถอนได้ไม่มีอั้นตลอด 24 ชั่วโมง" />
@@ -73,7 +73,7 @@ if ($key_search) {
     <script type="application/ld+json">
         {
             "@context": "https://schema.org/",
-            "@type": "WebPage", 
+            "@type": "WebPage",
             "name": "หวยหุ้นจีน ",
             "speakable": {
                 "@type": "SpeakableSpecification",
@@ -164,14 +164,27 @@ if ($key_search) {
 
 <body>
     <header class="main-header" id="navbar-sticky">
-        <div class="container">
+        <div class="container menu-moblie">
+            <div class="open-nav">
+                <button class="openmenu" type="button" onclick="openNav()"><span>&#9776;</span></button>
+            </div>
+            <div class="logo-center text-center">
+                <a href="./">
+                    <img data-src="./img/Logo-mojoesan.png" class="lazy img-fluid" width="200" height="500" alt="logo mojoesan">
+                </a>
+            </div>
+            <div class="list-icon">
+                <a href="./login.php" title="เข้าสู่ระบบ"><i class="fal fa-user-circle"></i></a>
+            </div>
+        </div>
+        <div class="container  d-md-none">
             <div class="row align-items-center desktop-show">
                 <div class="col-lg-2 site-logo ">
                     <a href="./">
                         <img data-src="./img/Logo-mojoesan.png" class="lazy img-fluid zoom-hover" width="150" height="500" alt="logo mojoesan">
                     </a>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8 ">
                     <nav class="nav-bar">
                         <ul>
                             <li><a class="active" href="./">หน้าแรก</a></li>
@@ -197,11 +210,25 @@ if ($key_search) {
                             </li>
                         </ul>
                     </div>
-                    <!-- <a href="" title="search">
-                        <i class="far fa-search"></i>
-                    </a> -->
                     <a href="./login.php" title="เข้าสู่ระบบ"><i class="fal fa-user-circle"></i></a>
                 </div>
+            </div>
+        </div>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <img data-src="./img/Logo-mojoesan-white.png" class="lazy img-fluid me-1" width="150" height="500" alt="logo mojoesan">
+                <br>
+                <a href="./">หน้าแรก</a>
+                <a href="./interview/">สัมภาษณ์</a>
+                <a href="./research/">งานวิจัย</a>
+                <a href="./podcast/">พอดคาสต์</a>
+                <a href="./esan-clip/">คลิป</a>
+                <a href="./about/">เกี่ยวกับเรา</a>
+                <form action="./?s=s" method="GET">
+                    <input type="text" name="s" class="search-input-toggles" placeholder="กรอกคำค้นหา..." required />
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
             </div>
         </div>
     </header>
@@ -336,6 +363,15 @@ if ($key_search) {
     <a href="" class="scrollup">
         <span><i class="fas fa-arrow-up"></i></span>
     </a>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "280px";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0";
+        }
+    </script>
     <script src="./js/jquery-latest.min.js"></script>
     <script>
         $(window).scroll(function() {
