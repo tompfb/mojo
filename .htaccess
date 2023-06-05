@@ -21,6 +21,7 @@ RewriteRule ^view-video/([a-zA-Z-0-9-ก-เ-]+)/ view-video.php?name=$1
 RewriteRule ^view/([a-zA-Z0-9-ก-เ/]+)$ view.php?url_articles_seo=$1
 RewriteRule ^view/([a-zA-Z-0-9-ก-เ-]+)/ view.php?url_articles_seo=$1
 
+
 RewriteRule ^tag/([a-zA-Z0-9-ก-เ/]+)$ tag.php?tag_url=$1
 RewriteRule ^tag/([a-zA-Z-0-9-ก-เ-]+)/ tag.php?tag_url=$1
 

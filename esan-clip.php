@@ -83,7 +83,7 @@ include './functions/date-thai.php';
                             <div class="row justify-content-center py-3">
                                 <div class="col-lg-8 col-md-10 col-sm-12">
                                     <iframe src="https://www.youtube.com/embed/<?php echo substr($ve_one['videoUrl'], 17); ?>" frameborder="0" allowfullscreen></iframe>
-                                    <a href="../view-video/<?php echo $ve_one['id']; ?>/" class="text-decoration-none a-links">
+                                    <a href="../view-video/<?php echo $ve_one['id']; ?>" class="text-decoration-none a-links">
                                         <h4 class="title-video">
                                             <?php echo trim(strip_tags(mb_substr($ve_one['v_title'], 0, 100, 'utf-8'))); ?>...
                                         </h4>
@@ -114,7 +114,7 @@ include './functions/date-thai.php';
                                 <div class="row justify-content-center py-3">
                                     <div class="col-lg-8 col-md-10 col-sm-12">
                                         <iframe src="https://www.youtube.com/embed/<?php echo substr($ve_one_['videoUrl'], 17); ?>" frameborder="0" allowfullscreen></iframe>
-                                        <a href="../view-video/<?php echo $ve_one_['id']; ?>/" class="text-decoration-none a-links">
+                                        <a href="../view-video/<?php echo $ve_one_['id']; ?>" class="text-decoration-none a-links">
                                             <h4 class="title-video">
                                                 <?php echo trim(strip_tags(mb_substr($ve_one_['v_title'], 0, 100, 'utf-8'))); ?>...
                                             </h4>
@@ -161,7 +161,7 @@ include './functions/date-thai.php';
                             ?>
                                 <div class="col-lg-4 col-md-6  col-sm-12 box-youtube my-2">
                                     <iframe src="https://www.youtube.com/embed/<?php echo substr($row['videoUrl'], 17); ?>" frameborder="0" allowfullscreen></iframe>
-                                    <a href="../view-video/<?php echo $row['id']; ?>/" class="text-decoration-none">
+                                    <a href="../view-video/<?php echo $row['id']; ?>" class="text-decoration-none">
                                         <h4 class="title-ve">
                                             <?php echo trim(strip_tags(mb_substr($row['v_title'], 0, 35, 'utf-8'))); ?>...
                                         </h4>

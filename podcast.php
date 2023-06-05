@@ -46,7 +46,7 @@ include './functions/date-thai.php'; ?>
                     while ($row = mysqli_fetch_array($fetchpodcasts)) {
                     ?>
                         <div class="col-lg-3 col-md-6 my-2">
-                            <a href="../view-podcast/<?php echo $row['id'] ?>/" class=" text-decoration-none">
+                            <a href="../view-podcast/<?php echo $row['id'] ?>" class=" text-decoration-none">
                                 <div class="card_podcast">
                                     <figure>
                                         <img src="../backend/uploads/podcast-img/<?php echo $row['image_podcast']; ?>" alt="<?php echo $row['title']; ?>" class="img-fluid card__image" width="100%" height="100%">
@@ -83,7 +83,7 @@ include './functions/date-thai.php'; ?>
                     while ($row_result = mysqli_fetch_array($pod_two)) {
                     ?>
                         <div class="col-lg-3 col-md-6 my-2">
-                            <a href="../view-podcast/<?php echo $row_result['id'] ?>/" class=" text-decoration-none">
+                            <a href="../view-podcast/<?php echo $row_result['id'] ?>" class=" text-decoration-none">
                                 <div class="card_podcast">
                                     <figure>
                                         <img src="../backend/uploads/podcast-img/<?php echo $row_result['image_podcast']; ?>" alt="<?php echo $row_result['title']; ?>" class="img-fluid card__image" width="100%" height="100%">
@@ -120,7 +120,7 @@ include './functions/date-thai.php'; ?>
                     while ($row_result = mysqli_fetch_array($pod_two)) {
                     ?>
                         <div class="col-lg-3 col-md-6 my-2">
-                            <a href="../view-podcast/<?php echo $row_result['id'] ?>/" class=" text-decoration-none">
+                            <a href="../view-podcast/<?php echo $row_result['id'] ?>" class=" text-decoration-none">
                                 <div class="card_podcast">
                                     <figure>
                                         <img src="../backend/uploads/podcast-img/<?php echo $row_result['image_podcast']; ?>" alt="<?php echo $row_result['title']; ?>" class="img-fluid card__image" width="100%" height="100%">
@@ -157,7 +157,7 @@ include './functions/date-thai.php'; ?>
                     while ($row_result = mysqli_fetch_array($pod_two)) {
                     ?>
                         <div class="col-lg-3 col-md-6 my-2">
-                            <a href="../view-podcast/<?php echo $row_result['id'] ?>/" class=" text-decoration-none">
+                            <a href="../view-podcast/<?php echo $row_result['id'] ?>" class=" text-decoration-none">
                                 <div class="card_podcast">
                                     <figure>
                                         <img src="../backend/uploads/podcast-img/<?php echo $row_result['image_podcast']; ?>" alt="<?php echo $row_result['title']; ?>" class="img-fluid card__image" width="100%" height="100%">

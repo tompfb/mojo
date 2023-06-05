@@ -16,7 +16,7 @@ if (isset($_POST['lastid'])) {
             ?>
                 <div class="col-lg-4 col-md-6  col-sm-12 box-youtube my-2">
                     <iframe src="https://www.youtube.com/embed/<?php echo substr($row['videoUrl'], 17); ?>" frameborder="0" allowfullscreen></iframe>
-                    <a href="../view-video/<?php echo $row['id']; ?>/" class="text-decoration-none">
+                    <a href="../view-video/<?php echo $row['id']; ?>" class="text-decoration-none">
                         <h4 class="title-ve">
                             <?php echo trim(strip_tags(mb_substr($row['v_title'], 0, 35, 'utf-8'))); ?>...
                         </h4>

@@ -32,7 +32,7 @@ if (isset($_POST['but_upload'])) {
         $extension = end($file_name_array);
         $new_image_name = rand() . '.' . $extension;
         $target_dir = "uploads/podcasts/";
-        $target_file = $target_dir . $new_image_name;
+        $target_file = $target_dir . $new_image_name; 
         $actual_link = "http://$_SERVER[HTTP_HOST]";
 
         // Valid file extensions
@@ -49,7 +49,7 @@ if (isset($_POST['but_upload'])) {
                 if (move_uploaded_file($file, $target_file)) {
                     // Insert record                    
 
-                    $query = "INSERT INTO podcasts (name, location, title, category_id,	user_id) VALUES ('" . $name . "', '" . $new_image_name . "', '" . $title . "','" . $category . "','" . $id_us . "')";
+                    $query = "INSERT INTO podcasts (name, location, title, category_id,	user_id,status) VALUES ('" . $name . "', '" . $new_image_name . "', '" . $title . "','" . $category . "','" . $id_us . "','1')";
                     mysqli_query($conn, $query);
                     $_SESSION['message'] = "Upload successfully.";
 

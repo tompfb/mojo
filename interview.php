@@ -54,9 +54,10 @@ $page = 2; ?>
                         <?php
                         $query = mysqli_query($conn, "SELECT * ,articles.id as id FROM articles LEFT join user on articles.user_id = user.id WHERE articles.status = 0 and articles.category_id =  $id ORDER BY articles.create_at DESC LIMIT 1");
                         $row = mysqli_fetch_array($query);
+                        $url_articles_seo = $row['url_articles_seo'];
                         ?>
                         <div class="post-cate" style="overflow-x: hidden;">
-                            <a href="../view/<?php echo $row['url_articles_seo']; ?>/" class="post_link" rel="ugc">
+                            <a href="../view/<?php echo $url_articles_seo; ?>" class="post_link" rel="ugc">
                                 <figure class="card_img_interview">
                                     <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo $row['topic_name']; ?>" width="100%" height="100%">
                                 </figure>
@@ -87,7 +88,7 @@ $page = 2; ?>
                             ?>
                                 <div class="col-lg-12 my-1">
                                     <div class="card-width">
-                                        <a href="../view/<?php echo $row_result['url_articles_seo']; ?>/" class="post_link" rel="ugc">
+                                        <a href="../view/<?php echo $row_result['url_articles_seo']; ?>" class="post_link" rel="ugc">
                                             <div class="c-txt">
                                                 <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 90, 'utf-8'))); ?>...</h4>
                                                 <div class="card-flex-new">
@@ -134,7 +135,7 @@ $page = 2; ?>
                         while ($three_result = mysqli_fetch_array($query_three)) { ?>
                             <div class="col-lg-3 col-md-6 col-sm-6 my-2">
                                 <div class="box-post">
-                                    <a href="../view/<?php echo $three_result['url_articles_seo']; ?>/" class="post_link" rel="ugc">
+                                    <a href="../view/<?php echo $three_result['url_articles_seo']; ?>" class="post_link" rel="ugc">
                                         <figure class="news-articles-img">
                                             <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $three_result['image_banner']; ?>" alt="<?php echo $three_result['topic_name']; ?>" width="100%" height="100%">
                                         </figure>

@@ -18,7 +18,7 @@
                 $Poa_n = mysqli_fetch_array($Po_a);
             ?>
                 <div class="col-lg-3 col-md-6 my-2">
-                    <a href="./view-podcast/<?php echo $Podid; ?>/" class=" text-decoration-none">
+                    <a href="./view-podcast/<?php echo $Podid; ?>" class=" text-decoration-none">
                         <div class="card_podcast">
                             <figure>
                                 <img src="./backend/uploads/podcast-img/<?php echo $Pimg; ?>" alt="<?php echo $Podidname; ?>" class="img-fluid card__image" width="100%" height="100%">

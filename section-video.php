@@ -17,7 +17,7 @@
             ?>
                 <div class="col-lg-4 col-md-6 my-2 box-youtube my-2">
                     <iframe src="https://www.youtube.com/embed/<?php echo $link_youtube; ?>" frameborder="0" allowfullscreen></iframe>
-                    <a href="./view-video/<?php echo $video['id']; ?>/" class="text-decoration-none">
+                    <a href="./view-video/<?php echo $video['id']; ?>" class="text-decoration-none">
                         <h4 class="title-video">
                             <?php echo trim(strip_tags(mb_substr($video['v_title'], 0, 35, 'utf-8'))); ?>...
                         </h4>

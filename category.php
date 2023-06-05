@@ -88,7 +88,7 @@ if (isset($_GET["news"])) {
                         ?>
                             <div class="col-lg-3 col-md-6 col-sm-12 my-2">
                                 <div class="box-post">
-                                    <a href="../../view/<?php echo $row['url_articles_seo']; ?>/" class="post_link" rel="ugc">
+                                    <a href="../../view/<?php echo $row['url_articles_seo']; ?>" class="post_link" rel="ugc">
                                         <figure class="news-articles-img">
                                             <img class="lazy img-fluid " data-src="../../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo $row['topic_name']; ?>" width="100%" height="100%">
                                         </figure>
@@ -125,11 +125,58 @@ if (isset($_GET["news"])) {
                         </div>
                     </div>
                 </div>
-
-            <?php   } else {
-            }
+            <?php   } else { ?>
+                <div id="loadtable">
+                    <?php
+                    $lastid = '';
+                    include("./connection.php");
+                    include './functions/date-thai.php';
+                    $query  =  mysqli_query($conn, "SELECT *,podcasts.id as id FROM podcasts LEFT join user on podcasts.user_id = user.id WHERE podcasts.status = 0 and podcasts.category_id =   $num ORDER BY podcasts.id DESC LIMIT 9");
+                    ?>
+                    <div class="row">
+                        <?php
+                        while ($row = mysqli_fetch_array($query)) {
+                        ?>
+                            <div class="col-lg-3 col-md-6 col-sm-12 my-2">
+                                <a href="../../view-podcast/<?php echo $row['id'] ?>" class=" text-decoration-none">
+                                    <div class="card_podcast">
+                                        <figure>
+                                            <img src="../../backend/uploads/podcast-img/<?php echo $row['image_podcast']; ?>" alt="<?php echo $row['title']; ?>" class="img-fluid card__image" width="100%" height="100%">
+                                            <img data-src="../../img/icon-music.png" class="lazy img-fluid img_icon" width="60" height="60" alt="icon music">
+                                        </figure>
+                                        <h4 class="name-podcast"><?php echo trim(strip_tags(mb_substr($row['title'], 0, 40, 'utf-8'))); ?></h4>
+                                        <div class="card-flex-new">
+                                            <span>
+                                                <img data-src="../../backend/uploads/user-img/<?php echo $row['image_path']; ?>" class="lazy img-fluid" width="35" height="35" alt="img user">
+                                                <?php echo $row["firstname"] . "  " . $row['lastname']; ?>
+                                            </span>
+                                            <span class="date">
+                                                <i class="fas fa-clock"></i>
+                                                <?php
+                                                $str_po = $row['create_at'];;
+                                                echo ": " . DateThai($str_po);
+                                                ?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php
+                            $lastid = $row['id'];
+                            $Ncategory =  $num;
+                        } ?>
+                    </div>
+                    <div id="remove">
+                        <div style="height:10px;"></div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button type="button" name="loadmore" id="loadmore" data-id="<?php echo $lastid; ?>" data-cate="<?php echo $Ncategory; ?>" class="btn-btn-success">ดูเพิ่มเติม</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php     }
             ?>
-
         </div>
     </article>
     <br><br>

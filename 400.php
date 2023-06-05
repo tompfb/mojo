@@ -1,4 +1,3 @@
-<?php include('./script-login.php') ?>
 <!DOCTYPE html>
 <html lang="th">
 

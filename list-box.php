@@ -27,7 +27,7 @@
             ?>
                 <div class="col-lg-3 col-md-6 col-sm-12 my-2">
                     <div class="box-post">
-                        <a href="./view/<?php echo $re_next['url_articles_seo']; ?>/" class="post_link" rel="ugc">
+                        <a href="./view/<?php echo $re_next['url_articles_seo']; ?>" class="post_link" rel="ugc">
                             <figure class="news-articles-img">
                                 <img class="lazy img-fluid " data-src="./backend/uploads/article-img/<?php echo $re_next['image_banner']; ?>" alt="<?php echo $re_next['topic_name']; ?>" width="100%" height="100%">
                             </figure>
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="./category/news/<?php echo $result_c['cate_url']; ?>/" class="cate_absolute"><?php echo $result_c['name']; ?></a>
+                        <a href="./category/news/<?php echo $result_c['cate_url']; ?>" class="cate_absolute"><?php echo $result_c['name']; ?></a>
                     </div>
                 </div>
             <?php    }    ?>

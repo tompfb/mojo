@@ -16,7 +16,7 @@ if (isset($_POST['lastid'])) {
             ?>
                 <div class="col-lg-3 col-md-6 col-sm-12 my-2">
                     <div class="box-post">
-                        <a href="../../view/<?php echo $row['url_articles_seo']; ?>/" class="post_link" rel="ugc">
+                        <a href="../../view/<?php echo $row['url_articles_seo']; ?>" class="post_link" rel="ugc">
                             <figure class="news-articles-img">
                                 <img class="img-fluid " src="../../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo $row['topic_name']; ?>" width="100%" height="100%">
                             </figure>

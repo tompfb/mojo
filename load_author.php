@@ -12,7 +12,7 @@ if (isset($_POST['lastid'])) {
         <div class="row align-items-end">
             <?php
             while ($row = mysqli_fetch_array($query)) {
-                $article_id = $row['id'];
+                $article_id = $row['id']; 
             ?>
                 <div class="col-lg-4 col-md-6  col-sm-12 ">
                     <div class="bg_articles my-2">
