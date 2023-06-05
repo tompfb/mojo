@@ -8,7 +8,7 @@
                         330/5 หมู่ 17 ตำบลไร่น้อย อำเภอเมือง จังหวัดอุบลราธานี
                     </p>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 my-1  d-flex">
+                <div class="col-lg-4 col-md-12 col-sm-12 my-1  d-flex justify-content-center">
                     <div class="span-box">
                         <span> <i class="fas fa-phone-volume"></i></span>
                     </div>
