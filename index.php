@@ -196,7 +196,7 @@ if ($key_search) {
     <?php
     if (!$key_search) {
     ?>
-        <article class="article-content content">
+        <article class="article-content content"> 
             <section class="site-main-content">
                 <div class="container">
                     <h1 class="txt-heading">mojo esan</h1>

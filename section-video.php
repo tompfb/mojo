@@ -16,7 +16,7 @@
                 $Afetch = mysqli_fetch_array($Aquery);
             ?>
 
-                <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                <!-- <div class="col-lg-4 col-md-4 col-sm-12 my-2">
                     <div class="card_white" style="box-shadow: 0px 0px 1px #ececec;">
                         <a href="./view-video/<?php echo $video['id']; ?>">
                             <h3><?php echo trim(strip_tags(mb_substr($video['v_title'], 0, 35, 'utf-8'))) ?>...</h3>
@@ -34,10 +34,8 @@
                             </div>
                         </a>
                     </div>
-                </div>
-
-
-                <!-- <div class="col-lg-4 col-md-6 my-2 box-youtube my-2">
+                </div> -->
+                <div class="col-lg-4 col-md-6 my-2 box-youtube my-2">
                     <iframe src="https://www.youtube.com/embed/<?php echo $link_youtube; ?>" frameborder="0" allowfullscreen></iframe>
                     <a href="./view-video/<?php echo $video['id']; ?>" class="text-decoration-none">
                         <h4 class="title-video">
@@ -57,7 +55,7 @@
                             ?>
                         </span>
                     </div>
-                </div> -->
+                </div>
             <?php    }
             ?>
         </div>

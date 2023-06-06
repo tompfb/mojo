@@ -158,7 +158,7 @@ $page = 2; ?>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
             <div class="container py-3">
                 <?php
                 $cate_two = "SELECT * from category where page_id = $page and id < $id ORDER BY id DESC";
