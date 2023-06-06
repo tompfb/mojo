@@ -23,7 +23,7 @@
         expandTrigger: '.prompt',
         fadeColor1: 'rgba(255,255,255,0)',
         fadeColor2: 'rgba(255,255,255,1)',
-        marginTopOnClick: '7em' // Add a default value for margin-top on click
+        // marginTopOnClick: '7em' // Add a default value for margin-top on click
       },
       options
     )
@@ -64,7 +64,7 @@
           .css({
             height: $container.height(),
             'max-height': 99999,
-            'margin-top': settings.marginTopOnClick
+            // 'margin-top': settings.marginTopOnClick
           })
           .animate({ height: totalHeight })
 
