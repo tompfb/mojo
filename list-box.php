@@ -9,7 +9,7 @@
                 <a href="./category/news/<?php echo  $result_cate_['cate_url']; ?>"><?php echo $result_cate_['name']; ?></a>
             <?php      }
             ?>
-        </div>
+        </div> 
         <div class="row py-3 reveal fade-bottom"> 
             <?php
             $sql_next = "SELECT * FROM `articles` WHERE status = 0 ORDER BY create_at DESC LIMIT 3,8";

@@ -1,5 +1,5 @@
 <?php
-include './conn/connect.php';
+include "./connection.php";
 ?>
 <?php header('Content-type: application/xml; charset=utf-8') ?>
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>' ?>
@@ -17,7 +17,7 @@ http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
         $encode_tag = urlencode($name);
         echo "
    <url>
-   <loc>https://www.xn--82c8azatt7d.net/tag/$encode_tag</loc>
+   <loc>https://www.mojoesan.com/tag/$encode_tag</loc>
    <lastmod>" . $date  . "</lastmod>
    <priority>0.75</priority>
    </url>";

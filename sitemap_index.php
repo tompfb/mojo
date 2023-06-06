@@ -1,5 +1,5 @@
 <?php
-include './conn/connect.php';
+include "./connection.php";
 ?>
 <?php header('Content-type: application/xml; charset=utf-8') ?>
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>' ?>
@@ -8,7 +8,7 @@ include './conn/connect.php';
 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
     <sitemap>
-        <loc>https://www.xn--82c8azatt7d.net/sitemap.xml</loc>
+        <loc>https://www.mojoesan.com/sitemap.xml</loc>
         <lastmod>2022-05-26T02:46:27+00:00</lastmod>
     </sitemap>
 
@@ -20,7 +20,7 @@ http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     if ($countCate !== 0) {
         echo "
         <sitemap>
-            <loc>https://www.xn--82c8azatt7d.net/sitemap-category.xml</loc>
+            <loc>https://www.mojoesan.com/sitemap-category.xml</loc>
             <lastmod>2022-05-26T02:46:27+00:00</lastmod>
         </sitemap> 
       ";
@@ -34,7 +34,7 @@ http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     if ($countTag !== 0) {
         echo "
         <sitemap>
-            <loc>https://www.xn--82c8azatt7d.net/sitemap-tag.xml</loc>
+            <loc>https://www.mojoesan.com/sitemap-tag.xml</loc>
             <lastmod>2022-05-26T02:46:27+00:00</lastmod>
         </sitemap>
       ";
@@ -47,7 +47,7 @@ http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     if ($countAuth !== 0) {
         echo "
         <sitemap>
-            <loc>https://www.xn--82c8azatt7d.net/sitemap-author.xml</loc>
+            <loc>https://www.mojoesan.com/sitemap-author.xml</loc>
             <lastmod>2022-05-26T02:46:27+00:00</lastmod>
         </sitemap>
       ";
@@ -60,7 +60,7 @@ http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     if ($countArticle !== 0) {
         echo "
             <sitemap>
-                <loc>https://www.xn--82c8azatt7d.net/sitemap-view.xml</loc>
+                <loc>https://www.mojoesan.com/sitemap-view.xml</loc>
                 <lastmod>2022-05-26T02:46:27+00:00</lastmod>
             </sitemap>
       ";

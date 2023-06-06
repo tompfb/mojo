@@ -15,9 +15,9 @@ if ($key_search) {
 <html lang="th">
 
 <head>
-    <title>mojo esan</title>
-    <meta name="title" content="   mojo esan" />
-    <meta name="description" content="หวยหุ้นจีน เปิดให้บริการบนหวยหุ้นจีนออนไลน์ จ่ายสูงสุดบาทละ 1,000 บาท บริการแทงหวยไม่มีขั้นต่ำ ฝาก-ถอนรวดเร็วโอนไว ถอนได้ไม่มีอั้นตลอด 24 ชั่วโมง" />
+    <title>mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน </title>
+    <meta name="title" content="mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta name="description" content="ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน (MOJO อีสาน) หรือ Esan Mobile Journalist เป็นโครงการที่ดำเนินงานโดยมูลนิธิสื่อสร้างสุข ได้รับการสนับสนุนงบประมาณจากสำนักงานกองทุนสนับสนุนสุขภาพ (สสส.)" />
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -26,7 +26,7 @@ if ($key_search) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="robots" content="index,follow" />
-    <meta name="Author" content="หวยหุ้นจีน ">
+    <meta name="Author" content="mojo esan ">
     <meta name="googlebots" content="all">
     <meta name="audience" content="all">
     <meta name="Rating" content="General">
@@ -35,22 +35,22 @@ if ($key_search) {
 
     <meta property="og:locale" content="th_TH" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="mojo esan" />
-    <meta property="og:description" content="หวยหุ้นจีน เปิดให้บริการบนหวยหุ้นจีนออนไลน์ จ่ายสูงสุดบาทละ 1,000 บาท บริการแทงหวยไม่มีขั้นต่ำ ฝาก-ถอนรวดเร็วโอนไว ถอนได้ไม่มีอั้นตลอด 24 ชั่วโมง" />
-    <meta property="og:url" content="https://www.xn--82c8azatt7d.net/" />
-    <meta property="og:site_name" content="หวยหุ้นจีน " />
-    <meta property="og:image" content="./img/logo-lotto-chinese.webp" />
+    <meta property="og:title" content="mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta property="og:description" content="ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน (MOJO อีสาน) หรือ Esan Mobile Journalist เป็นโครงการที่ดำเนินงานโดยมูลนิธิสื่อสร้างสุข ได้รับการสนับสนุนงบประมาณจากสำนักงานกองทุนสนับสนุนสุขภาพ (สสส.)" />
+    <meta property="og:url" content="https://www.mojoesan.com/" />
+    <meta property="og:site_name" content="mojo esan " />
+    <meta property="og:image" content="./img/Logo-mojoesan.png" />
 
-    <meta property="twitter:url" content="https://www.xn--82c8azatt7d.net/">
-    <meta property="twitter:image" content="./img/logo-lotto-chinese.webp">
+    <meta property="twitter:url" content="https://www.mojoesan.com/">
+    <meta property="twitter:image" content="./img/Logo-mojoesan.png">
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="   mojo esan" />
-    <meta name="twitter:description" content="หวยหุ้นจีน เปิดให้บริการบนหวยหุ้นจีนออนไลน์ จ่ายสูงสุดบาทละ 1,000 บาท บริการแทงหวยไม่มีขั้นต่ำ ฝาก-ถอนรวดเร็วโอนไว ถอนได้ไม่มีอั้นตลอด 24 ชั่วโมง" />
-    <meta name="twitter:site" content="หวยหุ้นจีน ">
-    <meta name="twitter:creator" content="หวยหุ้นจีน ">
+    <meta name="twitter:title" content="mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta name="twitter:description" content="ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน (MOJO อีสาน) หรือ Esan Mobile Journalist เป็นโครงการที่ดำเนินงานโดยมูลนิธิสื่อสร้างสุข ได้รับการสนับสนุนงบประมาณจากสำนักงานกองทุนสนับสนุนสุขภาพ (สสส.)" />
+    <meta name="twitter:site" content="mojo esan ">
+    <meta name="twitter:creator" content="mojo esan ">
 
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/" hreflang="th-TH" />
+    <link rel="canonical" href="https://www.mojoesan.com/" />
+    <link rel="alternate" href="https://www.mojoesan.com/" hreflang="th-TH" />
 
     <link rel="shortcut icon" href="./favicon.webp" type="image/x-icon" />
     <link rel="icon" href="./favicon.webp" type="image/x-icon" />
@@ -66,15 +66,15 @@ if ($key_search) {
         {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "url": "https://www.xn--82c8azatt7d.net/",
-            "logo": "https://www.xn--82c8azatt7d.net/img/logo-lotto-chinese.webp"
+            "url": "https://www.mojoesan.com/",
+            "logo": "https://www.mojoesan.com/img/Logo-mojoesan.png"
         }
     </script>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org/",
             "@type": "WebPage",
-            "name": "หวยหุ้นจีน ",
+            "name": "mojo esan ",
             "speakable": {
                 "@type": "SpeakableSpecification",
                 "xPath": [
@@ -82,21 +82,21 @@ if ($key_search) {
                     "/html/head/meta[@name='description']/@content"
                 ]
             },
-            "url": "https://www.xn--82c8azatt7d.net/"
+            "url": "https://www.mojoesan.com/"
         }
     </script>
     <script type="application/ld+json">
         {
             "@context": "https://schema.org/",
             "@type": "WebSite",
-            "url": "https://www.xn--82c8azatt7d.net/",
-            "name": "หวยหุ้นจีน ",
-            "description": "หวยหุ้นจีน ฝาก-ถอนรวดเร็ว ตลอด 24 ชั่วโมง",
+            "url": "https://www.mojoesan.com/",
+            "name": "mojo esan ",
+            "description": "mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน",
             "potentialAction": [{
                 "@type": "SearchAction",
                 "target": {
                     "@type": "EntryPoint",
-                    "urlTemplate": "https://www.xn--82c8azatt7d.net/?s={search_term_string}"
+                    "urlTemplate": "https://www.mojoesan.com/?s={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
             }]
@@ -109,47 +109,8 @@ if ($key_search) {
             "itemListElement": [{
                 "@type": "ListItem",
                 "position": 1,
-                "name": "หวยหุ้นจีน "
+                "name": "mojo esan "
             }]
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Store",
-            "image": [
-                "https://www.xn--82c8azatt7d.net/img/logo-lotto-chinese.webp",
-                "https://www.xn--82c8azatt7d.net/img/banner.webp",
-                "https://www.xn--82c8azatt7d.net/img/img-lotto-chinese-01.webp"
-            ],
-            "name": "หวยหุ้นจีน ",
-            "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "TH"
-            },
-            "url": "https://www.xn--82c8azatt7d.net/",
-            "priceRange": "฿฿฿",
-            "telephone": "+6696-921-9245",
-            "openingHoursSpecification": [{
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday",
-                        "Saturday"
-                    ],
-                    "opens": "08:00",
-                    "closes": "23:59"
-                },
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": "Sunday",
-                    "opens": "08:00",
-                    "closes": "23:00"
-                }
-            ]
         }
     </script>
     <style>
@@ -164,7 +125,7 @@ if ($key_search) {
 
 <body>
     <header class="main-header" id="navbar-sticky">
-        <div class="container menu-moblie">
+        <div class=" menu-moblie">
             <div class="open-nav">
                 <button class="openmenu" type="button" onclick="openNav()"><span>&#9776;</span></button>
             </div>
@@ -388,25 +349,6 @@ if ($key_search) {
             }, 600);
             return false;
         })
-    </script>
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                } else {
-                    reveals[i].classList.remove("active");
-                }
-            }
-        }
-
-        window.addEventListener("scroll", reveal);
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

@@ -62,19 +62,19 @@ if (isset($url_articles_seo)) {
     <meta property="og:title" content="<?php echo $topic_name  ?>" />
     <meta property="og:description" content="<?php echo $descripion_seo  ?>" />
     <meta property="og:image" content="../backend/uploads/article-img/<?php echo $image_banner ?>" />
-    <meta property="og:url" content="#/view/<?php echo $encode ?>" />
-    <meta property="og:site_name" content="หวยหุ้นจีน" />
+    <meta property="og:url" content="https://www.mojoesan.com/view/<?php echo $encode ?>" />
+    <meta property="og:site_name" content="mojo esan" />
 
-    <meta property="twitter:url" content="#/view/<?php echo $encode ?>">
+    <meta property="twitter:url" content="https://www.mojoesan.com/view/<?php echo $encode ?>">
     <meta property="twitter:image" content="../backend/uploads/article-img/<?php echo $image_banner ?>">
     <meta name="twitter:title" content="<?php echo $topic_name ?>" />
     <meta name="twitter:description" content="<?php echo $descripion_seo ?>" />
-    <meta name="twitter:site" content="หวยหุ้นจีน" />
-    <meta name="twitter:creator" content="หวยหุ้นจีน" />
+    <meta name="twitter:site" content="mojo esan" />
+    <meta name="twitter:creator" content="mojo esan" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="alternate" href="#/view/<?php echo $encode ?>" hreflang="th-TH" />
-    <link rel="canonical" href="#/view/<?php echo $encode ?>" />
+    <link rel="alternate" href="https://www.mojoesan.com/view/<?php echo $encode ?>" hreflang="th-TH" />
+    <link rel="canonical" href="https://www.mojoesan.com/view/<?php echo $encode ?>" />
 
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
@@ -87,25 +87,25 @@ if (isset($url_articles_seo)) {
             "@type": "NewsArticle",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "#/view/<?php echo $encode ?>"
+                "@id": "https://www.mojoesan.com/view/<?php echo $encode ?>"
             },
             "headline": "<?php echo $topic_name  ?>",
             "image": [
-                "#/backend/uploads/article-img/<?php echo $image_banner  ?>"
+                "https://www.mojoesan.com/backend/uploads/article-img/<?php echo $image_banner  ?>"
             ],
             "datePublished": "<?php echo $create_at ?>",
             "dateModified": "<?php echo $update_at ?>",
             "author": {
                 "@type": "Person",
-                "name": "หวยหุ้นจีน",
-                "url": "#/view/<?php echo $encode ?>"
+                "name": "mojo esan",
+                "url": "https://www.mojoesan.com/view/<?php echo $encode ?>"
             },
             "publisher": {
                 "@type": "Organization",
-                "name": "หวยหุ้นจีน",
+                "name": "mojo esan",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "#/view/<?php echo $encode ?>"
+                    "url": "https://www.mojoesan.com/view/<?php echo $encode ?>"
                 }
             }
         }
@@ -115,28 +115,21 @@ if (isset($url_articles_seo)) {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [{
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "หน้าแรก",
-                    "item": "#/"
-                }, {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "บทความทั้งหมด",
-                    "item": "#/all-articles/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "<?php echo $topic_name ?>"
-                }
-            ]
+                "@type": "ListItem",
+                "position": 1,
+                "name": "หน้าแรก",
+                "item": "https://www.mojoesan.com/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "<?php echo $topic_name ?>"
+            }]
         }
     </script>
     <style>
         img {
-            max-width: 100%;
-            height: auto;
+            max-width: 100% !important;
+            height: auto !important;
         }
 
         ol,
@@ -159,16 +152,19 @@ if (isset($url_articles_seo)) {
                 padding: 10px !important;
                 min-height: auto;
             }
-            .card-width a{
+
+            .card-width a {
                 width: 100%;
                 display: flex;
                 align-items: center;
                 flex-direction: column;
             }
+
             .card-width a .c-txt {
                 width: 100% !important;
                 order: 2 !important;
             }
+
             .card-width figure {
                 width: 100% !important;
                 order: 1 !important;
@@ -215,35 +211,36 @@ if (isset($url_articles_seo)) {
                         </p>
                         <div class="box-name-category">
                             <?php
-                            $sql_category = "SELECT * FROM category WHERE id = $category_id";
-                            $query_cate = mysqli_query($conn, $sql_category) or die("Error in query: $sql_category " . mysqli_error($conn));
-                            $result_cate = mysqli_fetch_array($query_cate);
-
+                            if ($category_id) {
+                                $sql_category = "SELECT * FROM category WHERE id = $category_id";
+                                $query_cate = mysqli_query($conn, $sql_category) or die("Error in query: $sql_category " . mysqli_error($conn));
+                                $result_cate = mysqli_fetch_array($query_cate);
                             ?>
-                            <p>หมวดหมู่ : <a href="../category/news/<?php echo $result_cate['cate_url']; ?>" rel="ugc"><?php echo $result_cate['name']; ?></a>
-                            </p>
+                                <p>หมวดหมู่ : <a href="../category/news/<?php echo $result_cate['cate_url']; ?>" rel="ugc"><?php echo $result_cate['name']; ?></a>
+                                </p>
+                            <?php    }
+                            ?>
+
                         </div>
                         <div class="box-name-tag">
                             <p>Tags : </p>
                             <?php
-                            include './conn/connect.php';
-                            $chack_tag_log = "SELECT tag.name ,tag.tag_url FROM (tag
-				left join tag_log on tag.id = tag_log.tag_id)
-				where articles_id = $id ";
-                            $chack_query = mysqli_query($conn, $chack_tag_log) or die("error in query:$chack_tag_log" . mysqli_error($conn));
-                            while ($r = mysqli_fetch_array($chack_query)) {
-                            ?>
-                                <a href="../tag/<?php echo $r['tag_url']; ?>" class="link-tag" rel="ugc"><?php echo $r['name']; ?></a>
+                            if ($id) {
+                                $chack_tag_log = "SELECT tag.name ,tag.tag_url FROM (tag
+                                left join tag_log on tag.id = tag_log.tag_id)
+                                where articles_id = $id ";
+                                $chack_query = mysqli_query($conn, $chack_tag_log) or die("error in query:$chack_tag_log" . mysqli_error($conn));
+                                while ($r = mysqli_fetch_array($chack_query)) {
 
-                            <?php
-                            }
-                            ?>
+                                    echo "a href='../tag/".$r['tag_url']."' class='link-tag' rel='ugc'>".$r['name']."</a>";
+                                }
+                            } ?>
                         </div>
                         <aside class="site">
                             <div class="buttons">
-                                <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=#/view/<?php echo $url_articles_seo ?>" title="Join us on Facebook" onclick="window.open(this.href, 'facebook-share','width=500,height=300');return false;"><i class="fab fa-facebook" aria-hidden="true"></i>facebook</a>
-                                <a class="tw" href="https://twitter.com/share?text=title &url=#/view/<?php echo $url_articles_seo ?>" title="Join us on Twitter" target="_blank" onclick="window.open(this.href, 'twitter-share', 'width=500,height=300');return false;"><i class="fab fa-twitter" aria-hidden="true"></i>twitter</a>
-                                <a class="i-line" href="https://social-plugins.line.me/lineit/share?url=#/view/<?php echo $url_articles_seo ?>" title="Join us on line" onclick="window.open(this.href, 'facebook-share','width=500,height=500');return false;"><i class="fab fa-line" aria-hidden="true"></i>line</a>
+                                <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://www.mojoesan.com/view/<?php echo $url_articles_seo ?>" title="Join us on Facebook" onclick="window.open(this.href, 'facebook-share','width=500,height=300');return false;"><i class="fab fa-facebook" aria-hidden="true"></i>facebook</a>
+                                <a class="tw" href="https://twitter.com/share?text=title &url=https://www.mojoesan.com/view/<?php echo $url_articles_seo ?>" title="Join us on Twitter" target="_blank" onclick="window.open(this.href, 'twitter-share', 'width=500,height=300');return false;"><i class="fab fa-twitter" aria-hidden="true"></i>twitter</a>
+                                <a class="i-line" href="https://social-plugins.line.me/lineit/share?url=https://www.mojoesan.com/view/<?php echo $url_articles_seo ?>" title="Join us on line" onclick="window.open(this.href, 'facebook-share','width=500,height=500');return false;"><i class="fab fa-line" aria-hidden="true"></i>line</a>
                             </div>
                         </aside>
                     </div>

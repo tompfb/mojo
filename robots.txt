@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 
-Sitemap: https://www.xn--82c8azatt7d.net/sitemap_index.xml
+Sitemap: https://www.mojoesan.com/sitemap_index.xml

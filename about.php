@@ -2,14 +2,42 @@
 <html>
 
 <head>
-    <title>เกี่ยวกับเรา</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="robots" content="index,follow" />
+    <title>เกี่ยวกับเรา mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน</title>
+    <meta name="title" content="เกี่ยวกับเรา mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta name="description" content="เกี่ยวกับเรา mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน เป็นโครงการที่ดำเนินงานโดยมูลนิธิสื่อสร้างสุข มีเป้าหมายดำเนินงานเพื่อให้เกิดการใช้สื่ออย่างรู้เท่าทันและปลอดภัย" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/category/" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/category/" hreflang="th-TH" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-language" content="th" />
+    <meta http-equiv="content-type" content="text/html;" charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="all" />
+    <meta name="Author" content="mojo esan">
+    <meta name="googlebots" content="all">
+    <meta name="audience" content="all">
+    <meta name="Rating" content="General">
+    <meta name="distribution" content="Global">
+    <meta name="allow-search" content="yes">
+
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="เกี่ยวกับเรา mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta property="og:description" content="เกี่ยวกับเรา mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน เป็นโครงการที่ดำเนินงานโดยมูลนิธิสื่อสร้างสุข มีเป้าหมายดำเนินงานเพื่อให้เกิดการใช้สื่ออย่างรู้เท่าทันและปลอดภัย" />
+    <meta property="og:url" content="https://www.mojoesan.com/about/" />
+    <meta property="og:site_name" content="คลิป" />
+    <meta property="og:image" content="../img/Logo-mojoesan.png" />
+
+    <meta property="twitter:url" content="https://www.mojoesan.com/about/">
+    <meta property="twitter:image" content="../img/Logo-mojoesan.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="เกี่ยวกับเรา mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta name="twitter:description" content="เกี่ยวกับเรา mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน เป็นโครงการที่ดำเนินงานโดยมูลนิธิสื่อสร้างสุข มีเป้าหมายดำเนินงานเพื่อให้เกิดการใช้สื่ออย่างรู้เท่าทันและปลอดภัย" />
+    <meta name="twitter:site" content="mojo esan">
+    <meta name="twitter:creator" content="mojo esan">
+    <link rel="canonical" href="https://www.mojoesan.com/about/" />
+    <link rel="alternate" href="https://www.mojoesan.com/about/" hreflang="th-TH" /> 
 
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
@@ -21,7 +49,22 @@
 
     <script src="../js/readmore.js"></script>
     <link rel="stylesheet" href="../js/readmore.css">
-
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "หน้าแรก",
+                "item": "https://www.mojoesan.com/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "เกี่ยวกับเรา"
+            }]
+        }
+    </script>
     <style>
         @media screen and (max-width:992px) {
             .iframe_loca {

@@ -1,9 +1,9 @@
 <?php
 
-$db_host = "localhost"; // localhost server
-$db_user = "root"; // database username
-$db_password = ""; // database password
-$db_name = "project_news"; // database name
+$db_host = "localhost:3306"; // localhost server
+$db_user = "mojoesan_projectnews"; // database username
+$db_password = "1~u2ce5H0"; // database password
+$db_name = "mojoesan_news"; // database name
 
 try {
 
@@ -18,6 +18,10 @@ try {
     $e->getMessage();
 }
  
+// $servername = "localhost:3306";
+// $username = "mojoesan_projectnews";
+// $password = "1~u2ce5H0";
+// $database = "mojoesan_news";
 $servername = "localhost";
 $username = "root";
 $password = "";

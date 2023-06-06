@@ -5,21 +5,65 @@ $page = 2; ?>
 <!DOCTYPE html>
 <html>
 
-<head> 
-    <title>สัมภาษณ์</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="robots" content="index,follow" />
+<head>
+
+    <title>สัมภาษณ์ - mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน </title>
+    <meta name="title" content="สัมภาษณ์ - mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta name="description" content="ข่าวงาน สัมภาษณ์ มากมาย จาก ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน และชุมชนอีกมากมาย" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/category/" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/category/" hreflang="th-TH" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-language" content="th" />
+    <meta http-equiv="content-type" content="text/html;" charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="all" />
+    <meta name="Author" content="mojo esan">
+    <meta name="googlebots" content="all">
+    <meta name="audience" content="all">
+    <meta name="Rating" content="General">
+    <meta name="distribution" content="Global">
+    <meta name="allow-search" content="yes">
+
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="สัมภาษณ์ - mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta property="og:description" content="ข่าวงาน สัมภาษณ์ มากมาย จาก ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน และชุมชนอีกมากมาย" />
+    <meta property="og:url" content="https://www.mojoesan.com/interview/" />
+    <meta property="og:site_name" content="สัมภาษณ์" />
+    <meta property="og:image" content="../img/Logo-mojoesan.png" />
+
+    <meta property="twitter:url" content="https://www.mojoesan.com/interview/">
+    <meta property="twitter:image" content="../img/Logo-mojoesan.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="สัมภาษณ์ - mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta name="twitter:description" content="ข่าวงาน สัมภาษณ์ มากมาย จาก ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน และชุมชนอีกมากมาย" />
+    <meta name="twitter:site" content="mojo esan">
+    <meta name="twitter:creator" content="mojo esan">
+    <link rel="canonical" href="https://www.mojoesan.com/interview/" />
+    <link rel="alternate" href="https://www.mojoesan.com/interview/" hreflang="th-TH" />
 
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../favicon.webp" />
     <?php include('./import-css.php'); ?>
-
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "หน้าแรก",
+                "item": "https://www.mojoesan.com/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "สัมภาษณ์"
+            }]
+        }
+    </script>
 
 </head>
 
@@ -50,29 +94,33 @@ $page = 2; ?>
                         $row = mysqli_fetch_array($query);
                         $url_articles_seo = $row['url_articles_seo'];
                         ?>
-                        <div class="post-cate" style="overflow-x: hidden;">
-                            <a href="../view/<?php echo $url_articles_seo; ?>" class="post_link" rel="ugc">
-                                <figure class="card_img_interview">
-                                    <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo $row['topic_name']; ?>" width="100%" height="100%">
-                                </figure>
-                                <div class="px-2">
-                                    <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 80, 'utf-8'))); ?>...</h4>
-                                    <div class="card-flex-new">
-                                        <span>
-                                            <img data-src="../backend/uploads/user-img/<?php echo $row['image_path']; ?>" class="lazy img-fluid" width="30" height="30" alt="img user">
-                                            <?php echo $row["firstname"] . "  " . $row['lastname']; ?>
-                                        </span>
-                                        <span class="date">
-                                            <i class="fas fa-clock"></i>
-                                            <?php
-                                            $str_Date = $row['create_at'];;
-                                            echo ": " . DateThai($str_Date);
-                                            ?>
-                                        </span>
+                        <?php
+                        if ($row) { ?>
+                            <div class="post-cate" style="overflow-x: hidden;">
+                                <a href="../view/<?php echo $url_articles_seo; ?>" class="post_link" rel="ugc">
+                                    <figure class="card_img_interview">
+                                        <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $row['image_banner']; ?>" alt="<?php echo $row['topic_name']; ?>" width="100%" height="100%">
+                                    </figure>
+                                    <div class="px-2">
+                                        <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row['topic_name'], 0, 80, 'utf-8'))); ?>...</h4>
+                                        <div class="card-flex-new">
+                                            <span>
+                                                <img data-src="../backend/uploads/user-img/<?php echo $row['image_path']; ?>" class="lazy img-fluid" width="30" height="30" alt="img user">
+                                                <?php echo $row["firstname"] . "  " . $row['lastname']; ?>
+                                            </span>
+                                            <span class="date">
+                                                <i class="fas fa-clock"></i>
+                                                <?php
+                                                $str_Date = $row['create_at'];;
+                                                echo ": " . DateThai($str_Date);
+                                                ?>
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        <?php        }
+                        ?>
                     </div>
                     <div class="col-lg-6 my-1">
                         <div class="row">

@@ -6,20 +6,64 @@ include './functions/date-thai.php';
 <html>
 
 <head>
-    <title>คลิป</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="robots" content="index,follow" />
+    <title>คลิป - mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน</title>
+    <meta name="title" content="คลิป - mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta name="description" content="คลิป mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน ข่าวสารท้องถิ่น แหล่งท่องเที่ยว ภูมิปัญญาอีสาน" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/category/" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/category/" hreflang="th-TH" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-language" content="th" />
+    <meta http-equiv="content-type" content="text/html;" charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="all" />
+    <meta name="Author" content="mojo esan">
+    <meta name="googlebots" content="all">
+    <meta name="audience" content="all">
+    <meta name="Rating" content="General">
+    <meta name="distribution" content="Global">
+    <meta name="allow-search" content="yes">
+
+    <meta property="og:locale" content="th_TH" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="คลิป - mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta property="og:description" content="คลิป mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน ข่าวสารท้องถิ่น แหล่งท่องเที่ยว ภูมิปัญญาอีสาน" />
+    <meta property="og:url" content="https://www.mojoesan.com/esan-clip/" />
+    <meta property="og:site_name" content="คลิป" />
+    <meta property="og:image" content="../img/Logo-mojoesan.png" />
+
+    <meta property="twitter:url" content="https://www.mojoesan.com/esan-clip/">
+    <meta property="twitter:image" content="../img/Logo-mojoesan.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="คลิป - mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน" />
+    <meta name="twitter:description" content="คลิป mojo esan ศูนย์สื่อสุขภาวะเพื่อการสื่อสารภาคอีสาน ข่าวสารท้องถิ่น แหล่งท่องเที่ยว ภูมิปัญญาอีสาน" />
+    <meta name="twitter:site" content="mojo esan">
+    <meta name="twitter:creator" content="mojo esan">
+    <link rel="canonical" href="https://www.mojoesan.com/esan-clip/" />
+    <link rel="alternate" href="https://www.mojoesan.com/esan-clip/" hreflang="th-TH" />
 
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../favicon.webp" />
     <link href="../css/carousel.css" rel="stylesheet" />
     <?php include('./import-css.php'); ?>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "หน้าแรก",
+                "item": "https://www.mojoesan.com/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "คลิป"
+            }]
+        }
+    </script>
     <style>
         .fix-l-r {
             position: absolute;
@@ -77,34 +121,44 @@ include './functions/date-thai.php';
                     $query = mysqli_query($conn, "SELECT * ,videos.id as id FROM videos LEFT join user on videos.user_id = user.id WHERE videos.status = 0 and videos.videoUrl IS NOT NULL ORDER BY videos.id DESC LIMIT 1");
                     $ve_one = mysqli_fetch_array($query);
                     $id_i =  $ve_one['id'];
+
+
                     ?>
-                    <div class="carousel-item active">
-                        <div style="min-height:100vh;" class="container">
-                            <div class="row justify-content-center py-3">
-                                <div class="col-lg-8 col-md-10 col-sm-12">
-                                    <iframe src="https://www.youtube.com/embed/<?php echo substr($ve_one['videoUrl'], 17); ?>" frameborder="0" allowfullscreen></iframe>
-                                    <a href="../view-video/<?php echo $ve_one['id']; ?>" class="text-decoration-none a-links">
-                                        <h4 class="title-video">
-                                            <?php echo trim(strip_tags(mb_substr($ve_one['v_title'], 0, 100, 'utf-8'))); ?>...
-                                        </h4>
-                                    </a>
-                                    <div class="card-flex">
-                                        <span style="color: #f1f1f1; margin-right:10px">
-                                            <img data-src="../backend/uploads/user-img/<?php echo $ve_one['image_path']; ?>" class="lazy img-fluid" width="30" height="30" alt="img user">
-                                            <?php echo $ve_one["firstname"] . "  " . $ve_one['lastname']; ?>
-                                        </span>
-                                        <span class="date" style="color: #f1f1f1;">
-                                            <i class="fas fa-clock"></i>
-                                            <?php
-                                            $Adate = $ve_one['create_at'];;
-                                            echo ": " . DateThai($Adate);
-                                            ?>
-                                        </span>
+                    <?php if ($ve_one) { ?>
+                        <div class="carousel-item active">
+                            <div style="min-height:100vh;" class="container">
+                                <div class="row justify-content-center py-3">
+                                    <div class="col-lg-8 col-md-10 col-sm-12">
+                                        <iframe src="https://www.youtube.com/embed/<?php echo substr($ve_one['videoUrl'], 17); ?>" frameborder="0" allowfullscreen></iframe>
+                                        <a href="../view-video/<?php echo $ve_one['id']; ?>" class="text-decoration-none a-links">
+                                            <h4 class="title-video">
+                                                <?php echo trim(strip_tags(mb_substr($ve_one['v_title'], 0, 100, 'utf-8'))); ?>...
+                                            </h4>
+                                        </a>
+                                        <div class="card-flex">
+                                            <span style="color: #f1f1f1; margin-right:10px">
+                                                <img data-src="../backend/uploads/user-img/<?php echo $ve_one['image_path']; ?>" class="lazy img-fluid" width="30" height="30" alt="img user">
+                                                <?php echo $ve_one["firstname"] . "  " . $ve_one['lastname']; ?>
+                                            </span>
+                                            <span class="date" style="color: #f1f1f1;">
+                                                <i class="fas fa-clock"></i>
+                                                <?php
+                                                $Adate = $ve_one['create_at'];;
+                                                echo ": " . DateThai($Adate);
+                                                ?>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php  } else { ?>
+                        <div class="carousel-item active">
+
+                        </div>
+                    <?php         }
+                    ?>
+
                     <?php
                     $query_ = mysqli_query($conn, "SELECT * ,videos.id as id FROM videos LEFT join user on videos.user_id = user.id WHERE videos.status = 0 and videos.videoUrl IS NOT NULL and videos.id < $id_i ORDER  BY videos.id DESC LIMIT 2");
                     while ($ve_one_ = mysqli_fetch_array($query_)) {
@@ -113,7 +167,7 @@ include './functions/date-thai.php';
                             <div style="min-height:100vh;" class="container">
                                 <div class="row justify-content-center py-3">
                                     <div class="col-lg-8 col-md-10 col-sm-12">
-                                            <iframe src="https://www.youtube.com/embed/<?php echo substr($ve_one_['videoUrl'], 17); ?>" frameborder="0" allowfullscreen></iframe>
+                                        <iframe src="https://www.youtube.com/embed/<?php echo substr($ve_one_['videoUrl'], 17); ?>" frameborder="0" allowfullscreen></iframe>
                                         <a href="../view-video/<?php echo $ve_one_['id']; ?>" class="text-decoration-none a-links">
                                             <h4 class="title-video">
                                                 <?php echo trim(strip_tags(mb_substr($ve_one_['v_title'], 0, 100, 'utf-8'))); ?>...

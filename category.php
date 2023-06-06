@@ -14,7 +14,7 @@ if (isset($_GET["news"])) {
     if ($num == 1) {
         $category_name = "นิทานก้อม";
     } elseif ($num == 2) {
-        $category_name = "ไทบ้านโสเหล่";
+        $category_name = "ไทบ้านโสเหล่"; 
     } elseif ($num == 3) {
         $category_name = "ออนซอนอีสาน";
     } elseif ($num == 4) {
@@ -32,35 +32,29 @@ if (isset($_GET["news"])) {
     <meta name="robots" content="index,follow" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/category/<?php echo $url; ?>" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/category/<?php echo $url; ?>" hreflang="th-TH" />
+    <link rel="canonical" href="https://www.mojoesan.com/category/<?php echo $url; ?>" />
+    <link rel="alternate" href="https://www.mojoesan.com/category/<?php echo $url; ?>" hreflang="th-TH" />
 
     <link rel="shortcut icon" href="../../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../../favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../../favicon.webp" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [{
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "หน้าแรก",
-                    "item": "https://www.xn--82c8azatt7d.net/"
-                }, {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "บทความทั้งหมด",
-                    "item": "https://www.xn--82c8azatt7d.net/all-articles/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "หมวดหมู่ <?php echo $category_name;  ?>"
-                }
-            ]
+                "@type": "ListItem",
+                "position": 1,
+                "name": "หน้าแรก",
+                "item": "https://www.mojoesan.com/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "<?php echo $category_name;  ?>"
+            }]
         }
     </script>
     <?php include('./import-css.php'); ?>

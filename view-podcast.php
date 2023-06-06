@@ -26,13 +26,37 @@ if ($id) {
     <meta name="robots" content="index,follow" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/category/" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/category/" hreflang="th-TH" />
+    <link rel="canonical" href="https://www.mojoesan.com/view-podcast/<?php echo $id ; ?>" />
+    <link rel="alternate" href="https://www.mojoesan.com/view-podcast/<?php echo $id ; ?>" hreflang="th-TH" />
 
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../favicon.webp" />
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "หน้าแรก",
+                    "item": "https://www.mojoesan.com/"
+                }, {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "พอดคาสต์",
+                    "item": "https://www.mojoesan.com/podcast/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "<?php echo $name;  ?>"
+                }
+            ]
+        }
+    </script>
     <?php include('./import-css.php'); ?>
+
     <style>
         .card_podcast figure {
             height: 120px !important;
@@ -77,9 +101,9 @@ if ($id) {
                             </div>
                             <aside class="site mt-4">
                                 <div class="buttons">
-                                    <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=#/view-podcast/<?php echo $id ?>" title="Join us on Facebook" onclick="window.open(this.href, 'facebook-share','width=500,height=300');return false;"><i class="fab fa-facebook" aria-hidden="true"></i>facebook</a>
-                                    <a class="tw" href="https://twitter.com/share?text=title &url=#/view-podcast/<?php echo $id ?>" title="Join us on Twitter" target="_blank" onclick="window.open(this.href, 'twitter-share', 'width=500,height=300');return false;"><i class="fab fa-twitter" aria-hidden="true"></i>twitter</a>
-                                    <a class="i-line" href="https://social-plugins.line.me/lineit/share?url=#/view-podcast/<?php echo $id ?>" title="Join us on line" onclick="window.open(this.href, 'facebook-share','width=500,height=500');return false;"><i class="fab fa-line" aria-hidden="true"></i>line</a>
+                                    <a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=https://www.mojoesan.com/view-podcast/<?php echo $id ?>" title="Join us on Facebook" onclick="window.open(this.href, 'facebook-share','width=500,height=300');return false;"><i class="fab fa-facebook" aria-hidden="true"></i>facebook</a>
+                                    <a class="tw" href="https://twitter.com/share?text=title &url=https://www.mojoesan.com/view-podcast/<?php echo $id ?>" title="Join us on Twitter" target="_blank" onclick="window.open(this.href, 'twitter-share', 'width=500,height=300');return false;"><i class="fab fa-twitter" aria-hidden="true"></i>twitter</a>
+                                    <a class="i-line" href="https://social-plugins.line.me/lineit/share?url=https://www.mojoesan.com/view-podcast/<?php echo $id ?>" title="Join us on line" onclick="window.open(this.href, 'facebook-share','width=500,height=500');return false;"><i class="fab fa-line" aria-hidden="true"></i>line</a>
                                 </div>
                             </aside>
                         </div>

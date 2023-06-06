@@ -32,8 +32,8 @@ $resultrow = mysqli_fetch_array($allArticle);
     <meta name="robots" content="all" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/tag/<?php echo $tagUrl ?>" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/tag/<?php echo $tagUrl ?>" hreflang="th-TH" />
+    <link rel="canonical" href="https://www.mojoesan.com/tag/<?php echo $tagUrl ?>" />
+    <link rel="alternate" href="https://www.mojoesan.com/tag/<?php echo $tagUrl ?>" hreflang="th-TH" />
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="icon" href="../favicon.webp" type="image/x-icon" />
     <link rel="apple-touch-icon" href="../favicon.webp" />
@@ -43,22 +43,15 @@ $resultrow = mysqli_fetch_array($allArticle);
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [{
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "หน้าแรก",
-                    "item": https: //www.xn--82c8azatt7d.net/"
-                }, {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "บทความทั้งหมด",
-                    "item": https: //www.xn--82c8azatt7d.net/all-articles/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "แท็ก <?php echo $t_name;  ?>"
-                }
-            ]
+                "@type": "ListItem",
+                "position": 1,
+                "name": "หน้าแรก",
+                "item": "https://www.mojoesan.com/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "แท็ก <?php echo $t_name;  ?>"
+            }]
         }
     </script>
     <?php include('./import-css.php'); ?>
@@ -66,17 +59,6 @@ $resultrow = mysqli_fetch_array($allArticle);
 
 <body>
     <?php include('./component/header.php'); ?>
-    <!-- <section id="bread-crumbs">
-        <div class="container px-0">
-            <nav aria-label="breadcrumb " class="nav-breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../">หน้าแรก</a></li>
-                    <li class="breadcrumb-item"><a href="../all-articles/">บทความทั้งหมด</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" aria-disabled="page">แท็ก <?php echo $t_name;  ?></li>
-                </ol>
-            </nav>
-        </div>
-    </section> -->
     <article class="content">
         <section class="container">
             <div class="heading-bg-secon py-3">

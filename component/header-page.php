@@ -3,7 +3,7 @@ $uri_path = $_SERVER['REQUEST_URI'];
 $currentSegment = basename(parse_url($uri_path, PHP_URL_PATH));
 ?>
     <header class="main-header" id="navbar-sticky">
-        <div class="container menu-moblie">
+        <div class=" menu-moblie">
             <div class="open-nav">
                 <button class="openmenu" type="button" onclick="openNav()"><span>&#9776;</span></button>
             </div>

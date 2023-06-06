@@ -12,7 +12,7 @@ if (isset($Fname)) {
     $a_name = $chack_query_author["firstname"];
     $encode = urlencode($name);
 }
-
+ 
 
 
 ?>
@@ -26,14 +26,14 @@ if (isset($Fname)) {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index,follow" />
-    <link rel="canonical" href="https://www.xn--82c8azatt7d.net/author/<?php echo $a_name ?>" />
-    <link rel="alternate" href="https://www.xn--82c8azatt7d.net/author/<?php echo $a_name ?>" hreflang="th-TH" />
+    <link rel="canonical" href="https://www.mojoesan.com/author/<?php echo $a_name ?>" />
+    <link rel="alternate" href="https://www.mojoesan.com/author/<?php echo $a_name ?>" hreflang="th-TH" />
     <meta property="og:locale" content="th_TH" />
     <meta property="og:type" content="author" />
-    <meta property="og:title" content="<?php echo $a_name ?>, Author at หวยหุ้นจีน" />
-    <meta property="og:url" content="https://www.xn--82c8azatt7d.net/author/<?php echo $a_name ?>" />
-    <meta property="og:site_name" content="หวยหุ้นจีน" />
-    <meta property="og:image" content="../img/logo-lotto-chinese.webp" />
+    <meta property="og:title" content="<?php echo $a_name ?>, Author at mojo esan" />
+    <meta property="og:url" content="https://www.mojoesan.com/author/<?php echo $a_name ?>" />
+    <meta property="og:site_name" content="mojo esan" />
+    <meta property="og:image" content="../img/Logo-mojoesan.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="shortcut icon" href="../favicon.webp" type="image/x-icon" />
@@ -45,22 +45,15 @@ if (isset($Fname)) {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [{
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "หน้าแรก",
-                    "item": "https://www.xn--82c8azatt7d.net/"
-                }, {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "บทความทั้งหมด",
-                    "item": "https://www.xn--82c8azatt7d.net/all-articles/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "<?php echo $a_name;  ?>"
-                }
-            ]
+                "@type": "ListItem",
+                "position": 1,
+                "name": "หน้าแรก",
+                "item": "https://www.mojoesan.com/"
+            }, {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "<?php echo $a_name;  ?>"
+            }]
         }
     </script>
     <?php include('./import-css.php'); ?>
@@ -68,18 +61,6 @@ if (isset($Fname)) {
 
 <body>
     <?php include('./component/header.php'); ?>
-    <!-- <section id="bread-crumbs">
-        <div class="container px-0">
-            <nav aria-label="breadcrumb " class="nav-breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../">หน้าแรก</a></li>
-                    <li class="breadcrumb-item"><a href="../all-articles/">บทความทั้งหมด</a></li>
-                    <li class="breadcrumb-item active" aria-current="page" aria-disabled="page"> <?php echo $a_name;  ?></li>
-                </ol>
-            </nav>
-        </div>
-    </section> -->
-
     <article class="content">
         <div class="container boxcontainer" style="min-height: 60vh;">
             <div class="heading-bg-secon py-3">

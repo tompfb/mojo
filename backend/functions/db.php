@@ -2,10 +2,6 @@
 // class connectDB
 // {
 //     public $conn;
-//     // private $hostName = "localhost";
-//     // private $userName = "uptbcpce6yikh";
-//     // private $password = "789betting.net";
-//     // private $dbName = "dbab4n4lpvlbrl";
 //     private $hostName = "localhost";
 //     private $userName = "root";
 //     private $password = "";

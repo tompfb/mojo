@@ -278,10 +278,13 @@
   .carousel-inner {
     overflow: inherit;
   }
+  .carousel-cardtext h3{
+    display: inline-block !important;
+  }
   .carousel-cardtext {
     width: 90%;
     margin: 0 auto;
-    padding: 40px;
+    padding: 20px !important;
     border-radius: 30px;
     background-image: linear-gradient(
       rgb(255, 255, 255, 0.8),
@@ -293,6 +296,7 @@
     right: 0;
     left: 50%;
     transform: translateX(-50%);
+    overflow: hidden !important;
   }
   .carousel-item .container .row .col-lg-6:first-child {
     order: 2 !important;

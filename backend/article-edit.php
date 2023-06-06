@@ -31,6 +31,17 @@ if (isset($_POST['submit'])) {
         !empty($_POST["keyword"]) &&
         !empty($_POST["description_seo"])
     ) {
+
+        function replaceSpecialCharacters($url)
+        {
+            $specialChars = array(
+                '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '|', '\\', '/', '<', '>', '?', ',', '.', '!', '~', '`', "'", '"', ':', ';', '=', '+', '_', ' ', '”', '“'
+            );
+
+            $output = str_replace($specialChars, '-', $url);
+
+            return $output;
+        }
         $title = $_POST['title'];
         $description = $_POST['description'];
         $category = $_POST['category'];
@@ -39,20 +50,20 @@ if (isset($_POST['submit'])) {
         $url = $_POST['title'];
         $user_id = $_SESSION['userid'];
         $date = date('d-m-y H:i:s');
+        $url = replaceSpecialCharacters($url);
+        // function to_pretty_url($url)
+        // {
+        //     if ($url !== mb_convert_encoding(mb_convert_encoding($url, 'UTF-32', 'UTF-8'), 'UTF-8', 'UTF-32'))
+        //         $url  = mb_convert_encoding($url, 'UTF-8', mb_detect_encoding($url));
+        //     $url  = htmlentities($url, ENT_NOQUOTES, 'UTF-8');
+        //     $url  = preg_replace('`&([ก-เ][a-z]{1,2})(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig);`i', '\1', $url);
+        //     $url  = html_entity_decode($url, ENT_NOQUOTES, 'UTF-8');
+        //     $url  = preg_replace(array('`[^a-z0-9ก-เ]`i', '`[-]+`'), '-', $url);
+        //     $url  = strtolower(trim($url, '-'));
+        //     return $url;
+        // }
 
-        function to_pretty_url($url)
-        {
-            if ($url !== mb_convert_encoding(mb_convert_encoding($url, 'UTF-32', 'UTF-8'), 'UTF-8', 'UTF-32'))
-                $url  = mb_convert_encoding($url, 'UTF-8', mb_detect_encoding($url));
-            $url  = htmlentities($url, ENT_NOQUOTES, 'UTF-8');
-            $url  = preg_replace('`&([ก-เ][a-z]{1,2})(acute|uml|circ|grave|ring|cedil|slash|tilde|caron|lig);`i', '\1', $url);
-            $url  = html_entity_decode($url, ENT_NOQUOTES, 'UTF-8');
-            $url  = preg_replace(array('`[^a-z0-9ก-เ]`i', '`[-]+`'), '-', $url);
-            $url  = strtolower(trim($url, '-'));
-            return $url;
-        }
-
-        $url = to_pretty_url($url);
+        // $url = to_pretty_url($url);
 
         $strSQL = "UPDATE articles SET
         topic_name='$title',

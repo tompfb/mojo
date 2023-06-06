@@ -1,15 +1,15 @@
 <?php
+// $conn = mysqli_connect("localhost:3306", "mojoesan_projectnews", "1~u2ce5H0", "mojoesan_news") or die("Error server");
 $conn = mysqli_connect("localhost", "root", "", "project_news") or die("Error server");
-// $con = mysqli_connect("localhost", "xnzwfbsi_123_bet", "123_bet", "xnzwfbsi_123_bet_org") or die("Error server");
-
 class connectDB
 {
     public $conn;
+
     // private $hostName = "localhost";
-    // private $userName = "xnzwfbsi_123_bet";
-    // private $password = "123_bet";
-    // private $dbName = "xnzwfbsi_123_bet_org";
-    private $hostName = "localhost";
+    // private $userName = "mojoesan_projectnews";
+    // private $password = "1~u2ce5H0";
+    // private $dbName = "mojoesan_news";
+    private $hostName = "localhost:3306";
     private $userName = "root";
     private $password = "";
     private $dbName = "project_news";
