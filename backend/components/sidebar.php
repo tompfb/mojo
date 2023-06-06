@@ -2,11 +2,16 @@
         <ul class="navbar-nav bg-gradient-custom sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.php">
-                <div class="sidebar-brand-icon rotate-n-15">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center py-2" href="dashboard.php">
+
+                <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-ghost"></i>
+                    
+                </div> -->
+                <div class="sidebar-brand-text mx-3 py-2">
+                    <img src="../img/Logo-mojoesan.png" class=" img-fluid" width="100" alt="">
+                    <!-- Admin<sup>2</sup> -->
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin<sup>2</sup></div>
             </a>
 
             <!-- Divider -->

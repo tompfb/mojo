@@ -169,6 +169,30 @@ if (isset($url_articles_seo)) {
                 width: 100% !important;
                 order: 1 !important;
             }
+
+            .site-span {
+                display: flex;
+                align-items: center;
+            }
+
+            .site-span span {
+                display: block;
+                margin-right: 5px;
+                color: #737373 !important;
+                font-size: 14px !important;
+            }
+
+            .site-span span.order_by a {
+                color: #737373 !important;
+                text-decoration: none;
+                -webkit-transition: 0.3s ease-in-out;
+                transition: 0.3s ease-in-out;
+            }
+
+            .site-span span.order_by a:hover {
+                font-style: italic;
+                text-decoration: underline;
+            }
         }
     </style>
 
@@ -232,7 +256,7 @@ if (isset($url_articles_seo)) {
                                 $chack_query = mysqli_query($conn, $chack_tag_log) or die("error in query:$chack_tag_log" . mysqli_error($conn));
                                 while ($r = mysqli_fetch_array($chack_query)) {
 
-                                    echo "a href='../tag/".$r['tag_url']."' class='link-tag' rel='ugc'>".$r['name']."</a>";
+                                    echo "a href='../tag/" . $r['tag_url'] . "' class='link-tag' rel='ugc'>" . $r['name'] . "</a>";
                                 }
                             } ?>
                         </div>
@@ -252,14 +276,20 @@ if (isset($url_articles_seo)) {
                             while ($row_result = mysqli_fetch_array($query_two)) {
                             ?>
                                 <div class="col-lg-12 col-md-12 my-1">
-                                    <div class="card-width">
+                                    <div class="card-view">
                                         <a href="../view/<?php echo $row_result['url_articles_seo']; ?>" class="post_link" rel="ugc">
+                                            <figure class="card_img_right">
+                                                <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $row_result['image_banner']; ?>" alt="<?php echo $row_result['topic_name']; ?>" width="100%" height="100%">
+                                            </figure>
                                             <div class="c-txt">
-                                                <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row_result['topic_name'], 0, 90, 'utf-8'))); ?>...</h4>
+                                                <h4 class="new-title-post"><?php echo trim(strip_tags(mb_substr($row_result['topic_name'], 0, 80, 'utf-8'))); ?>...</h4>
+                                                <span class="span-name">
+                                                    <img data-src="../backend/uploads/user-img/<?php echo $row_result['image_path']; ?>" class="lazy img-fluid" width="30" height="30" alt="img user">
+                                                    <?php echo $row_result["firstname"] . "  " . $row_result['lastname']; ?>
+                                                </span>
                                                 <div class="card-flex-new">
                                                     <span>
-                                                        <img data-src="../backend/uploads/user-img/<?php echo $row_result['image_path']; ?>" class="lazy img-fluid" width="30" height="30" alt="img user">
-                                                        <?php echo $row_result["firstname"] . "  " . $row_result['lastname']; ?>
+                                                        <i class="fa fa-eye"></i> : <?php echo $row_result['view'];  ?>
                                                     </span>
                                                     <span class="date">
                                                         <i class="fas fa-clock"></i>
@@ -270,9 +300,6 @@ if (isset($url_articles_seo)) {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <figure class="card_img_right">
-                                                <img class="lazy img-fluid " data-src="../backend/uploads/article-img/<?php echo $row_result['image_banner']; ?>" alt="<?php echo $row_result['topic_name']; ?>" width="100%" height="100%">
-                                            </figure>
                                         </a>
                                     </div>
                                 </div>

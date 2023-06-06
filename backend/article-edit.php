@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
         $url = $_POST['title'];
         $user_id = $_SESSION['userid'];
         $date = date('d-m-y H:i:s');
-        $url = replaceSpecialCharacters($url);
+        $url = replaceSpecialCharacters($url); 
         // function to_pretty_url($url)
         // {
         //     if ($url !== mb_convert_encoding(mb_convert_encoding($url, 'UTF-32', 'UTF-8'), 'UTF-8', 'UTF-32'))

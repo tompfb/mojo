@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         }
         $title = $_POST['title'];
         $description = $_POST['description'];
-        $category = $_POST['category'];
+        $category = $_POST['category']; 
         $keyword = $_POST['keyword'];
         $description_seo = $_POST['description_seo'];
         $url = $_POST['title'];
