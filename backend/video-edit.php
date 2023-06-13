@@ -4,14 +4,6 @@ if (!isset($_SESSION['userid'])) {
     header('Location: login.php');
 }
 include("connect/connect.php");
-include_once('functions/category-function.php');
-include_once('functions/tag-function.php');
-
-$categoryFn = new categoryFunction();
-$categoryList = $categoryFn->getAllCategory();
-
-$tagFn = new tagFunction();
-$tagList = $tagFn->getAllTag();
 
 $userRole = $_SESSION['role'];
 $vid_id = $_GET['id'];
@@ -21,61 +13,43 @@ $sql = "SELECT * FROM videos WHERE id='$vid_id'";
 $VideoQuery = mysqli_query($conn, $sql);
 $videos = mysqli_fetch_array($VideoQuery);
 
-$fields = array(
-    "file1" => "File 1:",
-    // "file2" => "File 2:",
-);
 
 if (isset($_POST['submit'])) {
     if (
-        !empty($_POST["title"])
+        !empty($_POST["title"]) &&
+        !empty($_POST["videoUrl"])
     ) {
         $title = $_POST['title'];
+        $vUrl = $_POST['videoUrl'];
 
-        $strSQL = "UPDATE videos SET v_title='$title' WHERE id='$vid_id'";
+        // Assuming you have established a database connection $conn
 
+        // Escape the user inputs to prevent SQL injection
+        $title = mysqli_real_escape_string($conn, $title);
+        $vUrl = mysqli_real_escape_string($conn, $vUrl);
+
+        // Update the video record in the database
+        $strSQL = "UPDATE videos SET v_title='$title', videoUrl='$vUrl' WHERE id='$vid_id'";
         $VideoResult = mysqli_query($conn, $strSQL);
 
         if ($VideoResult) {
-            foreach ($fields as $img => $value) {
-                if ($_FILES[$img]['name']) {
-                    $file = $_FILES[$img]['tmp_name'];
-                    $file_name = $_FILES[$img]['name'];
-                    $file_name_array = explode(".", $file_name);
-                    $extension = end($file_name_array);
-                    $new_image_name = rand() . '.' . $extension;
-                    chmod('uploads/videos-img/', 0777);
-                    $actual_link = "http://$_SERVER[HTTP_HOST]";
-
-                    $allowed_extension = array("jpg", "gif", "png");
-                    if (in_array($extension, $allowed_extension)) {
-                        move_uploaded_file($file, 'uploads/videos-img/' . $new_image_name);
-                        $imgSql = "UPDATE videos SET image_video = '$new_image_name' WHERE id = '$vid_id'";
-                        $imgResult = mysqli_query($conn, $imgSql);
-
-                        if ($imgResult) {
-                            unlink('uploads/videos-img/' . $videos['image_video']);
-                            echo '<script language="javascript">';
-                            echo 'alert("Edit video success")';
-                            echo '</script>';
-                            echo "<script>window.location.href='video.php';</script>";
-                        }
-                    }
-                } else {
-                    echo '<script language="javascript">';
-                    echo 'alert("Edit video success")';
-                    echo '</script>';
-                    echo "<script>window.location.href='video.php';</script>";
-                }
-            }
+            echo '<script language="javascript">';
+            echo 'alert("Video updated successfully.")';
+            echo '</script>';
+        } else {
+            echo '<script language="javascript">';
+            echo 'alert("Failed to update video.")';
+            echo '</script>';
         }
     } else {
         echo '<script language="javascript">';
-        echo 'alert("Please fill data")';
+        echo 'alert("Please fill in all fields")';
         echo '</script>';
     }
 }
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +61,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title> Edit <?php echo $videos['v_title']; ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -97,7 +71,51 @@ if (isset($_POST['submit'])) {
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <script src="vendor/ckeditor/ckeditor.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .custom-file-button input[type=file] {
+            margin-left: -2px !important;
+        }
 
+        .custom-file-button input[type=file]::-webkit-file-upload-button {
+            display: none;
+        }
+
+        .custom-file-button input[type=file]::file-selector-button {
+            display: none;
+        }
+
+        .custom-file-button:hover label {
+            background-color: #dde0e3;
+            cursor: pointer;
+        }
+
+        .card-youtube {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background-color: #000;
+            padding: 10px 0;
+            min-height: 190px;
+        }
+
+        .card-youtube i {
+            display: block;
+            font-size: 3.3rem;
+            color: #f00;
+        }
+
+        .card-youtube small {
+            color: #dde0e3;
+        }
+
+        .status-btn {
+            position: relative;
+            border-radius: 1.5em;
+            padding: .5em .75em .5em .75em;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -137,93 +155,109 @@ if (isset($_POST['submit'])) {
                     </div>
                     <form class="user" method="POST" enctype="multipart/form-data">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card shadow">
+                            <div class="col-lg-6">
+                                <div class="card shadow p-3">
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input type="text" class="form-control form-control-user" name="title" value="<?php echo $videos['v_title']; ?>">
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label>Image banner
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <br>
-                                            <?php
-                                            foreach ($fields as $field => $value) {
-                                            ?>
-                                                <div class="show-file mb-3" <?php echo "id='show-$field'"; ?>>
-                                                    <img <?php if ($videos['image_video']) {
-                                                                echo "src='uploads/videos-img/" . $videos['image_video'] . "'";
-                                                            } else {
-                                                                echo "src='img/no-image.jpg'";
-                                                            }
-                                                            ?> alt="" class="show-image mx-auto">
-                                                </div>
-                                                <div class="custom-file">
-                                                    <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" accept=".jpg, .png" onchange="readURL(this)">
-                                                    <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>Choose file...</label>
-                                                    <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">Delete image</button>
-                                                </div>
-                                            <?php
-                                            }
-                                            ?>
-                                            <div class="col">
-                                                <div id="image-error"> </div>
+                                            <!-- Delete button with a name attribute for server-side processing -->
+
+
+                                            <div class="card-body ">
+                                                <?php $Vidname = $videos['v_title']; ?>
+                                                <h5 class="mt-3">วิดิโอ <?php echo trim(strip_tags(mb_substr($Vidname, 0, 30, 'utf-8'))); ?>...</h5>
+                                                <?php
+                                                if ($videos['location'] == null) {
+                                                    echo "
+                                                        <div class='card-youtube'>
+                                                        <i class='fab fa-youtube'></i>
+                                                        <small>YOUTUBE</small>
+                                                        </div>";
+                                                } else { ?>
+                                                    <video src='uploads/videos/<?php echo $videos['location']; ?>' class="img-fluid" controls height='320px'></video>
+                                                <?php } ?>
+
+                                                <?php
+                                                $Vurl = $videos['videoUrl'];
+                                                if ($Vurl == null) {
+                                                    echo "<small> $Vurl;</small>";
+                                                } else { ?>
+                                                    <small><?php echo $videos['name']; ?></small>
+                                                <?php } ?>
+                                                <form method="post" class="my-4 me-auto">
+                                                    <button class="btn btn-danger my-4 me-auto" id="deleteBtn" name="delete">Delete video</button>
+                                                </form>
+                                                <?php
+                                                // Check if the delete button is pressed
+                                                if (isset($_POST['delete'])) {
+                                                    // Handle delete functionality here
+                                                    // This code will be executed when the delete button is pressed
+                                                    $vid = $_GET['id'];
+
+                                                    $sql = "SELECT * FROM videos where id = '" . $vid . "' ";
+                                                    $result = mysqli_query($conn, $sql);
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                        $vid_id = $row['id'];
+                                                        $location = $row['location'];
+
+                                                        $file_to_delete2 = './uploads/videos/' . $location;
+                                                        unlink($file_to_delete2);
+
+                                                        $strSQL = "UPDATE videos SET name=null, location=null WHERE id='$vid_id'";
+                                                        $deleteResult = mysqli_query($conn, $strSQL);
+                                                    }
+
+                                                    echo "Delete already";
+                                                }
+
+
+                                                ?>
                                             </div>
                                         </div>
                                         <hr class="mt-5">
                                     </div>
                                 </div>
-                                <div class="card shadow mb-4">
-                                    <div class="card-body">
-                                        <hr>
-                                        <button type="submit" name="submit" id="submit" class="btn btn-primary btn-user btn-block">
-                                            Edit article
-                                        </button>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card shadow p-3">
+                                    <div class="mb-3">
+                                        <label for="videoUrl" class="form-label">Video URL:</label>
+                                        <textarea class="form-control" id="videoUrl" name="videoUrl" value="<?php echo $videos['videoUrl']; ?>"><?php echo $videos['videoUrl']; ?></textarea>
                                     </div>
+                                </div>
+                                <div class="card-body">
+                                    <hr>
+                                    <button type="submit" name="submit" id="submit" class="btn btn-primary btn-user btn-block">
+                                        Edit article
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+            </form>
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
-
-    <!-- modal delete -->
-    <div class="modal small fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <h2 class="text-danger"><i class="fa fa-warning modal-icon"></i>Are you sure to delete?
-                    </h2>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button> <a href="#" class="btn btn-danger" id="modalDelete">Delete</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end modal -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -261,87 +295,6 @@ if (isset($_POST['submit'])) {
     <script src="js/sb-admin-2.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script>
-        // ! ckediter
-        CKEDITOR.replace('editor', {
-            height: "500px",
-            language: 'en',
-            filebrowserUploadMethod: 'form',
-            filebrowserUploadUrl: "functions/upload-img.php",
-            extraPlugins: 'contents',
-        });
-
-        function readURL(input) {
-            const allowType = ['jpg', 'jpeg', 'png'];
-
-            const imgErrEl = document.getElementById('image-error');
-            imgErrEl.innerHTML = '';
-
-            const Element = document.getElementById('show-' + input.id);
-            const lebelEl = document.getElementById('label-' + input.id);
-            Element.innerHTML = '';
-            lebelEl.innerHTML = 'Choose file';
-
-            if (input.files && input.files[0]) {
-
-                const file = input.files[0];
-                const fileType = file.type;
-                if (allowType.find(type => fileType.includes(type))) {
-                    lebelEl.innerHTML = file.name;
-
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const imgEl = document.createElement('img');
-
-                        imgEl.src = e.target.result;
-                        imgEl.className = 'show-image';
-                        Element.appendChild(imgEl);
-                    }
-                    reader.readAsDataURL(file);
-
-                } else {
-                    const errorEl = document.createElement('div');
-                    errorEl.className = 'alert-danger p-2 mb-3';
-                    errorEl.innerHTML = 'File type is not correct.';
-                    imgErrEl.appendChild(errorEl);
-                }
-            }
-        }
-
-        function deleteImage(btn) {
-            const id = btn.id.split('-')[1];
-
-            const inputFile = document.getElementById(id);
-            const labelEl = document.getElementById('label-' + id);
-            const showImgEl = document.getElementById('show-' + id);
-            const imgEl = document.createElement('img');
-
-            inputFile.value = '';
-            labelEl.innerHTML = 'Choose file';
-            showImgEl.innerHTML = '';
-            imgEl.src = "img/no-image.jpg";
-            imgEl.className = 'show-image';
-            showImgEl.appendChild(imgEl);
-        }
-    </script>
-
-    <script>
-        $('.trash').click(function() {
-            var id = $(this).data('id');
-            var img = $(this).data('img');
-            $('#modalDelete').attr('href', 'functions/article-delete.php?id=' + id + '&img=' + img);
-        })
-
-        $(function() {
-            //Initialize Select2 Elements
-            $('#tag').select2({
-                placeholder: "Select Tag",
-                allowClear: true,
-            })
-
-        })
-    </script>
 
 </body>
 
