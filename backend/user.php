@@ -80,7 +80,7 @@ if ($last != 1) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>ผู้ใช้งาน</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -116,7 +116,7 @@ if ($last != 1) {
 
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between">
-                        <h1 class="h3 mb-4 text-gray-800">User</h1>
+                        <h1 class="h3 mb-4 text-gray-800">ผู้ใช้งาน</h1>
                         <div>
                             <?php
                             if ($userRole == '1') { ?>
@@ -124,7 +124,7 @@ if ($last != 1) {
                                     <span class="icon text-white-50">
                                         <i class="fas fa-plus"></i>
                                     </span>
-                                    <span class="text">Create user</span>
+                                    <span class="text">สร้างผู้ใช้งาน</span>
                                 </a>
                             <?php } ?>
 
@@ -138,10 +138,10 @@ if ($last != 1) {
                                 <table class="table" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center;">Picture</th>
+                                            <th style="text-align: center;">รูปภาพ</th>
                                             <th>Username</th>
-                                            <th>First name</th>
-                                            <th>Last name</th>
+                                            <th>ชื่อ</th>
+                                            <th>นามสกุล</th>
                                             <th>Role</th>
                                             <!-- <th style="text-align: center;">Status</th> -->
                                             <th></th>
@@ -199,7 +199,7 @@ if ($last != 1) {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
+                        <span>Copyright &copy; mojoesan.com <?php echo date("Y"); ?></span>
                     </div>
                 </div>
             </footer>
@@ -241,15 +241,15 @@ if ($last != 1) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">พร้อมจะออก ใช่ไหม?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่จะออกระบบ</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="functions/logout.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+                    <a class="btn btn-primary" href="functions/logout.php">ออกระบบ</a>
 
                 </div>
             </div>

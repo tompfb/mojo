@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>แก้ไข <?php echo $podcasts['title']; ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -125,7 +125,7 @@ if (isset($_POST['submit'])) {
 
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between">
-                        <h1 class="h3 mb-4 text-gray-800">Podcast Edit</h1>
+                        <h1 class="h3 mb-4 text-gray-800">แก้ไข พอดคาสต์</h1>
                         <div>
                             <!-- <a class="btn btn-danger btn-icon-split trash" href="#delModal" data-id="<?php echo $podcasts['id'] ?>" data-img="<?php echo $podcasts['image_podcast'] ?>" role="button" data-toggle="modal">
                                 <span class="icon text-white-50">
@@ -145,7 +145,7 @@ if (isset($_POST['submit'])) {
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label>Image banner
+                                            <label>ภาพหน้าปก
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <br>
@@ -162,8 +162,8 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <div class="custom-file">
                                                     <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" accept=".jpg, .png" onchange="readURL(this)">
-                                                    <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>Choose file...</label>
-                                                    <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">Delete image</button>
+                                                    <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>เลือกไฟล์</label>
+                                                    <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">ลบรูปภาพ</button>
                                                 </div>
                                             <?php
                                             }
@@ -179,7 +179,7 @@ if (isset($_POST['submit'])) {
                                     <div class="card-body">
                                         <hr>
                                         <button type="submit" name="submit" id="submit" class="btn btn-primary btn-user btn-block">
-                                            Edit article
+                                            แก้ไข พอดคาสต์
                                         </button>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@ if (isset($_POST['submit'])) {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
+                        <span>Copyright &copy; mojoesan.com <?php echo date("Y"); ?></span>
                     </div>
                 </div>
             </footer>
@@ -216,11 +216,11 @@ if (isset($_POST['submit'])) {
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <h2 class="text-danger"><i class="fa fa-warning modal-icon"></i>Are you sure to delete?
+                    <h2 class="text-danger"><i class="fa fa-warning modal-icon"></i>แน่ใจที่จะลบ ใช่ไหม?
                     </h2>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button> <a href="#" class="btn btn-danger" id="modalDelete">Delete</a>
+                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">ยกเลิก</button> <a href="#" class="btn btn-danger" id="modalDelete">ลบ</a>
                 </div>
             </div>
         </div>
@@ -237,15 +237,15 @@ if (isset($_POST['submit'])) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">พร้อมจะออก ใช่ไหม?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่จะออกระบบ</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="functions/logout.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+                    <a class="btn btn-primary" href="functions/logout.php">ออกระบบ</a>
 
                 </div>
             </div>

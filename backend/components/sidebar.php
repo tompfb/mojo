@@ -21,69 +21,69 @@
             <li class="nav-item active">
                 <a class="nav-link" href="dashboard.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>แดชบอร์ด</span></a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Content
+                เนื้อหา
             </div>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="article.php">
                     <i class="fas fa-newspaper"></i>
-                    <span>Articles</span></a>
+                    <span>บทความ</span></a>
             </li>
 
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                management
+                การจัดการ
             </div>
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
                 <a class="nav-link" href="category.php">
                     <i class="fas fa-layer-group"></i>
-                    <span>Category</span></a>
+                    <span>หมวดหมู่</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="tag.php">
                     <i class="fas fa-hashtag"></i>
-                    <span>Tag</span></a>
+                    <span>ป้าย</span></a>
             </li>
 
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
-                File
+                ไฟล์
             </div>
 
             <li class="nav-item">
                 <a class="nav-link" href="video.php">
                     <i class="fas fa-video"></i>
-                    <span>Video</span></a>
+                    <span>วิดิโอ</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="podcast.php">
                     <i class="fas fa-headphones"></i>
-                    <span>Podcast</span></a>
+                    <span>พอดคาสต์</span></a>
             </li>
             <hr class="sidebar-divider">
 
             <!-- Heading -->
             <?php if ($userRole == '1') { ?>
                 <div class="sidebar-heading">
-                    user management
+                    การจัดการ ผู้ใช้งาน
                 </div>
                 <li class="nav-item">
                     <a class="nav-link" href="user.php">
                         <i class="fas fa-users"></i>
-                        <span>User</span></a>
+                        <span>ผู้ใช้งาน</span></a>
                 </li>
 
                 <!-- Divider -->

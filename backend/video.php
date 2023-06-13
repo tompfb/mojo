@@ -167,7 +167,7 @@ include("fetch-data-video.php");
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Video</title>
+    <title>วิดิโอ</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -248,13 +248,13 @@ include("fetch-data-video.php");
 
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between">
-                        <h1 class="h3 mb-4 text-gray-800">Video</h1>
+                        <h1 class="h3 mb-4 text-gray-800">วิดิโอ</h1>
                         <div>
                             <a href="#" data-toggle="modal" data-target="#createModal" class="btn btn-primary btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
                                 </span>
-                                <span class="text">Create Video</span>
+                                <span class="text">สร้างวิดิโอ</span>
                             </a>
                         </div>
                     </div>
@@ -386,7 +386,7 @@ include("fetch-data-video.php");
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
+                        <span>Copyright &copy; mojoesan.com <?php echo date("Y"); ?></span>
                     </div>
                 </div>
             </footer>
@@ -419,16 +419,16 @@ include("fetch-data-video.php");
                 <!-- <form> -->
                 <form method="post" action="" enctype='multipart/form-data'>
                     <div class="modal-header">
-                        <h3>Create Video</h2>
+                        <h3>สร้างวิดิโอ</h2>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <label for="title" class="form-label">Title</label>
+                        <label for="title" class="form-label">หัวข้อ</label>
                         <input id="title" type='text' name='title' class="form-control" placeholder="กรอกไตเติล" />
                         <div class="d-flex">
                             <div class="form-check m-4">
                                 <input class="form-check-input" type="radio" name="inputType" id="videoRadio" onclick="toggleInput('video')">
-                                <label class="form-check-label" for="videoRadio">Video</label>
+                                <label class="form-check-label" for="videoRadio">วิดิโอ</label>
                             </div>
                             <div class="form-check m-4">
                                 <input class="form-check-input" type="radio" name="inputType" id="textRadio" onclick="toggleInput('text')">
@@ -437,7 +437,7 @@ include("fetch-data-video.php");
                         </div>
                         <div id="videoInput" style="display: none;">
                             <div class="mb-3">
-                                <label for="video" class="form-label">Select Video from computer or phone:</label>
+                                <label for="video" class="form-label">เลือกไฟล์วิดิโอของคุณ :</label>
                                 <div class="input-group custom-file-button">
                                     <label class="input-group-text" for="inputGroupFile">เลือกไฟล์ Video</label>
                                     <input type='file' name="file" class="form-control" id="video" accept="video/mp4,video/x-m4v,video/*">
@@ -446,7 +446,7 @@ include("fetch-data-video.php");
                         </div>
                         <div id="textInput" style="display: none;">
                             <div class="mb-3">
-                                <label for="videoUrl" class="form-label">Video URL:</label>
+                                <label for="videoUrl" class="form-label">วิดิโอ URL:</label>
                                 <textarea class="form-control" id="videoUrl" name="videoUrl"></textarea>
                             </div>
                         </div>
@@ -472,8 +472,8 @@ include("fetch-data-video.php");
                     </div>
                     <div class="modal-footer">
                         <!-- <input type='submit' value='upload' name='btn_upload' class="btn btn-outline-primary"> -->
-                        <button type="submit" name="btn_upload" class="btn btn-primary">upload</button>
-                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <button type="submit" name="btn_upload" class="btn btn-primary">อัพโหลด</button>
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">ยกเลิก</button>
                     </div>
                 </form>
                 <!-- </form> -->
@@ -485,15 +485,15 @@ include("fetch-data-video.php");
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Delete Video</h2>
+                    <h3>ลบวิดิโฮ</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <h3><i class="fa fa-warning modal-icon"></i>Are you sure to delete - <span class="text-danger" id="modal_span"></span></h3>
+                    <h3><i class="fa fa-warning modal-icon"></i>แน่ใจที่จะลบ ใช่ไหม? - <span class="text-danger" id="modal_span"></span></h3>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                    <a href="#" class="btn btn-danger" id="modalDelete">Delete</a>
+                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">ยกเลิก</button>
+                    <a href="#" class="btn btn-danger" id="modalDelete">ลบ</a>
                 </div>
             </div>
         </div>
@@ -510,15 +510,15 @@ include("fetch-data-video.php");
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">พร้อมจะออก ใช่ไหม?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่จะออกระบบ</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="functions/logout.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+                    <a class="btn btn-primary" href="functions/logout.php">ออกระบบ</a>
                 </div>
             </div>
         </div>

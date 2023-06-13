@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Edit <?php echo $videos['v_title']; ?></title>
+    <title> แก้ไข <?php echo $videos['v_title']; ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -143,7 +143,7 @@ if (isset($_POST['submit'])) {
 
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between">
-                        <h1 class="h3 mb-4 text-gray-800">Video Edit</h1>
+                        <h1 class="h3 mb-4 text-gray-800">แก้ไข วิดิโอ</h1>
                         <!-- <div>
                             <a class="btn btn-danger btn-icon-split trash" href="#delModal" data-id="<?php echo $videos['id'] ?>" data-img="<?php echo $videos['image_video'] ?>" role="button" data-toggle="modal">
                                 <span class="icon text-white-50">
@@ -158,7 +158,7 @@ if (isset($_POST['submit'])) {
                             <div class="col-lg-6">
                                 <div class="card shadow p-3">
                                     <div class="form-group">
-                                        <label>Title</label>
+                                        <label>หัวข้อ</label>
                                         <input type="text" class="form-control form-control-user" name="title" value="<?php echo $videos['v_title']; ?>">
                                     </div>
                                     <div class="card-body">
@@ -188,7 +188,7 @@ if (isset($_POST['submit'])) {
                                                     <small><?php echo $videos['name']; ?></small>
                                                 <?php } ?>
                                                 <form method="post" class="my-4 me-auto">
-                                                    <button class="btn btn-danger my-4 me-auto" id="deleteBtn" name="delete">Delete video</button>
+                                                    <button class="btn btn-danger my-4 me-auto" id="deleteBtn" name="delete">ลบวิดิโอ</button>
                                                 </form>
                                                 <?php
                                                 // Check if the delete button is pressed
@@ -224,7 +224,7 @@ if (isset($_POST['submit'])) {
                             <div class="col-lg-6">
                                 <div class="card shadow p-3">
                                     <div class="mb-3">
-                                        <label for="videoUrl" class="form-label">Video URL:</label>
+                                        <label for="videoUrl" class="form-label">วิดิโอ URL:</label>
                                         <textarea class="form-control" id="videoUrl" name="videoUrl" value="<?php echo $videos['videoUrl']; ?>"><?php echo $videos['videoUrl']; ?></textarea>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@ if (isset($_POST['submit'])) {
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
             <div class="copyright text-center my-auto">
-                <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
+                <span>Copyright &copy; mojoesan.com <?php echo date("Y"); ?></span>
             </div>
         </div>
     </footer>
@@ -269,15 +269,15 @@ if (isset($_POST['submit'])) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">พร้อมจะออก ใช่ไหม?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่จะออกระบบ</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="functions/logout.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+                    <a class="btn btn-primary" href="functions/logout.php">ออกระบบ</a>
 
                 </div>
             </div>

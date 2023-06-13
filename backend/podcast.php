@@ -125,7 +125,7 @@ include("fetch-data-podcast.php");
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Podcasts</title>
+    <title>พอดคาสต์</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -186,13 +186,13 @@ include("fetch-data-podcast.php");
 
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between">
-                        <h1 class="h3 mb-4 text-gray-800">Podcasts</h1>
+                        <h1 class="h3 mb-4 text-gray-800">พอดคาสต์</h1>
                         <div>
                             <a href="#" data-toggle="modal" data-target="#createModal" class="btn btn-primary btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
                                 </span>
-                                <span class="text">Create Podcasts</span>
+                                <span class="text">สร้างพอดคาสต์</span>
                             </a>
                         </div>
                     </div>
@@ -299,7 +299,7 @@ include("fetch-data-podcast.php");
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
+                        <span>Copyright &copy; mojoesan.com <?php echo date("Y"); ?></span>
                     </div>
                 </div>
             </footer>
@@ -318,14 +318,14 @@ include("fetch-data-podcast.php");
                 <!-- <form> --> 
                 <form method="post" action="" enctype='multipart/form-data'>
                     <div class="modal-header">
-                        <h3>Create Podcasts</h3>
+                        <h3>สร้างพอดคาสต์</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <label for="formlabelTitle" class="form-label">Title</label>
+                        <label for="formlabelTitle" class="form-label">หัวข้อ</label>
                         <input type='text' name='title' class="form-control" placeholder="กรอกไตเติล" /> 
                         <div class="form-group">
-                            <label>Category</label>
+                            <label>หมวดหมู่</label>
                             <select type="text" class="form-control" name="category">
                                 <option value="1">นิทานก้อม</option>
                                 <option value="2">ไทบ้านโสเหล่</option>
@@ -346,10 +346,8 @@ include("fetch-data-podcast.php");
                             </div>
                             <div class="custom-file">
                                 <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" required accept=".jpg, .png" onchange="readURL(this)">
-                                <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>Choose
-                                    file...</label>
-                                <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">Delete
-                                    image</button>
+                                <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>เลือกไฟล์...</label>
+                                <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">ลบรูปภาพ</button>
                             </div>
                         <?php
                         }
@@ -358,8 +356,8 @@ include("fetch-data-podcast.php");
                     </div>
                     <div class="modal-footer">
                         <!-- <input type='submit' value='Upload' class="btn btn-outline-primary" name='but_upload'> -->
-                        <button type='submit' class="btn btn-outline-primary" name='but_upload'>Upload</button>
-                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <button type='submit' class="btn btn-outline-primary" name='but_upload'>อัพโหลด</button>
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">ยกเลิก</button>
                     </div>
                 </form>
                 <!-- </form> -->
@@ -373,15 +371,15 @@ include("fetch-data-podcast.php");
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Delete Podcasts</h2>
+                    <h3>ลบพอดคาสต์</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <h3><i class="fa fa-warning modal-icon"></i>Are you sure to delete - <span class="text-danger" id="modal_span"></span></h3>
+                    <h3><i class="fa fa-warning modal-icon"></i>แน่ใจที่จะลบ ใช่ไหม? <span class="text-danger" id="modal_span"></span></h3>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                    <a href="#" class="btn btn-danger" id="modalDelete">Delete</a>
+                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">ยกเลิก</button>
+                    <a href="#" class="btn btn-danger" id="modalDelete">ลบ</a>
                 </div>
             </div>
         </div>
@@ -398,15 +396,15 @@ include("fetch-data-podcast.php");
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">พร้อมจะออก ใช่ไหม?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่จะออกระบบ</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="functions/logout.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+                    <a class="btn btn-primary" href="functions/logout.php">ออกระบบ</a>
                 </div>
             </div>
         </div>

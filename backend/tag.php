@@ -79,7 +79,7 @@ if ($last != 1) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tag</title>
+    <title>ป้าย</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -115,13 +115,13 @@ if ($last != 1) {
 
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between">
-                        <h1 class="h3 mb-4 text-gray-800">Tag</h1>
+                        <h1 class="h3 mb-4 text-gray-800">ป้าย</h1>
                         <div>
                             <a href="#" data-toggle="modal" data-target="#createModal" class="btn btn-primary btn-icon-split">
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
                                 </span>
-                                <span class="text">Create tag</span>
+                                <span class="text">สร้างป้าย</span>
                             </a>
                         </div>
                     </div>
@@ -132,8 +132,8 @@ if ($last != 1) {
                                 <table class="table" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width: 80%">Name</th>
-                                            <th style="width: 20%">Action</th>
+                                            <th style="width: 80%">ชื่อ</th>
+                                            <th style="width: 20%">จัดการ</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -174,7 +174,7 @@ if ($last != 1) {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
+                        <span>Copyright &copy; mojoesan.com <?php echo date("Y"); ?></span>
                     </div>
                 </div>
             </footer>
@@ -193,16 +193,16 @@ if ($last != 1) {
             <div class="modal-content">
                 <form action="functions/tag-create.php" method="post">
                     <div class="modal-header">
-                        <h3>Create Tag</h2>
+                        <h3>สร้างป้าย</h2>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <label for="">Name</label>
+                        <label for="">ชื่อ</label>
                         <input name="name" type="text" class="form-control form-control-user" />
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                        <button class="btn btn-warning" type="submit">Create</button>
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">ยกเลิก</button>
+                        <button class="btn btn-warning" type="submit">สร้าง</button>
                         <!-- <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button> <a href="#" class="btn btn-warning" id="modalCreate">Create</a> -->
                     </div>
                 </form>
@@ -216,7 +216,7 @@ if ($last != 1) {
             <div class="modal-content">
                 <form method="POST" action="functions/tag-edit.php">
                     <div class="modal-header">
-                        <h3>Edit Tag</h2>
+                        <h3>แก้ไขป้าย</h2>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
@@ -224,8 +224,8 @@ if ($last != 1) {
                         <input type="hidden" name="id" id="id" class="form-control">
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                        <button class="btn btn-warning" type="submit">Edit</button>
+                        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">ยกเลิก</button>
+                        <button class="btn btn-warning" type="submit">แก้ไข</button>
                     </div>
                 </form>
             </div>
@@ -237,15 +237,15 @@ if ($last != 1) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Delete Tag</h2>
+                    <h3>ลบป้าย</h2>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <h3><i class="fa fa-warning modal-icon"></i>Are you sure to delete - <span class="text-danger" id="modal_span"></span></h3>
+                    <h3><i class="fa fa-warning modal-icon"></i>แน่ใจที่จะลบ ใช่ไหม? - <span class="text-danger" id="modal_span"></span></h3>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                    <a href="#" class="btn btn-danger" id="modalDelete">Delete</a>
+                    <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">ยกเลิก</button>
+                    <a href="#" class="btn btn-danger" id="modalDelete">ลบ</a>
                 </div>
             </div>
         </div>
@@ -262,15 +262,15 @@ if ($last != 1) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">พร้อมจะออก ใช่ไหม?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่จะออกระบบ</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="functions/logout.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+                    <a class="btn btn-primary" href="functions/logout.php">ออกระบบ</a>
 
                 </div>
             </div>

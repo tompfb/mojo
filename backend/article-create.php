@@ -145,7 +145,7 @@ if (isset($_POST['submit'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Create article</title>
+    <title>สร้างบทความ</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -183,7 +183,7 @@ if (isset($_POST['submit'])) {
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Create article</h1>
+                    <h1 class="h3 mb-4 text-gray-800">สร้างบทความ</h1>
                     <form class="user" method="POST" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-lg-8">
@@ -206,7 +206,7 @@ if (isset($_POST['submit'])) {
                                             <input type="text" class="form-control form-control-user" name="description_seo" required>
                                         </div>
                                         <button type="submit" name="submit" id="submit" class="btn btn-primary btn-user btn-block">
-                                            Create article
+                                            สร้างบทความ
                                         </button>
                                     </div>
                                 </div>
@@ -275,7 +275,7 @@ if (isset($_POST['submit'])) {
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย <?php echo date("Y"); ?></span>
+                        <span>Copyright &copy; mojoesan.com <?php echo date("Y"); ?></span>
                     </div>
                 </div>
             </footer>
@@ -297,15 +297,15 @@ if (isset($_POST['submit'])) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">พร้อมจะออก ใช่ไหม?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่จะออกระบบ</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="functions/logout.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+                    <a class="btn btn-primary" href="functions/logout.php">ออกระบบ</a>
 
                 </div>
             </div>

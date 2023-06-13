@@ -95,7 +95,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">แดชบอร์ด</h1>
                         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
 
@@ -108,7 +108,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Articles</div>
+                                                บทความ</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountArt ?></div>
                                         </div>
                                         <div class="col-auto">
@@ -125,7 +125,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                                Videos</div>
+                                                วิดิโอ</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountVide ?></div>
                                         </div>
                                         <div class="col-auto">
@@ -142,7 +142,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                                Podcasts</div>
+                                            พอดคาสต์</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountPod ?></div>
                                         </div>
                                         <div class="col-auto">
@@ -159,7 +159,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Category</div>
+                                                หมวดหมู่</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountCat ?></div>
                                         </div>
                                         <div class="col-auto">
@@ -176,7 +176,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                                tags</div>
+                                                ป้าย</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountTag ?></div>
                                         </div>
                                         <div class="col-auto">
@@ -193,7 +193,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                users</div>
+                                                ผู้ใช้งาน</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountUser ?></div>
                                         </div>
                                         <div class="col-auto">
@@ -214,7 +214,7 @@ $rowcountUser = mysqli_num_rows($resultUser);
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; ฉันไม่สามารถหยุดเปล่งประกายได้เลย 2021</span>
+                        <span>Copyright &copy; mojoesan.com 2021</span>
                     </div>
                 </div>
             </footer>
@@ -236,15 +236,15 @@ $rowcountUser = mysqli_num_rows($resultUser);
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">พร้อมจะออก ใช่ไหม?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่จะออกระบบ</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="functions/logout.php">Logout</a>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
+                    <a class="btn btn-primary" href="functions/logout.php">ออกระบบ</a>
                 </div>
             </div>
         </div>
