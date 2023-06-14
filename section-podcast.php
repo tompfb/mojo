@@ -1,7 +1,7 @@
 <section class="section-podcast py-5">
     <div class="container ">
         <div class="card-tab">
-            <h2 class="txt-heading ">Esan clip</h2>
+            <h2 class="txt-heading ">พอดคาสต์</h2>
             <a href="./esan-clip/" class="next-tab text-dark">ดูทั้งหมด<span><i class="fas fa-long-arrow-right"></i></span></a>
         </div>
         <div class="row reveal fade-bottom">

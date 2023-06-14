@@ -17,8 +17,8 @@
                         <a href="tel:0854157901">085-415-7901</a>
                         <a href="tel:0998980280">099-898-0280</a>
                         <div class="d-block mt-2">
-                            <a href="" class=" d-inline-block me-3"><img data-src="../img/icon_facebook.png" class="lazy img-fluid" width="35" height="35" alt="icon facebook"></a>
-                            <a href="" class=" d-inline-block "><img data-src="../img/icon_youtube.png" class="lazy img-fluid" width="35" height="35" alt="icon youtube"></a>
+                            <a href="https://www.facebook.com/profile.php?id=100064054450605" target="_blank" class=" d-inline-block me-3"><img data-src="../img/icon_facebook.png" class="lazy img-fluid" width="35" height="35" alt="icon facebook"></a>
+                            <a href="https://www.youtube.com/@MojoEsan-pl3rb" target="_blank" class=" d-inline-block "><img data-src="../img/icon_youtube.png" class="lazy img-fluid" width="35" height="35" alt="icon youtube"></a>
                         </div>
                     </div>
                 </div>
