@@ -189,11 +189,11 @@ if (isset($_POST['submit'])) {
                                         <hr>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" name="role_id" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" <?php if ($user['role_id']  == '1') echo "checked"; ?>>
-                                            <label class="form-check-label" for="inlineRadio1">Admin</label>
+                                            <label class="form-check-label" for="inlineRadio1">แอดมิน</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" name="role_id" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" <?php if ($user['role_id']  == '2') echo "checked"; ?>>
-                                            <label class="form-check-label" for="inlineRadio2">Webmaster</label>
+                                            <label class="form-check-label" for="inlineRadio2">สมาชิก</label>
                                         </div>
                                         <hr>
                                         <button type="submit" name="submit" id="submit" class="btn btn-primary btn-user btn-block">

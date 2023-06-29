@@ -89,123 +89,132 @@ $rowcountUser = mysqli_num_rows($resultUser);
 
                 <?php include('./components/topbar.php') ?>
 
-
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <!-- Begin Page Content -->
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">แดชบอร์ด</h1>
-                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-                    </div>
+                    <?php if ($userRole == '1' || $userRole == '2') { ?>
 
-                    <!-- Content Row -->
-                    <div class="row">
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">แดชบอร์ด</h1>
+                            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
+                        </div>
 
-                        <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="article.php">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                บทความ</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountArt ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <!-- Content Row -->
+                        <div class="row">
+
+                            <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="article.php">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    บทความ</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountArt ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="video.php">
-                            <div class="card border-left-secondary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
-                                                วิดิโอ</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountVide ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-video fa-2x text-gray-300"></i>
+                            <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="video.php">
+                                <div class="card border-left-secondary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
+                                                    วิดิโอ</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountVide ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-video fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="podcast.php">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                            พอดคาสต์</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountPod ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-headphones fa-2x text-gray-300"></i>
+                            <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="podcast.php">
+                                <div class="card border-left-danger shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                    พอดคาสต์</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountPod ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-headphones fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="category.php">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                หมวดหมู่</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountCat ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-layer-group fa-2x text-gray-300"></i>
+                            <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="category.php">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    หมวดหมู่</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountCat ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-layer-group fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="tag.php">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                                ป้าย</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountTag ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-hashtag fa-2x text-gray-300"></i>
+                            <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="tag.php">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                                    ป้าย</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountTag ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-hashtag fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="user.php">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                ผู้ใช้งาน</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountUser ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                            <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="user.php">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    ผู้ใช้งาน</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountUser ?></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+
+                    <?php } else { ?>
+
+                        <h2>กรุณารอ แอดมิน อนุมัติ สักครู่</h2>
+                        <span> ติดต่อ แอดมิน :</span> <a href="https://www.facebook.com/profile.php?id=100064054450605" target="_blank" class=" d-inline-block me-3"><img data-src="../img/icon_facebook.png" class="img-fluid" width="35" height="35" alt="icon facebook" src="../img/icon_facebook.png"></a>
+                    <?php } ?>
+
+
                 </div>
-                <!-- /.container-fluid --> 
+                <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->

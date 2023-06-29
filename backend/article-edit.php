@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
                     chmod('uploads/article-img/', 0777);
                     $actual_link = "http://$_SERVER[HTTP_HOST]";
 
-                    $allowed_extension = array("jpg", "gif", "png");
+                    $allowed_extension = array("jpg", "gif", "png","jpeg");
                     if (in_array($extension, $allowed_extension)) {
                         move_uploaded_file($file, 'uploads/article-img/' . $new_image_name);
                         $imgSql = "UPDATE articles SET image_banner = '$new_image_name' WHERE id = '$article_id'";
@@ -237,7 +237,7 @@ if (isset($_POST['submit'])) {
                                                             ?> alt="" class="show-image mx-auto">
                                                 </div>
                                                 <div class="custom-file">
-                                                    <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" accept=".jpg, .png" onchange="readURL(this)">
+                                                    <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" accept=".jpg, .png, .jpeg" onchange="readURL(this)">
                                                     <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>เลือกไฟล์...</label>
                                                     <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">ลบรูปภาพ</button>
                                                 </div>

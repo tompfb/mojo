@@ -66,7 +66,7 @@ if (isset($_POST['but_upload'])) {
                             $target_fileImg = $target_dirImg . $new_image_nameImg;
 
                             // Valid image extensions
-                            $allowed_extensions = array("jpg", "gif", "png");
+                            $allowed_extensions = array("jpg", "gif", "png","jpeg");
 
                             if (in_array(strtolower($extensionImg), $allowed_extensions)) {
                                 if (move_uploaded_file($fileImg, $target_fileImg)) {
@@ -345,7 +345,7 @@ include("fetch-data-podcast.php");
                                 <img class="show-image" src="img/no-image.jpg" alt="">
                             </div>
                             <div class="custom-file">
-                                <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" required accept=".jpg, .png" onchange="readURL(this)">
+                                <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" required accept=".jpg, .png, .jpeg" onchange="readURL(this)">
                                 <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>เลือกไฟล์...</label>
                                 <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">ลบรูปภาพ</button>
                             </div>

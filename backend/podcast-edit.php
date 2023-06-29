@@ -161,7 +161,7 @@ if (isset($_POST['submit'])) {
                                                             ?> alt="" class="show-image mx-auto">
                                                 </div>
                                                 <div class="custom-file">
-                                                    <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" accept=".jpg, .png" onchange="readURL(this)">
+                                                    <input type="file" <?php echo "name='$field' id='$field'"; ?> class="custom-file-input mb-2" accept=".jpg, .png, .jpeg" onchange="readURL(this)">
                                                     <label class="custom-file-label text-ellipsis" <?php echo "for='$field' id='label-$field'"; ?>>เลือกไฟล์</label>
                                                     <button type="button" class="btn btn-danger btn-user btn-block" <?php echo "id='btn-$field'"; ?> onclick="deleteImage(this)">ลบรูปภาพ</button>
                                                 </div>

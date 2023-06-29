@@ -26,54 +26,58 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                เนื้อหา
-            </div>
+            <?php if ($userRole == '1' || $userRole == '2') { ?>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="article.php">
-                    <i class="fas fa-newspaper"></i>
-                    <span>บทความ</span></a>
-            </li>
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    เนื้อหา
+                </div>
 
-            <hr class="sidebar-divider">
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="article.php">
+                        <i class="fas fa-newspaper"></i>
+                        <span>บทความ</span></a>
+                </li>
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                การจัดการ
-            </div>
+                <hr class="sidebar-divider">
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="category.php">
-                    <i class="fas fa-layer-group"></i>
-                    <span>หมวดหมู่</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="tag.php">
-                    <i class="fas fa-hashtag"></i>
-                    <span>ป้าย</span></a>
-            </li>
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    การจัดการ
+                </div>
 
-            <hr class="sidebar-divider">
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                ไฟล์
-            </div>
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="category.php">
+                        <i class="fas fa-layer-group"></i>
+                        <span>หมวดหมู่</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tag.php">
+                        <i class="fas fa-hashtag"></i>
+                        <span>ป้าย</span></a>
+                </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="video.php">
-                    <i class="fas fa-video"></i>
-                    <span>วิดิโอ</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="podcast.php">
-                    <i class="fas fa-headphones"></i>
-                    <span>พอดคาสต์</span></a>
-            </li>
-            <hr class="sidebar-divider">
+                <hr class="sidebar-divider">
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    ไฟล์
+                </div>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="video.php">
+                        <i class="fas fa-video"></i>
+                        <span>วิดิโอ</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="podcast.php">
+                        <i class="fas fa-headphones"></i>
+                        <span>พอดคาสต์</span></a>
+                </li>
+                <hr class="sidebar-divider">
+
+            <?php } ?>
 
             <!-- Heading -->
             <?php if ($userRole == '1') { ?>

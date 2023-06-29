@@ -68,6 +68,10 @@ if ($last != 1) {
     }
 }
 
+
+include("fetch-data-user.php");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,6 +93,15 @@ if ($last != 1) {
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.css" rel="stylesheet">
 
+    <link href="css/article.css" rel="stylesheet">
+
+    <style>
+        .status-btn {
+            position: relative;
+            border-radius: 1em;
+            padding: .5em .75em .5em .75em;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -143,7 +156,7 @@ if ($last != 1) {
                                             <th>ชื่อ</th>
                                             <th>นามสกุล</th>
                                             <th>Role</th>
-                                            <!-- <th style="text-align: center;">Status</th> -->
+                                            <th style="text-align: center;">สถานะ</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -159,11 +172,19 @@ if ($last != 1) {
                                                 <td style="vertical-align: middle;"><?php echo $user['firstname'] ?></td>
                                                 <td style="vertical-align: middle;"><?php echo $user['lastname'] ?></td>
                                                 <td style="vertical-align: middle;"><?php if ($user['role_id'] == '1') {
-                                                                                        echo 'Admin';
+                                                                                        echo 'แอดมิน';
                                                                                     } else {
-                                                                                        echo 'Webmaster';
+                                                                                        echo 'สมาชิก';
                                                                                     } ?></td>
-                                                <!-- <td style="vertical-align: middle; text-align: center;"><i class="fas fa-circle text-success"></i></td> -->
+                                                <td style="vertical-align: middle; text-align: center;">
+                                                    <!-- <i class="fas fa-circle text-success"></i> -->
+                                                    <?php
+                                                    if ($userRole == '1') { ?>
+                                                        <button onclick="updateStatus(<?php echo $user['id']; ?>)" id="statusBtn<?php echo $user['id']; ?>" class="status-btn <?php echo $user['status'] == 0 ? 'approve' : 'disapprove'; ?>"><?php echo $user['status'] == 0 ? 'Approve' : 'Disapprove'; ?></button>
+                                                    <?php } else { ?>
+                                                        <div class="status-btn <?php echo $user['status'] == 0 ? 'approve' : 'disapprove'; ?>"><?php echo $user['status'] == 0 ? 'Approve' : 'Disapprove'; ?></div>
+                                                    <?php } ?>
+                                                </td>
 
                                                 <?php
                                                 if ($userRole == '1') { ?>
@@ -263,8 +284,12 @@ if ($last != 1) {
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <script src="js/custom-ajax-user.js"></script>
 
     <script>
         $('.trash').click(function() {

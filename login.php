@@ -93,7 +93,7 @@ if (isset($_POST['reg_btn'])) {
         $email = $_POST['email'];
         $province = $_POST['province'];
         $password = md5($_POST['password']);
-        $role_id = '2';
+        $role_id = '3';
 
         $strSQL = "INSERT INTO user (firstname,lastname,username,email,province,password,role_id) VALUES ('" . $firstname . "','" .  $lastname . "',
                     '" . $username . "', ' " . $email . "',' " . $province . "' ,'" . $password . "','" . $role_id . "')";
