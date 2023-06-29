@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2023 at 05:21 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Generation Time: Jun 29, 2023 at 05:48 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,14 +31,14 @@ CREATE TABLE `articles` (
   `id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `topic_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `descripion` text COLLATE utf8_unicode_ci NOT NULL,
-  `image_banner` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `topic_name` varchar(250) NOT NULL,
+  `descripion` text NOT NULL,
+  `image_banner` varchar(250) NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `view` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `keyword_seo` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `descripion_seo` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `url_articles_seo` varchar(350) COLLATE utf8_unicode_ci NOT NULL,
+  `view` varchar(50) NOT NULL,
+  `keyword_seo` varchar(500) NOT NULL,
+  `descripion_seo` varchar(500) NOT NULL,
+  `url_articles_seo` varchar(350) NOT NULL,
   `update_at` datetime NOT NULL,
   `update_by` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 0
@@ -76,9 +76,9 @@ INSERT INTO `articles` (`id`, `category_id`, `user_id`, `topic_name`, `descripio
 
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
-  `name` varchar(350) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(350) NOT NULL,
   `page_id` int(10) NOT NULL,
-  `cate_url` varchar(350) COLLATE utf8_unicode_ci NOT NULL
+  `cate_url` varchar(350) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -107,10 +107,10 @@ INSERT INTO `category` (`id`, `name`, `page_id`, `cate_url`) VALUES
 CREATE TABLE `comment` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `avthur_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `rating_score` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `title` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `comment` varchar(450) COLLATE utf8_unicode_ci NOT NULL,
+  `avthur_name` varchar(250) NOT NULL,
+  `rating_score` varchar(250) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `comment` varchar(450) NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -122,7 +122,7 @@ CREATE TABLE `comment` (
 
 CREATE TABLE `image_articles` (
   `id` int(11) NOT NULL,
-  `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(250) NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -143,7 +143,7 @@ CREATE TABLE `podcasts` (
   `user_id` int(11) NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `podcasts`
@@ -164,8 +164,8 @@ INSERT INTO `podcasts` (`id`, `name`, `location`, `image_podcast`, `title`, `cat
 
 CREATE TABLE `role_user` (
   `id` int(11) NOT NULL,
-  `name` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `keyword` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `name` varchar(150) NOT NULL,
+  `keyword` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -184,8 +184,8 @@ INSERT INTO `role_user` (`id`, `name`, `keyword`) VALUES
 
 CREATE TABLE `tag` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `tag_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `tag_url` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -210,7 +210,7 @@ CREATE TABLE `tag_log` (
   `tag_id` int(11) NOT NULL,
   `articles_id` int(11) NOT NULL,
   `create_by` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tag_log`
@@ -287,17 +287,20 @@ CREATE TABLE `user` (
   `province` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `image_path` varchar(255) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `image_path` varchar(255) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `role_id`, `firstname`, `lastname`, `email`, `province`, `username`, `password`, `image_path`) VALUES
-(37, 1, 'admin', 'admin', 'sattakitkk@gmail.com', 'yasothon', 'admin', '6c31fc0f69bbf07cba275ff861d99123', '1721305661.jpg'),
-(38, 2, 'a1', 'a1', ' sattakit_kk@hotmail.com', ' yasothon', 'a1', '202cb962ac59075b964b07152d234b70', '1896891735.jpg'),
-(40, 2, 'กฤษณะ', 'แสวงสุข', ' tom@gmail.com', 'อุบลราชธานี', 'tomyou', '572966786f1d41604c7a687db3b245a0', '1334813037.png');
+INSERT INTO `user` (`id`, `role_id`, `firstname`, `lastname`, `email`, `province`, `username`, `password`, `image_path`, `status`) VALUES
+(37, 1, 'admin', 'admin', 'sattakitkk@gmail.com', 'yasothon', 'admin', '6c31fc0f69bbf07cba275ff861d99123', '1721305661.jpg', 0),
+(38, 2, 'a1', 'a1', ' sattakit_kk@hotmail.com', ' yasothon', 'a1', '202cb962ac59075b964b07152d234b70', '1896891735.jpg', 0),
+(40, 2, 'กฤษณะ', 'แสวงสุข', ' tom@gmail.com', 'อุบลราชธานี', 'tomyou', '572966786f1d41604c7a687db3b245a0', '1334813037.png', 1),
+(42, 2, 'aaa', 'bbb', ' ccc@ccc@gmail.com', ' asdads', 'aaa', '47bce5c74f589f4867dbd57e9ca9f808', '1383958600.png', 1),
+(43, 2, 'asdasda', 'sdasdas', ' dasd', ' asdasdas', 'dasdas', '0df01ae7dd51cec48fed56952f40842b', '326643883.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -315,24 +318,19 @@ CREATE TABLE `videos` (
   `user_id` int(11) NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` tinyint(4) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `videos`
 --
 
 INSERT INTO `videos` (`id`, `name`, `v_title`, `videoUrl`, `location`, `image_video`, `user_id`, `create_at`, `status`) VALUES
-(16, 'keshi-limbo-visualizer-easysave.net.mp4', 'asdasdasdasdasf', NULL, '934066674.mp4', '390997231.jpg', 40, '2023-05-31 11:30:18', 0),
-(17, NULL, 'คิดฮอดคิดฮอดคิดฮอดคิดฮอดคิดฮอดคิดฮอดคิดฮอดคิดฮอดคิดฮอด', 'https://youtu.be/ht8b0tMLJow', NULL, '', 38, '2023-05-31 11:30:18', 0),
-(18, 'keshi-limbo-visualizer-easysave.net.mp4', 'sghdshsdhsyh', NULL, '216052957.mp4', '', 40, '2023-05-31 11:30:19', 0),
-(19, NULL, 'ใครงามเลิศใครงามเลิศใครงามเลิศใครงามเลิศใครงามเลิศใครงามเลิศใครงามเลิศ', 'https://youtu.be/8XP1jFumJSQ', NULL, '', 40, '2023-05-31 11:30:20', 0),
 (20, NULL, 'ชีวิตคือการเดินทางชีวิตคือการเดินทางชีวิตคือการเดินทางชีวิตคือการเดินทางชีวิตคือการเดินทางชีวิตคือการเดินทาง', 'https://youtu.be/X1NszMxd0Yc', NULL, '', 40, '2023-05-31 11:30:18', 0),
 (21, NULL, 'ฝันครั้งที่1ฝันครั้งที่1ฝันครั้งที่1ฝันครั้งที่1ฝันครั้งที่1ฝันครั้งที่1ฝันครั้งที่1', 'https://youtu.be/3O_Hxdtoyac', NULL, '', 37, '2023-05-31 11:30:17', 0),
 (22, NULL, 'ฝันครั้งที่2ฝันครั้งที่2ฝันครั้งที่2ฝันครั้งที่2ฝันครั้งที่2ฝันครั้งที่2ฝันครั้งที่2ฝันครั้งที่2', 'https://youtu.be/3O_Hxdtoyac', NULL, '', 37, '2023-05-30 06:18:45', 0),
 (23, NULL, 'ฝันครั้งที่3ฝันครั้งที่3ฝันครั้งที่3ฝันครั้งที่3ฝันครั้งที่3ฝันครั้งที่3ฝันครั้งที่3ฝันครั้งที่3ฝันครั้งที่3', 'https://youtu.be/3O_Hxdtoyac', NULL, '', 37, '2023-05-31 11:20:41', 1),
 (24, NULL, 'ลืมแทบไม่ไหว', 'https://youtu.be/qisB560o2Pc', NULL, '', 40, '2023-05-30 06:23:33', 0),
-(25, NULL, 'dhjsdhtsrthsthsatyg', 'hjw6hw6hwtghwth', NULL, '', 37, '2023-05-31 01:06:05', 0),
-(28, 'keshi-limbo-visualizer-easysave.net.mp4', 'aseyayhaghagrar', NULL, '332633989.mp4', '533734293.jpg', 0, '2023-05-31 02:01:35', 0);
+(43, 'keshi-limbo-visualizer-easysave.net.mp4', 'sgsgsthstha5tgha5gahg323525425', NULL, '163649892.mp4', '', 0, '2023-06-13 15:16:01', 0);
 
 --
 -- Indexes for dumped tables
@@ -387,6 +385,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `videos`
+--
+ALTER TABLE `videos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -436,7 +440,13 @@ ALTER TABLE `tag_log`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT for table `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
