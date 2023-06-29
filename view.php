@@ -147,6 +147,30 @@ if (isset($url_articles_seo)) {
             height: 120px !important;
         }
 
+        .card-author img {
+            width: 120px !important;
+            height: 120px !important;
+            border-radius: 50%;
+            overflow: hidden;
+            object-fit: cover;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .card-author {
+            display: flex;
+            flex-direction: column;
+        }
+        .card-author span{
+            display: block;
+            text-align: center;
+        }
+        .card-author span a{
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #737373;
+        }
         @media (max-width:991px) {
             .card-width {
                 padding: 10px !important;
@@ -217,9 +241,7 @@ if (isset($url_articles_seo)) {
                         <span class="news-views">
                             <i class="fa fa-eye"></i> : <?php echo $view  ?>
                         </span>
-                        <span class="order_by">
-                            <i class="fas fa-user"></i> : <a class="link_a" href="../author/<?php echo $authorName ?>"><?php echo $authorName . " " . $lastname  ?> </a>
-                        </span>
+
                     </div>
 
                 </div>
@@ -267,6 +289,15 @@ if (isset($url_articles_seo)) {
                                 <a class="i-line" href="https://social-plugins.line.me/lineit/share?url=https://www.mojoesan.com/view/<?php echo $url_articles_seo ?>" title="Join us on line" onclick="window.open(this.href, 'facebook-share','width=500,height=500');return false;"><i class="fab fa-line" aria-hidden="true"></i>line</a>
                             </div>
                         </aside>
+                        <div class="card-author pt-3">
+                            <h4 class="text-center" style="font-weight: 500;">ผู้เขียน</h4>
+                            <figure class="text-center">
+                                <img data-src="../backend/uploads/user-img/<?php echo $author['image_path']; ?>" class="lazy img-fluid" alt="<?php echo $authorName; ?>">
+                            </figure>
+                            <span>
+                                <a class="link_a" href="../author/<?php echo $authorName ?>"><?php echo $authorName . " " . $lastname  ?> </a>
+                            </span>
+                        </div>
                     </div>
                     <div class="my-2 col-md-12 col-lg-4 news-hit">
                         <h3 class="txt-heading">ข่าวยอดฮิต</h3>

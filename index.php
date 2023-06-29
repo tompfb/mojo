@@ -259,7 +259,7 @@ if ($key_search) {
                     ?>
                             <div class="col-lg-3 col-md-6 col-sm-12 my-2">
                                 <div class="box-post">
-                                    <a href="./view/<?php echo $resuret['url_articles_seo']; ?>/" class="post_link" rel="ugc">
+                                    <a href="./view/<?php echo $resuret['url_articles_seo']; ?>" class="post_link" rel="ugc">
                                         <figure class="news-articles-img">
                                             <img class="lazy img-fluid " data-src="./backend/uploads/article-img/<?php echo $resuret['image_banner']; ?>" alt="<?php echo $resuret['topic_name']; ?>" width="100%" height="100%">
                                         </figure>
@@ -280,7 +280,7 @@ if ($key_search) {
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="./category/<?php echo $result_c['cate_url']; ?>/" class="cate_absolute"><?php echo $result_c['name']; ?></a>
+                                    <a href="./category/<?php echo $result_c['cate_url']; ?>" class="cate_absolute"><?php echo $result_c['name']; ?></a>
                                 </div>
                             </div>
                     <?php }

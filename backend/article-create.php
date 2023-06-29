@@ -19,6 +19,11 @@ $fields = array(
     "file1" => "File 1:",
     // "file2" => "File 2:",
 );
+if ($userRole == 1) {
+    $status = '0';
+} else {
+    $status = '1';
+}
 
 if (isset($_POST['submit'])) {
     if (
@@ -41,12 +46,12 @@ if (isset($_POST['submit'])) {
         }
         $title = $_POST['title'];
         $description = $_POST['description'];
-        $category = $_POST['category']; 
+        $category = $_POST['category'];
         $keyword = $_POST['keyword'];
         $description_seo = $_POST['description_seo'];
         $url = $_POST['title'];
         $user_id = $_SESSION['userid'];
-        $status = '1';
+
         $url = replaceSpecialCharacters($url);
 
         // function to_pretty_url($url)
@@ -101,7 +106,7 @@ if (isset($_POST['submit'])) {
                     chmod('uploads/article-img/', 0777);
                     $actual_link = "http://$_SERVER[HTTP_HOST]";
 
-                    $allowed_extension = array("jpg", "gif", "png" ,"jpeg");
+                    $allowed_extension = array("jpg", "gif", "png", "jpeg");
                     if (in_array($extension, $allowed_extension)) {
                         move_uploaded_file($file, 'uploads/article-img/' . $new_image_name);
                         $imgSql = "UPDATE articles SET image_banner = '$new_image_name' WHERE id = '$article_id'";
