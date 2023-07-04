@@ -187,23 +187,44 @@ $rowcountUser = mysqli_num_rows($resultUser);
                                     </div>
                                 </div>
                             </a>
-
-                            <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="user.php">
-                                <div class="card border-left-warning shadow h-100 py-2">
-                                    <div class="card-body">
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                    ผู้ใช้งาน</div>
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountUser ?></div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                            <?php
+                            if ($userRole == 1) { ?>
+                                <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="user.php">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        ผู้ใช้งาน</div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $rowcountUser ?></div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            <?php  }else{?>
+                                <a class="col-xl-3 col-md-6 mb-4 card-dashboard" href="user-edit.php?id=<?php echo $id_users; ?>">
+                                    <div class="card border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                        แก้ไขข้อมูลผู้ใช้งาน</div>
+                                               
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                   <?php         }
+                            ?>
+
                         </div>
 
                     <?php } else { ?>

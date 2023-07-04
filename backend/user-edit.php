@@ -36,25 +36,26 @@ function decryptCookie($ciphertext)
 }
 
 if (isset($_POST['submit'])) {
-
-    if (!empty($_POST["firstname"]) || !empty($_POST["lastname"]) || !empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["role_id"])) {
+    // || !empty($_POST["password"]) 
+    // || !empty($_POST["role_id"])
+    if (!empty($_POST["firstname"]) || !empty($_POST["lastname"]) || !empty($_POST["username"]) ) {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $username = $_POST['username'];
         $email = $_POST['email'];
         $province = $_POST['province'];
 
-        $password = md5($_POST['password']);
-        $role_id = $_POST['role_id'];
-
+        // $password = md5($_POST['password']);
+        // password='$password',
+        // $role_id = $_POST['role_id']; 
+        // role_id='$role_id'
         $strSQL = "UPDATE user SET
         firstname='$firstname',
         lastname='$lastname',
         username='$username',
         email='$email',
-        province='$province',
-        password='$password',
-        role_id='$role_id'
+        province='$province'
+       
         WHERE id='$user_id'";
 
         $userResult = mysqli_query($conn, $strSQL);
@@ -182,17 +183,17 @@ if (isset($_POST['submit'])) {
                                                 <div class="col-sm-6">
                                                     <label for="">Password</label>
                                                     <!-- <input type="password" name="password" class="form-control form-control-user" id="exampleLastName" placeholder="Password" value="<?php echo $user['password']; ?>"> -->
-                                                    <input type="password" name="password" class="form-control form-control-user" id="exPassword" placeholder="Password" value="<?php echo $user['password']; ?>">
+                                                    <input type="password" name="password" disabled class="form-control form-control-user" id="exPassword" placeholder="Password" value="<?php echo $user['password']; ?>">
                                                 </div>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" name="role_id" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1" <?php if ($user['role_id']  == '1') echo "checked"; ?>>
+                                            <input class="form-check-input" name="role_id" type="radio" disabled name="inlineRadioOptions" id="inlineRadio1" value="1" <?php if ($user['role_id']  == '1') echo "checked"; ?>>
                                             <label class="form-check-label" for="inlineRadio1">แอดมิน</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" name="role_id" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2" <?php if ($user['role_id']  == '2') echo "checked"; ?>>
+                                            <input class="form-check-input" name="role_id" type="radio" disabled name="inlineRadioOptions" id="inlineRadio2" value="2" <?php if ($user['role_id']  == '2') echo "checked"; ?>>
                                             <label class="form-check-label" for="inlineRadio2">สมาชิก</label>
                                         </div>
                                         <hr>
